@@ -1,0 +1,259 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Oct 21 17:32:02 2021
+# Process ID: 43533
+# Current directory: /home/mconsonni/Desktop/DESD/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.runs/design_1_AXI4_AXIToIIC_0_0_synth_1
+# Command line: vivado -log design_1_AXI4_AXIToIIC_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_AXI4_AXIToIIC_0_0.tcl
+# Log file: /home/mconsonni/Desktop/DESD/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.runs/design_1_AXI4_AXIToIIC_0_0_synth_1/design_1_AXI4_AXIToIIC_0_0.vds
+# Journal file: /home/mconsonni/Desktop/DESD/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.runs/design_1_AXI4_AXIToIIC_0_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source design_1_AXI4_AXIToIIC_0_0.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/mconsonni/Utility_Ip_Core'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2020.2/data/ip'.
+Command: synth_design -top design_1_AXI4_AXIToIIC_0_0 -part xc7a100tftg256-2 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tftg256-2
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 43562
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 2300.730 ; gain = 0.000 ; free physical = 720 ; free virtual = 10207
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'design_1_AXI4_AXIToIIC_0_0' [/home/mconsonni/Desktop/DESD/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.gen/sources_1/bd/design_1/ip/design_1_AXI4_AXIToIIC_0_0/synth/design_1_AXI4_AXIToIIC_0_0.vhd:117]
+	Parameter I2C_START_ADDR bound to: 32'b01000000100000000000000000000000 
+	Parameter CHECK_SLAVE_PRESENCE bound to: 1 - type: bool 
+	Parameter I2C_STANDARD_MODE bound to: 1 - type: bool 
+	Parameter I2C_TEN_BIT_ADDRESS bound to: 0 - type: bool 
+	Parameter C_S00_AXI_BASEADDR bound to: 32'b01010000000000000000000000000000 
+	Parameter C_S00_AXI_HIGHADDR bound to: 32'b01010000000011111111111111111111 
+	Parameter C_S00_AXI_ID_WIDTH bound to: 5 - type: integer 
+	Parameter C_S00_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S00_AXI_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_S00_AXI_AWUSER_WIDTH bound to: 4 - type: integer 
+	Parameter C_S00_AXI_ARUSER_WIDTH bound to: 4 - type: integer 
+	Parameter C_S00_AXI_WUSER_WIDTH bound to: 0 - type: integer 
+	Parameter C_S00_AXI_RUSER_WIDTH bound to: 0 - type: integer 
+	Parameter C_S00_AXI_BUSER_WIDTH bound to: 0 - type: integer 
+	Parameter C_M00_AXI_TARGET_SLAVE_BASE_ADDR bound to: 32'b00000000001000000000000000000000 
+	Parameter C_M00_AXI_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_M00_AXI_DATA_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-3491] module 'axi_to_iic_standard' declared at '/home/mconsonni/Desktop/DESD/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.gen/sources_1/bd/design_1/ipshared/b1e2/hdl/axi_to_iic_standard.vhd:5' bound to instance 'U0' of component 'axi_to_iic_standard' [/home/mconsonni/Desktop/DESD/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.gen/sources_1/bd/design_1/ip/design_1_AXI4_AXIToIIC_0_0/synth/design_1_AXI4_AXIToIIC_0_0.vhd:268]
+INFO: [Synth 8-256] done synthesizing module 'design_1_AXI4_AXIToIIC_0_0' (2#1) [/home/mconsonni/Desktop/DESD/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.gen/sources_1/bd/design_1/ip/design_1_AXI4_AXIToIIC_0_0/synth/design_1_AXI4_AXIToIIC_0_0.vhd:117]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2300.730 ; gain = 0.000 ; free physical = 1656 ; free virtual = 11142
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2303.625 ; gain = 2.895 ; free physical = 1672 ; free virtual = 11157
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2303.625 ; gain = 2.895 ; free physical = 1672 ; free virtual = 11157
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.67 ; elapsed = 00:00:00.67 . Memory (MB): peak = 2303.625 ; gain = 0.000 ; free physical = 1592 ; free virtual = 11077
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2487.141 ; gain = 0.000 ; free physical = 1463 ; free virtual = 10948
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.99 ; elapsed = 00:00:00.44 . Memory (MB): peak = 2512.953 ; gain = 25.812 ; free physical = 1446 ; free virtual = 10931
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2512.953 ; gain = 212.223 ; free physical = 2367 ; free virtual = 11852
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tftg256-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2512.953 ; gain = 212.223 ; free physical = 2363 ; free virtual = 11848
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 2512.953 ; gain = 212.223 ; free physical = 2358 ; free virtual = 11843
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2512.953 ; gain = 212.223 ; free physical = 2359 ; free virtual = 11847
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   11 Bit       Adders := 1     
+	   2 Input    8 Bit       Adders := 3     
++---XORs : 
+	   2 Input      8 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 11    
+	               15 Bit    Registers := 1     
+	               11 Bit    Registers := 1     
+	                8 Bit    Registers := 7     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 2     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 14    
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 6     
+	  88 Input   32 Bit        Muxes := 2     
+	   8 Input   32 Bit        Muxes := 5     
+	   6 Input   32 Bit        Muxes := 1     
+	  88 Input    8 Bit        Muxes := 3     
+	   2 Input    8 Bit        Muxes := 17    
+	   3 Input    8 Bit        Muxes := 2     
+	   8 Input    8 Bit        Muxes := 1     
+	   2 Input    7 Bit        Muxes := 3     
+	   2 Input    6 Bit        Muxes := 1     
+	  88 Input    6 Bit        Muxes := 1     
+	   5 Input    5 Bit        Muxes := 1     
+	   2 Input    5 Bit        Muxes := 2     
+	   3 Input    5 Bit        Muxes := 1     
+	 256 Input    3 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 1     
+	  88 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 13    
+	  88 Input    1 Bit        Muxes := 28    
+	   8 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:32 . Memory (MB): peak = 2512.953 ; gain = 212.223 ; free physical = 1673 ; free virtual = 11166
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:34 ; elapsed = 00:00:36 . Memory (MB): peak = 2512.953 ; gain = 212.223 ; free physical = 1434 ; free virtual = 10928
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 2512.953 ; gain = 212.223 ; free physical = 1431 ; free virtual = 10925
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:35 ; elapsed = 00:00:36 . Memory (MB): peak = 2512.953 ; gain = 212.223 ; free physical = 1433 ; free virtual = 10927
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 2512.953 ; gain = 212.223 ; free physical = 1397 ; free virtual = 10891
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 2512.953 ; gain = 212.223 ; free physical = 1397 ; free virtual = 10891
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 2512.953 ; gain = 212.223 ; free physical = 1397 ; free virtual = 10891
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 2512.953 ; gain = 212.223 ; free physical = 1397 ; free virtual = 10891
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 2512.953 ; gain = 212.223 ; free physical = 1397 ; free virtual = 10891
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 2512.953 ; gain = 212.223 ; free physical = 1397 ; free virtual = 10891
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT1 |     2|
+|2     |LUT2 |    74|
+|3     |LUT3 |    50|
+|4     |LUT4 |   231|
+|5     |LUT5 |    76|
+|6     |LUT6 |   446|
+|7     |FDRE |   291|
++------+-----+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 2512.953 ; gain = 212.223 ; free physical = 1397 ; free virtual = 10891
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 2512.953 ; gain = 2.895 ; free physical = 1456 ; free virtual = 10950
+Synthesis Optimization Complete : Time (s): cpu = 00:00:37 ; elapsed = 00:00:39 . Memory (MB): peak = 2512.961 ; gain = 212.223 ; free physical = 1457 ; free virtual = 10951
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2512.961 ; gain = 0.000 ; free physical = 1571 ; free virtual = 11065
+WARNING: [Netlist 29-101] Netlist 'design_1_AXI4_AXIToIIC_0_0' is not ideal for floorplanning, since the cellview 'axi_to_iic_standard' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2512.961 ; gain = 0.000 ; free physical = 1504 ; free virtual = 10999
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+18 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:45 ; elapsed = 00:00:43 . Memory (MB): peak = 2512.961 ; gain = 212.305 ; free physical = 1646 ; free virtual = 11140
+INFO: [Common 17-1381] The checkpoint '/home/mconsonni/Desktop/DESD/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.runs/design_1_AXI4_AXIToIIC_0_0_synth_1/design_1_AXI4_AXIToIIC_0_0.dcp' has been generated.
+WARNING: [Common 17-576] 'use_project_ipc' is deprecated. This option is deprecated and no longer used.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_AXI4_AXIToIIC_0_0, cache-ID = 2560ca146ee7a9e8
+INFO: [Common 17-1381] The checkpoint '/home/mconsonni/Desktop/DESD/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.runs/design_1_AXI4_AXIToIIC_0_0_synth_1/design_1_AXI4_AXIToIIC_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file design_1_AXI4_AXIToIIC_0_0_utilization_synth.rpt -pb design_1_AXI4_AXIToIIC_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Oct 21 17:32:55 2021...
