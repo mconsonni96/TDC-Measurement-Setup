@@ -64,10 +64,19 @@ ENTITY design_1_TDCChannelSlice_0_0 IS
     Divider : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     Gate : OUT STD_LOGIC;
     ForceCalibrate : OUT STD_LOGIC;
+    ValidPositionTap : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    ValidNumberOfTdl : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    subInterpolationMatrix : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    Restart_Calibration : OUT STD_LOGIC;
+    Stop_Calibration : OUT STD_LOGIC;
+    bitTrn_Uncal_addr : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    bitTrn_Cal_dout : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+    bitTrn_ReqSample : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
     Calibrated : IN STD_LOGIC;
     s00_axis_period_tvalid : IN STD_LOGIC;
     s00_axis_period_tdata : IN STD_LOGIC_VECTOR(39 DOWNTO 0);
     write_reg : IN STD_LOGIC_VECTOR(18 DOWNTO 0);
+    write_debug_reg : IN STD_LOGIC_VECTOR(73 DOWNTO 0);
     read_reg : OUT STD_LOGIC_VECTOR(64 DOWNTO 0)
   );
 END design_1_TDCChannelSlice_0_0;
@@ -118,6 +127,8 @@ ARCHITECTURE design_1_TDCChannelSlice_0_0_arch OF design_1_TDCChannelSlice_0_0 I
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER OF read_reg: SIGNAL IS "XIL_INTERFACENAME read_reg, LAYERED_METADATA undef";
   ATTRIBUTE X_INTERFACE_INFO OF read_reg: SIGNAL IS "xilinx.com:signal:data:1.0 read_reg DATA";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF write_debug_reg: SIGNAL IS "XIL_INTERFACENAME write_debug_reg, LAYERED_METADATA undef";
+  ATTRIBUTE X_INTERFACE_INFO OF write_debug_reg: SIGNAL IS "xilinx.com:signal:data:1.0 write_debug_reg DATA";
   ATTRIBUTE X_INTERFACE_PARAMETER OF write_reg: SIGNAL IS "XIL_INTERFACENAME write_reg, LAYERED_METADATA undef";
   ATTRIBUTE X_INTERFACE_INFO OF write_reg: SIGNAL IS "xilinx.com:signal:data:1.0 write_reg DATA";
   ATTRIBUTE X_INTERFACE_INFO OF s00_axis_period_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 S00_AXIS_Period TDATA";
@@ -125,6 +136,22 @@ ARCHITECTURE design_1_TDCChannelSlice_0_0_arch OF design_1_TDCChannelSlice_0_0 I
   ATTRIBUTE X_INTERFACE_INFO OF s00_axis_period_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 S00_AXIS_Period TVALID";
   ATTRIBUTE X_INTERFACE_PARAMETER OF Calibrated: SIGNAL IS "XIL_INTERFACENAME Calibrated, LAYERED_METADATA undef";
   ATTRIBUTE X_INTERFACE_INFO OF Calibrated: SIGNAL IS "xilinx.com:signal:data:1.0 Calibrated DATA";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF bitTrn_ReqSample: SIGNAL IS "XIL_INTERFACENAME bitTrn_ReqSample, LAYERED_METADATA undef";
+  ATTRIBUTE X_INTERFACE_INFO OF bitTrn_ReqSample: SIGNAL IS "xilinx.com:signal:data:1.0 bitTrn_ReqSample DATA";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF bitTrn_Cal_dout: SIGNAL IS "XIL_INTERFACENAME bitTrn_Cal_dout, LAYERED_METADATA undef";
+  ATTRIBUTE X_INTERFACE_INFO OF bitTrn_Cal_dout: SIGNAL IS "xilinx.com:signal:data:1.0 bitTrn_Cal_dout DATA";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF bitTrn_Uncal_addr: SIGNAL IS "XIL_INTERFACENAME bitTrn_Uncal_addr, LAYERED_METADATA undef";
+  ATTRIBUTE X_INTERFACE_INFO OF bitTrn_Uncal_addr: SIGNAL IS "xilinx.com:signal:data:1.0 bitTrn_Uncal_addr DATA";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF Stop_Calibration: SIGNAL IS "XIL_INTERFACENAME Stop_Calibration, LAYERED_METADATA undef";
+  ATTRIBUTE X_INTERFACE_INFO OF Stop_Calibration: SIGNAL IS "xilinx.com:signal:data:1.0 Stop_Calibration DATA";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF Restart_Calibration: SIGNAL IS "XIL_INTERFACENAME Restart_Calibration, LAYERED_METADATA undef";
+  ATTRIBUTE X_INTERFACE_INFO OF Restart_Calibration: SIGNAL IS "xilinx.com:signal:data:1.0 Restart_Calibration DATA";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF subInterpolationMatrix: SIGNAL IS "XIL_INTERFACENAME subInterpolationMatrix, LAYERED_METADATA undef";
+  ATTRIBUTE X_INTERFACE_INFO OF subInterpolationMatrix: SIGNAL IS "xilinx.com:signal:data:1.0 subInterpolationMatrix DATA";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF ValidNumberOfTdl: SIGNAL IS "XIL_INTERFACENAME ValidNumberOfTdl, LAYERED_METADATA undef";
+  ATTRIBUTE X_INTERFACE_INFO OF ValidNumberOfTdl: SIGNAL IS "xilinx.com:signal:data:1.0 ValidNumberOfTdl DATA";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF ValidPositionTap: SIGNAL IS "XIL_INTERFACENAME ValidPositionTap, LAYERED_METADATA undef";
+  ATTRIBUTE X_INTERFACE_INFO OF ValidPositionTap: SIGNAL IS "xilinx.com:signal:data:1.0 ValidPositionTap DATA";
   ATTRIBUTE X_INTERFACE_PARAMETER OF ForceCalibrate: SIGNAL IS "XIL_INTERFACENAME ForceCalibrate, LAYERED_METADATA undef";
   ATTRIBUTE X_INTERFACE_INFO OF ForceCalibrate: SIGNAL IS "xilinx.com:signal:data:1.0 ForceCalibrate DATA";
   ATTRIBUTE X_INTERFACE_PARAMETER OF Gate: SIGNAL IS "XIL_INTERFACENAME Gate, LAYERED_METADATA undef";
@@ -150,7 +177,7 @@ BEGIN
       BIT_DIVIDER => 4,
       DEST_SYNC_FF => 2,
       SRC_SYNC_FF => 2,
-      TDC_ENABLE_DEBUG_PORTS => false,
+      TDC_ENABLE_DEBUG_PORTS => true,
       BIT_OVERFLOW => 16,
       BIT_COARSE => 8,
       BIT_RESOLUTION => 16
@@ -165,11 +192,19 @@ BEGIN
       Divider => Divider,
       Gate => Gate,
       ForceCalibrate => ForceCalibrate,
+      ValidPositionTap => ValidPositionTap,
+      ValidNumberOfTdl => ValidNumberOfTdl,
+      subInterpolationMatrix => subInterpolationMatrix,
+      Restart_Calibration => Restart_Calibration,
+      Stop_Calibration => Stop_Calibration,
+      bitTrn_Uncal_addr => bitTrn_Uncal_addr,
+      bitTrn_Cal_dout => bitTrn_Cal_dout,
+      bitTrn_ReqSample => bitTrn_ReqSample,
       Calibrated => Calibrated,
       s00_axis_period_tvalid => s00_axis_period_tvalid,
       s00_axis_period_tdata => s00_axis_period_tdata,
       write_reg => write_reg,
-      write_debug_reg => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 74)),
+      write_debug_reg => write_debug_reg,
       read_reg => read_reg
     );
 END design_1_TDCChannelSlice_0_0_arch;

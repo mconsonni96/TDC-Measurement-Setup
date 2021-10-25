@@ -1234,7 +1234,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:e48269f5</spirit:value>
+            <spirit:value>9:2cd6f9e6</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1245,7 +1245,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:e48269f5</spirit:value>
+            <spirit:value>9:2cd6f9e6</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1261,11 +1261,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Oct 21 15:22:46 UTC 2021</spirit:value>
+            <spirit:value>Mon Oct 25 09:00:10 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:e48269f5</spirit:value>
+            <spirit:value>9:2cd6f9e6</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1284,7 +1284,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:58dfaeba</spirit:value>
+            <spirit:value>9:24016b8b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1300,11 +1300,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Oct 21 15:22:46 UTC 2021</spirit:value>
+            <spirit:value>Mon Oct 25 09:00:10 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:58dfaeba</spirit:value>
+            <spirit:value>9:24016b8b</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1318,11 +1318,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Oct 21 15:44:26 UTC 2021</spirit:value>
+            <spirit:value>Mon Oct 25 09:02:59 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:e48269f5</spirit:value>
+            <spirit:value>9:2cd6f9e6</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -2132,7 +2132,7 @@
         <spirit:vendorExtensions>
           <xilinx:portInfo>
             <xilinx:enablement>
-              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.TDC_DEBUG_PROP_WPORT" xilinx:dependency="$TDC_ENABLE_DEBUG_PORTS = true">false</xilinx:isEnabled>
+              <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="PORT_ENABLEMENT.TDC_DEBUG_PROP_WPORT" xilinx:dependency="$TDC_ENABLE_DEBUG_PORTS = true">true</xilinx:isEnabled>
             </xilinx:enablement>
           </xilinx:portInfo>
         </spirit:vendorExtensions>
@@ -2267,7 +2267,7 @@
       <spirit:modelParameter spirit:dataType="BOOLEAN">
         <spirit:name>TDC_ENABLE_DEBUG_PORTS</spirit:name>
         <spirit:displayName>Tdc Enable Debug Ports</spirit:displayName>
-        <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.TDC_ENABLE_DEBUG_PORTS">false</spirit:value>
+        <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.TDC_ENABLE_DEBUG_PORTS">true</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="BOOLEAN">
         <spirit:name>TDC_DISABLE_DEBUG_PORTS_READOUT</spirit:name>
@@ -2618,7 +2618,7 @@
     <spirit:parameter>
       <spirit:name>TDC_ENABLE_DEBUG_PORTS</spirit:name>
       <spirit:displayName>Enable debug ports</spirit:displayName>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.TDC_ENABLE_DEBUG_PORTS">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.TDC_ENABLE_DEBUG_PORTS">true</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>TDC_DISABLE_DEBUG_PORTS_READOUT</spirit:name>
@@ -2627,7 +2627,7 @@
       <spirit:vendorExtensions>
         <xilinx:parameterInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="generated" xilinx:id="PARAM_ENABLEMENT.TDC_DISABLE_DEBUG_PORTS_READOUT">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="generated" xilinx:id="PARAM_ENABLEMENT.TDC_DISABLE_DEBUG_PORTS_READOUT">true</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:parameterInfo>
       </spirit:vendorExtensions>

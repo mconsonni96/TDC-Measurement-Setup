@@ -91,7 +91,10 @@
           "xlconstant_0": "",
           "xlslice_0": "",
           "xlslice_1": "",
-          "xlslice_2": ""
+          "xlslice_2": "",
+          "xlslice_3": "",
+          "xlslice_4": "",
+          "xlslice_5": ""
         },
         "util_ds_buf_3": "",
         "util_ds_buf_4": ""
@@ -446,10 +449,10 @@
           }
         },
         "interface_nets": {
-          "AXI4_BitstreamUpdater_0_M00_axis": {
+          "axi_quad_spi_0_SPI_0": {
             "interface_ports": [
-              "AXI4_BitstreamUpdater_0/M00_axis",
-              "qspi_programmer_0/S_AXIS"
+              "QSPI_MEMORY_IF",
+              "axi_quad_spi_0/SPI_0"
             ]
           },
           "axi_interconnect_0_M06_AXI": {
@@ -458,22 +461,22 @@
               "AXI4_BitstreamUpdater_0/S00_AXI"
             ]
           },
-          "axi_quad_spi_0_SPI_0": {
+          "AXI4_BitstreamUpdater_0_M00_axis": {
             "interface_ports": [
-              "QSPI_MEMORY_IF",
-              "axi_quad_spi_0/SPI_0"
-            ]
-          },
-          "qspi_programmer_0_M_AXI": {
-            "interface_ports": [
-              "axi_quad_spi_0/AXI_FULL",
-              "qspi_programmer_0/M_AXI"
+              "AXI4_BitstreamUpdater_0/M00_axis",
+              "qspi_programmer_0/S_AXIS"
             ]
           },
           "qspi_programmer_0_M_AXIS_STS": {
             "interface_ports": [
               "AXI4_BitstreamUpdater_0/S00_axis",
               "qspi_programmer_0/M_AXIS_STS"
+            ]
+          },
+          "qspi_programmer_0_M_AXI": {
+            "interface_ports": [
+              "axi_quad_spi_0/AXI_FULL",
+              "qspi_programmer_0/M_AXI"
             ]
           }
         },
@@ -571,12 +574,6 @@
           }
         },
         "interface_nets": {
-          "AXI4_AXIToIIC_0_M00_AXI": {
-            "interface_ports": [
-              "AXI4_AXIToIIC_0/M00_AXI",
-              "axi_iic_0/S_AXI"
-            ]
-          },
           "axi_iic_0_IIC": {
             "interface_ports": [
               "I2C_BUS",
@@ -587,6 +584,12 @@
             "interface_ports": [
               "S00_AXI",
               "AXI4_AXIToIIC_0/S00_AXI"
+            ]
+          },
+          "AXI4_AXIToIIC_0_M00_AXI": {
+            "interface_ports": [
+              "AXI4_AXIToIIC_0/M00_AXI",
+              "axi_iic_0/S_AXI"
             ]
           }
         },
@@ -772,16 +775,16 @@
           }
         },
         "interface_nets": {
-          "axi_bram_ctrl_0_BRAM_PORTA": {
-            "interface_ports": [
-              "axi_bram_ctrl_0/BRAM_PORTA",
-              "axi_bram_ctrl_0_bram/BRAM_PORTA"
-            ]
-          },
           "axi_interconnect_0_M01_AXI": {
             "interface_ports": [
               "S_AXI",
               "axi_bram_ctrl_0/S_AXI"
+            ]
+          },
+          "axi_bram_ctrl_0_BRAM_PORTA": {
+            "interface_ports": [
+              "axi_bram_ctrl_0/BRAM_PORTA",
+              "axi_bram_ctrl_0_bram/BRAM_PORTA"
             ]
           }
         },
@@ -907,7 +910,7 @@
                 "value": "65"
               },
               "TDC_ENABLE_DEBUG_PORTS": {
-                "value": "false"
+                "value": "true"
               }
             }
           },
@@ -973,6 +976,11 @@
               "reset_0": {
                 "type": "rst",
                 "direction": "I"
+              },
+              "Din_1": {
+                "direction": "I",
+                "left": "221",
+                "right": "0"
               }
             },
             "components": {
@@ -1032,6 +1040,12 @@
                     "direction": "I",
                     "left": "18",
                     "right": "0"
+                  },
+                  "write_debug_reg_0": {
+                    "type": "data",
+                    "direction": "I",
+                    "left": "73",
+                    "right": "0"
                   }
                 },
                 "components": {
@@ -1044,8 +1058,14 @@
                       "BIT_UNCALIBRATED": {
                         "value": "10"
                       },
+                      "BUFFERING_STAGE": {
+                        "value": "false"
+                      },
                       "CEC_VS_CTD_COUNTER": {
                         "value": "CTD"
+                      },
+                      "DEBUG_MODE": {
+                        "value": "true"
                       },
                       "DEBUG_MODE_CT": {
                         "value": "true"
@@ -1185,6 +1205,18 @@
                         "direction": "I",
                         "left": "31",
                         "right": "0"
+                      },
+                      "ValidNumberOfTDL": {
+                        "type": "data",
+                        "direction": "I",
+                        "left": "31",
+                        "right": "0"
+                      },
+                      "ValidPositionTap": {
+                        "type": "data",
+                        "direction": "I",
+                        "left": "31",
+                        "right": "0"
                       }
                     },
                     "components": {
@@ -1201,10 +1233,16 @@
                             "value": "256"
                           },
                           "BUFFERING_STAGE": {
-                            "value": "FALSE"
+                            "value": "false"
                           },
                           "DEBUG_MODE": {
-                            "value": "FALSE"
+                            "value": "true"
+                          },
+                          "MAX_VALID_TAP_POS": {
+                            "value": "255"
+                          },
+                          "MIN_VALID_TAP_POS": {
+                            "value": "0"
                           },
                           "NUMBER_OF_TDL": {
                             "value": "4"
@@ -1217,6 +1255,9 @@
                           },
                           "SIM_VS_IMP": {
                             "value": "IMP"
+                          },
+                          "STEP_VALID_TAP_POS": {
+                            "value": "1"
                           },
                           "TYPE_TDL_0": {
                             "value": "C"
@@ -1630,6 +1671,18 @@
                           "bitTrn_ReqSample",
                           "AXI4Stream_MagicCalibrator_0/bitTrn_ReqSample"
                         ]
+                      },
+                      "ValidNumberOfTDL_1": {
+                        "ports": [
+                          "ValidNumberOfTDL",
+                          "AXI4Stream_X7S_VirtualTDL_0/ValidNumberOfTdl"
+                        ]
+                      },
+                      "ValidPositionTap_1": {
+                        "ports": [
+                          "ValidPositionTap",
+                          "AXI4Stream_X7S_VirtualTDL_0/ValidPositionTap"
+                        ]
                       }
                     }
                   },
@@ -1678,7 +1731,7 @@
                         "value": "4"
                       },
                       "TDC_ENABLE_DEBUG_PORTS": {
-                        "value": "false"
+                        "value": "true"
                       }
                     }
                   },
@@ -1709,10 +1762,10 @@
                   }
                 },
                 "interface_nets": {
-                  "BeltBus_TDL_Channel_1_M00_BB": {
+                  "Conn2": {
                     "interface_ports": [
-                      "M00_BB",
-                      "BeltBus_TDL_Channel_1/M00_BB"
+                      "ch1_diff",
+                      "InputLogic_1/AsyncEventIn_Diff"
                     ]
                   },
                   "BeltBus_TDL_Channel_1_M01_AXIS_DebugCT": {
@@ -1721,16 +1774,16 @@
                       "BeltBus_TDL_Channel_1/M01_AXIS_DebugCT"
                     ]
                   },
-                  "Conn2": {
-                    "interface_ports": [
-                      "ch1_diff",
-                      "InputLogic_1/AsyncEventIn_Diff"
-                    ]
-                  },
                   "S00_BB_1": {
                     "interface_ports": [
                       "S00_BB",
                       "BeltBus_TDL_Channel_1/S00_BB"
+                    ]
+                  },
+                  "BeltBus_TDL_Channel_1_M00_BB": {
+                    "interface_ports": [
+                      "M00_BB",
+                      "BeltBus_TDL_Channel_1/M00_BB"
                     ]
                   }
                 },
@@ -1845,6 +1898,24 @@
                       "write_reg",
                       "TDCChannelSlice_1/write_reg"
                     ]
+                  },
+                  "TDCChannelSlice_1_ValidNumberOfTdl": {
+                    "ports": [
+                      "TDCChannelSlice_1/ValidNumberOfTdl",
+                      "BeltBus_TDL_Channel_1/ValidNumberOfTDL"
+                    ]
+                  },
+                  "TDCChannelSlice_1_ValidPositionTap": {
+                    "ports": [
+                      "TDCChannelSlice_1/ValidPositionTap",
+                      "BeltBus_TDL_Channel_1/ValidPositionTap"
+                    ]
+                  },
+                  "write_debug_reg_0_1": {
+                    "ports": [
+                      "write_debug_reg_0",
+                      "TDCChannelSlice_1/write_debug_reg"
+                    ]
                   }
                 }
               },
@@ -1904,6 +1975,12 @@
                     "direction": "I",
                     "left": "18",
                     "right": "0"
+                  },
+                  "write_debug_reg_0": {
+                    "type": "data",
+                    "direction": "I",
+                    "left": "73",
+                    "right": "0"
                   }
                 },
                 "components": {
@@ -1918,6 +1995,9 @@
                       },
                       "CEC_VS_CTD_COUNTER": {
                         "value": "CTD"
+                      },
+                      "DEBUG_MODE": {
+                        "value": "true"
                       },
                       "DEBUG_MODE_CT": {
                         "value": "true"
@@ -2057,6 +2137,18 @@
                         "direction": "I",
                         "left": "31",
                         "right": "0"
+                      },
+                      "ValidNumberOfTDL": {
+                        "type": "data",
+                        "direction": "I",
+                        "left": "31",
+                        "right": "0"
+                      },
+                      "ValidPositionTap": {
+                        "type": "data",
+                        "direction": "I",
+                        "left": "31",
+                        "right": "0"
                       }
                     },
                     "components": {
@@ -2076,7 +2168,13 @@
                             "value": "FALSE"
                           },
                           "DEBUG_MODE": {
-                            "value": "FALSE"
+                            "value": "true"
+                          },
+                          "MAX_VALID_TAP_POS": {
+                            "value": "255"
+                          },
+                          "MIN_VALID_TAP_POS": {
+                            "value": "0"
                           },
                           "NUMBER_OF_TDL": {
                             "value": "4"
@@ -2089,6 +2187,9 @@
                           },
                           "SIM_VS_IMP": {
                             "value": "IMP"
+                          },
+                          "STEP_VALID_TAP_POS": {
+                            "value": "1"
                           },
                           "TYPE_TDL_0": {
                             "value": "C"
@@ -2502,6 +2603,18 @@
                           "bitTrn_ReqSample",
                           "AXI4Stream_MagicCalibrator_0/bitTrn_ReqSample"
                         ]
+                      },
+                      "ValidNumberOfTDL_1": {
+                        "ports": [
+                          "ValidNumberOfTDL",
+                          "AXI4Stream_X7S_VirtualTDL_0/ValidNumberOfTdl"
+                        ]
+                      },
+                      "ValidPositionTap_1": {
+                        "ports": [
+                          "ValidPositionTap",
+                          "AXI4Stream_X7S_VirtualTDL_0/ValidPositionTap"
+                        ]
                       }
                     }
                   },
@@ -2550,7 +2663,7 @@
                         "value": "4"
                       },
                       "TDC_ENABLE_DEBUG_PORTS": {
-                        "value": "false"
+                        "value": "true"
                       }
                     }
                   },
@@ -2581,10 +2694,10 @@
                   }
                 },
                 "interface_nets": {
-                  "BeltBus_TDL_Channel_2_M00_BB": {
+                  "S00_BB_1": {
                     "interface_ports": [
-                      "M00_BB",
-                      "BeltBus_TDL_Channel_2/M00_BB"
+                      "S00_BB",
+                      "BeltBus_TDL_Channel_2/S00_BB"
                     ]
                   },
                   "BeltBus_TDL_Channel_2_M01_AXIS_DebugCT": {
@@ -2599,10 +2712,10 @@
                       "InputLogic_2/AsyncEventIn_Diff"
                     ]
                   },
-                  "S00_BB_1": {
+                  "BeltBus_TDL_Channel_2_M00_BB": {
                     "interface_ports": [
-                      "S00_BB",
-                      "BeltBus_TDL_Channel_2/S00_BB"
+                      "M00_BB",
+                      "BeltBus_TDL_Channel_2/M00_BB"
                     ]
                   }
                 },
@@ -2717,6 +2830,24 @@
                       "write_reg",
                       "TDCChannelSlice_2/write_reg"
                     ]
+                  },
+                  "TDCChannelSlice_2_ValidPositionTap": {
+                    "ports": [
+                      "TDCChannelSlice_2/ValidPositionTap",
+                      "BeltBus_TDL_Channel_2/ValidPositionTap"
+                    ]
+                  },
+                  "TDCChannelSlice_2_ValidNumberOfTdl": {
+                    "ports": [
+                      "TDCChannelSlice_2/ValidNumberOfTdl",
+                      "BeltBus_TDL_Channel_2/ValidNumberOfTDL"
+                    ]
+                  },
+                  "write_debug_reg_0_1": {
+                    "ports": [
+                      "write_debug_reg_0",
+                      "TDCChannelSlice_2/write_debug_reg"
+                    ]
                   }
                 }
               },
@@ -2808,6 +2939,12 @@
                     "direction": "I",
                     "left": "18",
                     "right": "0"
+                  },
+                  "write_debug_reg_0": {
+                    "type": "data",
+                    "direction": "I",
+                    "left": "73",
+                    "right": "0"
                   }
                 },
                 "components": {
@@ -2838,7 +2975,7 @@
                         "value": "CTD"
                       },
                       "DEBUG_MODE": {
-                        "value": "false"
+                        "value": "true"
                       },
                       "DEBUG_MODE_CT": {
                         "value": "true"
@@ -2979,6 +3116,18 @@
                         "direction": "I",
                         "left": "31",
                         "right": "0"
+                      },
+                      "ValidNumberOfTDL": {
+                        "type": "data",
+                        "direction": "I",
+                        "left": "31",
+                        "right": "0"
+                      },
+                      "ValidPositionTap": {
+                        "type": "data",
+                        "direction": "I",
+                        "left": "31",
+                        "right": "0"
                       }
                     },
                     "components": {
@@ -2998,7 +3147,13 @@
                             "value": "FALSE"
                           },
                           "DEBUG_MODE": {
-                            "value": "false"
+                            "value": "true"
+                          },
+                          "MAX_VALID_TAP_POS": {
+                            "value": "255"
+                          },
+                          "MIN_VALID_TAP_POS": {
+                            "value": "0"
                           },
                           "NUMBER_OF_TDL": {
                             "value": "4"
@@ -3011,6 +3166,9 @@
                           },
                           "SIM_VS_IMP": {
                             "value": "IMP"
+                          },
+                          "STEP_VALID_TAP_POS": {
+                            "value": "1"
                           },
                           "TYPE_TDL_0": {
                             "value": "C"
@@ -3430,6 +3588,18 @@
                           "bitTrn_ReqSample",
                           "AXI4Stream_MagicCalibrator_0/bitTrn_ReqSample"
                         ]
+                      },
+                      "ValidNumberOfTDL_1": {
+                        "ports": [
+                          "ValidNumberOfTDL",
+                          "AXI4Stream_X7S_VirtualTDL_0/ValidNumberOfTdl"
+                        ]
+                      },
+                      "ValidPositionTap_1": {
+                        "ports": [
+                          "ValidPositionTap",
+                          "AXI4Stream_X7S_VirtualTDL_0/ValidPositionTap"
+                        ]
                       }
                     }
                   },
@@ -3475,7 +3645,7 @@
                         "value": "16"
                       },
                       "TDC_ENABLE_DEBUG_PORTS": {
-                        "value": "false"
+                        "value": "true"
                       }
                     }
                   },
@@ -3543,16 +3713,16 @@
                   }
                 },
                 "interface_nets": {
-                  "BeltBus_TDL_Channel_0_M00_AXIS": {
-                    "interface_ports": [
-                      "AXI4Stream_PeriodMet_0/S00_BB",
-                      "BeltBus_TDL_Channel_0/M00_AXIS"
-                    ]
-                  },
                   "AXI4Stream_PeriodMet_0_M00_AXIS": {
                     "interface_ports": [
                       "AXI4Stream_PeriodMet_0/M00_AXIS",
                       "axis_broadcaster_0/S_AXIS"
+                    ]
+                  },
+                  "BeltBus_TDL_Channel_0_M00_AXIS": {
+                    "interface_ports": [
+                      "AXI4Stream_PeriodMet_0/S00_BB",
+                      "BeltBus_TDL_Channel_0/M00_AXIS"
                     ]
                   },
                   "BeltBus_TDL_Channel_0_M00_BB": {
@@ -3711,6 +3881,24 @@
                       "write_reg",
                       "TDCChannelSlice_0/write_reg"
                     ]
+                  },
+                  "TDCChannelSlice_0_ValidPositionTap": {
+                    "ports": [
+                      "TDCChannelSlice_0/ValidPositionTap",
+                      "BeltBus_TDL_Channel_0/ValidPositionTap"
+                    ]
+                  },
+                  "TDCChannelSlice_0_ValidNumberOfTdl": {
+                    "ports": [
+                      "TDCChannelSlice_0/ValidNumberOfTdl",
+                      "BeltBus_TDL_Channel_0/ValidNumberOfTDL"
+                    ]
+                  },
+                  "write_debug_reg_0_1": {
+                    "ports": [
+                      "write_debug_reg_0",
+                      "TDCChannelSlice_0/write_debug_reg"
+                    ]
                   }
                 }
               },
@@ -3821,6 +4009,63 @@
                   },
                   "DOUT_WIDTH": {
                     "value": "19"
+                  }
+                }
+              },
+              "xlslice_3": {
+                "vlnv": "xilinx.com:ip:xlslice:1.0",
+                "xci_name": "design_1_xlslice_0_1",
+                "xci_path": "ip/design_1_xlslice_0_1/design_1_xlslice_0_1.xci",
+                "inst_hier_path": "TDC_Calib/TDC/xlslice_3",
+                "parameters": {
+                  "DIN_FROM": {
+                    "value": "73"
+                  },
+                  "DIN_WIDTH": {
+                    "value": "222"
+                  },
+                  "DOUT_WIDTH": {
+                    "value": "74"
+                  }
+                }
+              },
+              "xlslice_4": {
+                "vlnv": "xilinx.com:ip:xlslice:1.0",
+                "xci_name": "design_1_xlslice_0_2",
+                "xci_path": "ip/design_1_xlslice_0_2/design_1_xlslice_0_2.xci",
+                "inst_hier_path": "TDC_Calib/TDC/xlslice_4",
+                "parameters": {
+                  "DIN_FROM": {
+                    "value": "147"
+                  },
+                  "DIN_TO": {
+                    "value": "74"
+                  },
+                  "DIN_WIDTH": {
+                    "value": "222"
+                  },
+                  "DOUT_WIDTH": {
+                    "value": "74"
+                  }
+                }
+              },
+              "xlslice_5": {
+                "vlnv": "xilinx.com:ip:xlslice:1.0",
+                "xci_name": "design_1_xlslice_0_3",
+                "xci_path": "ip/design_1_xlslice_0_3/design_1_xlslice_0_3.xci",
+                "inst_hier_path": "TDC_Calib/TDC/xlslice_5",
+                "parameters": {
+                  "DIN_FROM": {
+                    "value": "221"
+                  },
+                  "DIN_TO": {
+                    "value": "148"
+                  },
+                  "DIN_WIDTH": {
+                    "value": "222"
+                  },
+                  "DOUT_WIDTH": {
+                    "value": "74"
                   }
                 }
               }
@@ -4032,6 +4277,32 @@
                   "xlslice_2/Dout",
                   "Ch2/write_reg"
                 ]
+              },
+              "Din_1_1": {
+                "ports": [
+                  "Din_1",
+                  "xlslice_5/Din",
+                  "xlslice_4/Din",
+                  "xlslice_3/Din"
+                ]
+              },
+              "xlslice_3_Dout": {
+                "ports": [
+                  "xlslice_3/Dout",
+                  "Sync/write_debug_reg_0"
+                ]
+              },
+              "xlslice_4_Dout": {
+                "ports": [
+                  "xlslice_4/Dout",
+                  "Ch1/write_debug_reg_0"
+                ]
+              },
+              "xlslice_5_Dout": {
+                "ports": [
+                  "xlslice_5/Dout",
+                  "Ch2/write_debug_reg_0"
+                ]
               }
             }
           },
@@ -4198,6 +4469,12 @@
             "ports": [
               "util_ds_buf_4/BUFG_O",
               "TDC/clk_TDC"
+            ]
+          },
+          "AXI4_TDC_Wrapper_0_TDC_DEBUG_PROP_WPORT": {
+            "ports": [
+              "AXI4_TDC_Wrapper_0/TDC_DEBUG_PROP_WPORT",
+              "TDC/Din_1"
             ]
           }
         }
@@ -4732,16 +5009,16 @@
               }
             },
             "interface_nets": {
-              "m01_couplers_to_auto_pc": {
-                "interface_ports": [
-                  "S_AXI",
-                  "auto_pc/S_AXI"
-                ]
-              },
               "auto_pc_to_m01_couplers": {
                 "interface_ports": [
                   "M_AXI",
                   "auto_pc/M_AXI"
+                ]
+              },
+              "m01_couplers_to_auto_pc": {
+                "interface_ports": [
+                  "S_AXI",
+                  "auto_pc/S_AXI"
                 ]
               }
             },
@@ -5188,16 +5465,16 @@
               }
             },
             "interface_nets": {
-              "m07_couplers_to_auto_pc": {
-                "interface_ports": [
-                  "S_AXI",
-                  "auto_pc/S_AXI"
-                ]
-              },
               "auto_pc_to_m07_couplers": {
                 "interface_ports": [
                   "M_AXI",
                   "auto_pc/M_AXI"
+                ]
+              },
+              "m07_couplers_to_auto_pc": {
+                "interface_ports": [
+                  "S_AXI",
+                  "auto_pc/S_AXI"
                 ]
               }
             },
@@ -5272,28 +5549,10 @@
           }
         },
         "interface_nets": {
-          "axi_interconnect_0_to_s01_couplers": {
+          "m04_couplers_to_axi_interconnect_0": {
             "interface_ports": [
-              "S01_AXI",
-              "s01_couplers/S_AXI"
-            ]
-          },
-          "m03_couplers_to_axi_interconnect_0": {
-            "interface_ports": [
-              "M03_AXI",
-              "m03_couplers/M_AXI"
-            ]
-          },
-          "xbar_to_m02_couplers": {
-            "interface_ports": [
-              "xbar/M02_AXI",
-              "m02_couplers/S_AXI"
-            ]
-          },
-          "xbar_to_m03_couplers": {
-            "interface_ports": [
-              "xbar/M03_AXI",
-              "m03_couplers/S_AXI"
+              "M04_AXI",
+              "m04_couplers/M_AXI"
             ]
           },
           "xbar_to_m05_couplers": {
@@ -5302,10 +5561,10 @@
               "m05_couplers/S_AXI"
             ]
           },
-          "axi_interconnect_0_to_s00_couplers": {
+          "m01_couplers_to_axi_interconnect_0": {
             "interface_ports": [
-              "S00_AXI",
-              "s00_couplers/S_AXI"
+              "M01_AXI",
+              "m01_couplers/M_AXI"
             ]
           },
           "s00_couplers_to_xbar": {
@@ -5314,52 +5573,10 @@
               "xbar/S00_AXI"
             ]
           },
-          "m04_couplers_to_axi_interconnect_0": {
+          "axi_interconnect_0_to_s00_couplers": {
             "interface_ports": [
-              "M04_AXI",
-              "m04_couplers/M_AXI"
-            ]
-          },
-          "m05_couplers_to_axi_interconnect_0": {
-            "interface_ports": [
-              "M05_AXI",
-              "m05_couplers/M_AXI"
-            ]
-          },
-          "xbar_to_m04_couplers": {
-            "interface_ports": [
-              "xbar/M04_AXI",
-              "m04_couplers/S_AXI"
-            ]
-          },
-          "m02_couplers_to_axi_interconnect_0": {
-            "interface_ports": [
-              "M02_AXI",
-              "m02_couplers/M_AXI"
-            ]
-          },
-          "xbar_to_m01_couplers": {
-            "interface_ports": [
-              "xbar/M01_AXI",
-              "m01_couplers/S_AXI"
-            ]
-          },
-          "m01_couplers_to_axi_interconnect_0": {
-            "interface_ports": [
-              "M01_AXI",
-              "m01_couplers/M_AXI"
-            ]
-          },
-          "xbar_to_m00_couplers": {
-            "interface_ports": [
-              "xbar/M00_AXI",
-              "m00_couplers/S_AXI"
-            ]
-          },
-          "m00_couplers_to_axi_interconnect_0": {
-            "interface_ports": [
-              "M00_AXI",
-              "m00_couplers/M_AXI"
+              "S00_AXI",
+              "s00_couplers/S_AXI"
             ]
           },
           "s01_couplers_to_xbar": {
@@ -5368,10 +5585,28 @@
               "xbar/S01_AXI"
             ]
           },
-          "xbar_to_m08_couplers": {
+          "xbar_to_m02_couplers": {
             "interface_ports": [
-              "xbar/M08_AXI",
-              "m08_couplers/S_AXI"
+              "xbar/M02_AXI",
+              "m02_couplers/S_AXI"
+            ]
+          },
+          "m02_couplers_to_axi_interconnect_0": {
+            "interface_ports": [
+              "M02_AXI",
+              "m02_couplers/M_AXI"
+            ]
+          },
+          "m06_couplers_to_axi_interconnect_0": {
+            "interface_ports": [
+              "M06_AXI",
+              "m06_couplers/M_AXI"
+            ]
+          },
+          "m00_couplers_to_axi_interconnect_0": {
+            "interface_ports": [
+              "M00_AXI",
+              "m00_couplers/M_AXI"
             ]
           },
           "m08_couplers_to_axi_interconnect_0": {
@@ -5380,10 +5615,28 @@
               "m08_couplers/M_AXI"
             ]
           },
+          "xbar_to_m06_couplers": {
+            "interface_ports": [
+              "xbar/M06_AXI",
+              "m06_couplers/S_AXI"
+            ]
+          },
           "xbar_to_m07_couplers": {
             "interface_ports": [
               "xbar/M07_AXI",
               "m07_couplers/S_AXI"
+            ]
+          },
+          "xbar_to_m01_couplers": {
+            "interface_ports": [
+              "xbar/M01_AXI",
+              "m01_couplers/S_AXI"
+            ]
+          },
+          "m03_couplers_to_axi_interconnect_0": {
+            "interface_ports": [
+              "M03_AXI",
+              "m03_couplers/M_AXI"
             ]
           },
           "m07_couplers_to_axi_interconnect_0": {
@@ -5392,16 +5645,40 @@
               "m07_couplers/M_AXI"
             ]
           },
-          "xbar_to_m06_couplers": {
+          "xbar_to_m04_couplers": {
             "interface_ports": [
-              "xbar/M06_AXI",
-              "m06_couplers/S_AXI"
+              "xbar/M04_AXI",
+              "m04_couplers/S_AXI"
             ]
           },
-          "m06_couplers_to_axi_interconnect_0": {
+          "axi_interconnect_0_to_s01_couplers": {
             "interface_ports": [
-              "M06_AXI",
-              "m06_couplers/M_AXI"
+              "S01_AXI",
+              "s01_couplers/S_AXI"
+            ]
+          },
+          "m05_couplers_to_axi_interconnect_0": {
+            "interface_ports": [
+              "M05_AXI",
+              "m05_couplers/M_AXI"
+            ]
+          },
+          "xbar_to_m03_couplers": {
+            "interface_ports": [
+              "xbar/M03_AXI",
+              "m03_couplers/S_AXI"
+            ]
+          },
+          "xbar_to_m00_couplers": {
+            "interface_ports": [
+              "xbar/M00_AXI",
+              "m00_couplers/S_AXI"
+            ]
+          },
+          "xbar_to_m08_couplers": {
+            "interface_ports": [
+              "xbar/M08_AXI",
+              "m08_couplers/S_AXI"
             ]
           }
         },
@@ -6154,34 +6431,10 @@
           }
         },
         "interface_nets": {
-          "m00_couplers_to_axis_interconnect_0": {
-            "interface_ports": [
-              "M00_AXIS",
-              "m00_couplers/M_AXIS"
-            ]
-          },
-          "s03_couplers_to_xbar": {
-            "interface_ports": [
-              "s03_couplers/M_AXIS",
-              "xbar/S03_AXIS"
-            ]
-          },
-          "axis_interconnect_0_to_s03_couplers": {
-            "interface_ports": [
-              "S03_AXIS",
-              "s03_couplers/S_AXIS"
-            ]
-          },
           "s02_couplers_to_xbar": {
             "interface_ports": [
               "s02_couplers/M_AXIS",
               "xbar/S02_AXIS"
-            ]
-          },
-          "axis_interconnect_0_to_s02_couplers": {
-            "interface_ports": [
-              "S02_AXIS",
-              "s02_couplers/S_AXIS"
             ]
           },
           "s01_couplers_to_xbar": {
@@ -6190,10 +6443,34 @@
               "xbar/S01_AXIS"
             ]
           },
+          "axis_interconnect_0_to_s00_couplers": {
+            "interface_ports": [
+              "S00_AXIS",
+              "s00_couplers/S_AXIS"
+            ]
+          },
           "axis_interconnect_0_to_s01_couplers": {
             "interface_ports": [
               "S01_AXIS",
               "s01_couplers/S_AXIS"
+            ]
+          },
+          "s03_couplers_to_xbar": {
+            "interface_ports": [
+              "s03_couplers/M_AXIS",
+              "xbar/S03_AXIS"
+            ]
+          },
+          "axis_interconnect_0_to_s02_couplers": {
+            "interface_ports": [
+              "S02_AXIS",
+              "s02_couplers/S_AXIS"
+            ]
+          },
+          "m00_couplers_to_axis_interconnect_0": {
+            "interface_ports": [
+              "M00_AXIS",
+              "m00_couplers/M_AXIS"
             ]
           },
           "s00_couplers_to_xbar": {
@@ -6202,16 +6479,16 @@
               "xbar/S00_AXIS"
             ]
           },
-          "axis_interconnect_0_to_s00_couplers": {
-            "interface_ports": [
-              "S00_AXIS",
-              "s00_couplers/S_AXIS"
-            ]
-          },
           "xbar_to_m00_couplers": {
             "interface_ports": [
               "xbar/M00_AXIS",
               "m00_couplers/S_AXIS"
+            ]
+          },
+          "axis_interconnect_0_to_s03_couplers": {
+            "interface_ports": [
+              "S03_AXIS",
+              "s03_couplers/S_AXIS"
             ]
           }
         },
@@ -6608,6 +6885,30 @@
       }
     },
     "interface_nets": {
+      "axis_broadcaster_0_M01_AXIS": {
+        "interface_ports": [
+          "BeltBus_TDCHistogrammer_0/S00_BELT",
+          "axis_broadcaster_0/M01_AXIS"
+        ]
+      },
+      "axis_broadcaster_0_M02_AXIS": {
+        "interface_ports": [
+          "BeltBus_TDCHistogrammer_1/S00_BELT",
+          "axis_broadcaster_0/M02_AXIS"
+        ]
+      },
+      "axis_broadcaster_0_M03_AXIS": {
+        "interface_ports": [
+          "BeltBus_LedCounter_0/BeltBus",
+          "axis_broadcaster_0/M03_AXIS"
+        ]
+      },
+      "axis_broadcaster_0_M04_AXIS": {
+        "interface_ports": [
+          "BeltBus_TTM_0/S00_BB",
+          "axis_broadcaster_0/M04_AXIS"
+        ]
+      },
       "BeltBus_LedCounter_0_GREEN_LEDS": {
         "interface_ports": [
           "LED_G_BUS",
@@ -6684,30 +6985,6 @@
         "interface_ports": [
           "BeltBus_TDCCounter_0/S00_BB",
           "axis_broadcaster_0/M00_AXIS"
-        ]
-      },
-      "axis_broadcaster_0_M01_AXIS": {
-        "interface_ports": [
-          "BeltBus_TDCHistogrammer_0/S00_BELT",
-          "axis_broadcaster_0/M01_AXIS"
-        ]
-      },
-      "axis_broadcaster_0_M02_AXIS": {
-        "interface_ports": [
-          "BeltBus_TDCHistogrammer_1/S00_BELT",
-          "axis_broadcaster_0/M02_AXIS"
-        ]
-      },
-      "axis_broadcaster_0_M03_AXIS": {
-        "interface_ports": [
-          "BeltBus_LedCounter_0/BeltBus",
-          "axis_broadcaster_0/M03_AXIS"
-        ]
-      },
-      "axis_broadcaster_0_M04_AXIS": {
-        "interface_ports": [
-          "BeltBus_TTM_0/S00_BB",
-          "axis_broadcaster_0/M04_AXIS"
         ]
       },
       "axis_broadcaster_1_M00_AXIS": {

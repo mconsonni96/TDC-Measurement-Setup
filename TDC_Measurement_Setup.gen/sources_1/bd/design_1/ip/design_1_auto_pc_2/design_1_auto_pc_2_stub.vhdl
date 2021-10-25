@@ -1,10 +1,10 @@
 -- Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
--- Date        : Thu Oct 21 17:47:57 2021
+-- Date        : Thu Oct 21 17:47:56 2021
 -- Host        : mconsonni-All-Series running 64-bit Ubuntu 20.04.3 LTS
--- Command     : write_vhdl -force -mode synth_stub
---               /home/mconsonni/Desktop/DESD/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.gen/sources_1/bd/design_1/ip/design_1_auto_pc_2/design_1_auto_pc_2_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top design_1_auto_pc_2 -prefix
+--               design_1_auto_pc_2_ design_1_auto_pc_2_stub.vhdl
 -- Design      : design_1_auto_pc_2
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7a100tftg256-2

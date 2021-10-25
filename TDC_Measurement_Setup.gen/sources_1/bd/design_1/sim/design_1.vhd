@@ -1,7 +1,7 @@
 --Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
---Date        : Thu Oct 21 17:22:44 2021
+--Date        : Mon Oct 25 11:34:07 2021
 --Host        : mconsonni-All-Series running 64-bit Ubuntu 20.04.3 LTS
 --Command     : generate_target design_1.bd
 --Design      : design_1
@@ -1092,6 +1092,8 @@ entity design_1_BeltBus_TDL_Channel_0_0 is
     S00_BB_tready : out STD_LOGIC;
     S00_BB_tvalid : in STD_LOGIC;
     Stop_Calibration : in STD_LOGIC;
+    ValidNumberOfTDL : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    ValidPositionTap : in STD_LOGIC_VECTOR ( 31 downto 0 );
     bitTrn_Cal_dout : in STD_LOGIC_VECTOR ( 31 downto 0 );
     bitTrn_ReqSample : in STD_LOGIC_VECTOR ( 31 downto 0 );
     bitTrn_Uncal_addr : in STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -1111,7 +1113,9 @@ architecture STRUCTURE of design_1_BeltBus_TDL_Channel_0_0 is
     clk : in STD_LOGIC;
     AsyncInput : in STD_LOGIC;
     m00_axis_undeco_tvalid : out STD_LOGIC;
-    m00_axis_undeco_tdata : out STD_LOGIC_VECTOR ( 1023 downto 0 )
+    m00_axis_undeco_tdata : out STD_LOGIC_VECTOR ( 1023 downto 0 );
+    ValidPositionTap : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    ValidNumberOfTdl : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
   end component design_1_AXI4Stream_X7S_VirtualTDL_0_2;
   component design_1_AXI4Stream_IperDecoder_0_2 is
@@ -1229,6 +1233,8 @@ architecture STRUCTURE of design_1_BeltBus_TDL_Channel_0_0 is
   signal NetBB : STD_LOGIC;
   signal Restart_Calibration_1 : STD_LOGIC;
   signal Stop_Calibration_1 : STD_LOGIC;
+  signal ValidNumberOfTDL_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal ValidPositionTap_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal bitTrn_Cal_dout_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal bitTrn_ReqSample_addr_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal bitTrn_Uncal_addr_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -1256,6 +1262,8 @@ begin
   Restart_Calibration_1 <= Restart_Calibration;
   S00_BB_tready <= BeltBus_NodeInserter_0_S00_BB_TREADY;
   Stop_Calibration_1 <= Stop_Calibration;
+  ValidNumberOfTDL_1(31 downto 0) <= ValidNumberOfTDL(31 downto 0);
+  ValidPositionTap_1(31 downto 0) <= ValidPositionTap(31 downto 0);
   bitTrn_Cal_dout_1(31 downto 0) <= bitTrn_Cal_dout(31 downto 0);
   bitTrn_ReqSample_addr_1(31 downto 0) <= bitTrn_ReqSample(31 downto 0);
   bitTrn_Uncal_addr_1(31 downto 0) <= bitTrn_Uncal_addr(31 downto 0);
@@ -1322,6 +1330,8 @@ AXI4Stream_Synchronizer_0: component design_1_AXI4Stream_Synchronizer_0_2
 AXI4Stream_X7S_VirtualTDL_0: component design_1_AXI4Stream_X7S_VirtualTDL_0_2
      port map (
       AsyncInput => AsyncInput_1,
+      ValidNumberOfTdl(31 downto 0) => ValidNumberOfTDL_1(31 downto 0),
+      ValidPositionTap(31 downto 0) => ValidPositionTap_1(31 downto 0),
       clk => Net2,
       m00_axis_undeco_tdata(1023 downto 0) => AXI4Stream_X7S_VirtualTDL_0_M00_AXIS_Undeco_TDATA(1023 downto 0),
       m00_axis_undeco_tvalid => AXI4Stream_X7S_VirtualTDL_0_M00_AXIS_Undeco_TVALID,
@@ -1394,6 +1404,8 @@ entity design_1_BeltBus_TDL_Channel_1_0 is
     S00_BB_tready : out STD_LOGIC;
     S00_BB_tvalid : in STD_LOGIC;
     Stop_Calibration : in STD_LOGIC;
+    ValidNumberOfTDL : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    ValidPositionTap : in STD_LOGIC_VECTOR ( 31 downto 0 );
     bitTrn_Cal_dout : in STD_LOGIC_VECTOR ( 31 downto 0 );
     bitTrn_ReqSample : in STD_LOGIC_VECTOR ( 31 downto 0 );
     bitTrn_Uncal_addr : in STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -1413,7 +1425,9 @@ architecture STRUCTURE of design_1_BeltBus_TDL_Channel_1_0 is
     clk : in STD_LOGIC;
     AsyncInput : in STD_LOGIC;
     m00_axis_undeco_tvalid : out STD_LOGIC;
-    m00_axis_undeco_tdata : out STD_LOGIC_VECTOR ( 1023 downto 0 )
+    m00_axis_undeco_tdata : out STD_LOGIC_VECTOR ( 1023 downto 0 );
+    ValidPositionTap : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    ValidNumberOfTdl : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
   end component design_1_AXI4Stream_X7S_VirtualTDL_0_0;
   component design_1_AXI4Stream_IperDecoder_0_0 is
@@ -1527,6 +1541,8 @@ architecture STRUCTURE of design_1_BeltBus_TDL_Channel_1_0 is
   signal NetBB : STD_LOGIC;
   signal Restart_Calibration_1 : STD_LOGIC;
   signal Stop_Calibration_1 : STD_LOGIC;
+  signal ValidNumberOfTDL_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal ValidPositionTap_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal bitTrn_Cal_dout_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal bitTrn_ReqSample_addr_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal bitTrn_Uncal_addr_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -1552,6 +1568,8 @@ begin
   Restart_Calibration_1 <= Restart_Calibration;
   S00_BB_tready <= BeltBus_NodeInserter_0_S00_BB_TREADY;
   Stop_Calibration_1 <= Stop_Calibration;
+  ValidNumberOfTDL_1(31 downto 0) <= ValidNumberOfTDL(31 downto 0);
+  ValidPositionTap_1(31 downto 0) <= ValidPositionTap(31 downto 0);
   bitTrn_Cal_dout_1(31 downto 0) <= bitTrn_Cal_dout(31 downto 0);
   bitTrn_ReqSample_addr_1(31 downto 0) <= bitTrn_ReqSample(31 downto 0);
   bitTrn_Uncal_addr_1(31 downto 0) <= bitTrn_Uncal_addr(31 downto 0);
@@ -1618,6 +1636,8 @@ AXI4Stream_Synchronizer_0: component design_1_AXI4Stream_Synchronizer_0_0
 AXI4Stream_X7S_VirtualTDL_0: component design_1_AXI4Stream_X7S_VirtualTDL_0_0
      port map (
       AsyncInput => AsyncInput_1,
+      ValidNumberOfTdl(31 downto 0) => ValidNumberOfTDL_1(31 downto 0),
+      ValidPositionTap(31 downto 0) => ValidPositionTap_1(31 downto 0),
       clk => Net2,
       m00_axis_undeco_tdata(1023 downto 0) => AXI4Stream_X7S_VirtualTDL_0_M00_AXIS_Undeco_TDATA(1023 downto 0),
       m00_axis_undeco_tvalid => AXI4Stream_X7S_VirtualTDL_0_M00_AXIS_Undeco_TVALID,
@@ -1656,6 +1676,8 @@ entity design_1_BeltBus_TDL_Channel_2_0 is
     S00_BB_tready : out STD_LOGIC;
     S00_BB_tvalid : in STD_LOGIC;
     Stop_Calibration : in STD_LOGIC;
+    ValidNumberOfTDL : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    ValidPositionTap : in STD_LOGIC_VECTOR ( 31 downto 0 );
     bitTrn_Cal_dout : in STD_LOGIC_VECTOR ( 31 downto 0 );
     bitTrn_ReqSample : in STD_LOGIC_VECTOR ( 31 downto 0 );
     bitTrn_Uncal_addr : in STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -1675,7 +1697,9 @@ architecture STRUCTURE of design_1_BeltBus_TDL_Channel_2_0 is
     clk : in STD_LOGIC;
     AsyncInput : in STD_LOGIC;
     m00_axis_undeco_tvalid : out STD_LOGIC;
-    m00_axis_undeco_tdata : out STD_LOGIC_VECTOR ( 1023 downto 0 )
+    m00_axis_undeco_tdata : out STD_LOGIC_VECTOR ( 1023 downto 0 );
+    ValidPositionTap : in STD_LOGIC_VECTOR ( 31 downto 0 );
+    ValidNumberOfTdl : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
   end component design_1_AXI4Stream_X7S_VirtualTDL_0_1;
   component design_1_AXI4Stream_IperDecoder_0_1 is
@@ -1788,6 +1812,8 @@ architecture STRUCTURE of design_1_BeltBus_TDL_Channel_2_0 is
   signal NetBB : STD_LOGIC;
   signal Restart_Calibration_1 : STD_LOGIC;
   signal Stop_Calibration_1 : STD_LOGIC;
+  signal ValidNumberOfTDL_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal ValidPositionTap_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal bitTrn_Cal_dout_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal bitTrn_ReqSample_addr_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal bitTrn_Uncal_addr_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -1812,6 +1838,8 @@ begin
   Restart_Calibration_1 <= Restart_Calibration;
   S00_BB_tready <= BeltBus_NodeInserter_0_S00_BB_TREADY;
   Stop_Calibration_1 <= Stop_Calibration;
+  ValidNumberOfTDL_1(31 downto 0) <= ValidNumberOfTDL(31 downto 0);
+  ValidPositionTap_1(31 downto 0) <= ValidPositionTap(31 downto 0);
   bitTrn_Cal_dout_1(31 downto 0) <= bitTrn_Cal_dout(31 downto 0);
   bitTrn_ReqSample_addr_1(31 downto 0) <= bitTrn_ReqSample(31 downto 0);
   bitTrn_Uncal_addr_1(31 downto 0) <= bitTrn_Uncal_addr(31 downto 0);
@@ -1878,6 +1906,8 @@ AXI4Stream_Synchronizer_0: component design_1_AXI4Stream_Synchronizer_0_1
 AXI4Stream_X7S_VirtualTDL_0: component design_1_AXI4Stream_X7S_VirtualTDL_0_1
      port map (
       AsyncInput => AsyncInput_1,
+      ValidNumberOfTdl(31 downto 0) => ValidNumberOfTDL_1(31 downto 0),
+      ValidPositionTap(31 downto 0) => ValidPositionTap_1(31 downto 0),
       clk => Net2,
       m00_axis_undeco_tdata(1023 downto 0) => AXI4Stream_X7S_VirtualTDL_0_M00_AXIS_Undeco_TDATA(1023 downto 0),
       m00_axis_undeco_tvalid => AXI4Stream_X7S_VirtualTDL_0_M00_AXIS_Undeco_TVALID,
@@ -4436,6 +4466,7 @@ entity Ch1_imp_1JE4URC is
     clk_TDC : in STD_LOGIC;
     read_reg : out STD_LOGIC_VECTOR ( 64 downto 0 );
     reset_TDC : in STD_LOGIC;
+    write_debug_reg_0 : in STD_LOGIC_VECTOR ( 73 downto 0 );
     write_reg : in STD_LOGIC_VECTOR ( 18 downto 0 )
   );
 end Ch1_imp_1JE4URC;
@@ -4468,10 +4499,19 @@ architecture STRUCTURE of Ch1_imp_1JE4URC is
     Divider : out STD_LOGIC_VECTOR ( 3 downto 0 );
     Gate : out STD_LOGIC;
     ForceCalibrate : out STD_LOGIC;
+    ValidPositionTap : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ValidNumberOfTdl : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    subInterpolationMatrix : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    Restart_Calibration : out STD_LOGIC;
+    Stop_Calibration : out STD_LOGIC;
+    bitTrn_Uncal_addr : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    bitTrn_Cal_dout : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    bitTrn_ReqSample : out STD_LOGIC_VECTOR ( 31 downto 0 );
     Calibrated : in STD_LOGIC;
     s00_axis_period_tvalid : in STD_LOGIC;
     s00_axis_period_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     write_reg : in STD_LOGIC_VECTOR ( 18 downto 0 );
+    write_debug_reg : in STD_LOGIC_VECTOR ( 73 downto 0 );
     read_reg : out STD_LOGIC_VECTOR ( 64 downto 0 )
   );
   end component design_1_TDCChannelSlice_1_0;
@@ -4505,13 +4545,22 @@ architecture STRUCTURE of Ch1_imp_1JE4URC is
   signal TDCChannelSlice_1_ForceCalibrate : STD_LOGIC;
   signal TDCChannelSlice_1_Gate : STD_LOGIC;
   signal TDCChannelSlice_1_StretchLength : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal TDCChannelSlice_1_ValidNumberOfTdl : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal TDCChannelSlice_1_ValidPositionTap : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal TDCChannelSlice_1_read_reg : STD_LOGIC_VECTOR ( 64 downto 0 );
   signal bitTrn_Cal_dout_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal clk_BB_1 : STD_LOGIC;
   signal clk_TDC_1 : STD_LOGIC;
   signal reset_TDC_1 : STD_LOGIC;
+  signal write_debug_reg_0_1 : STD_LOGIC_VECTOR ( 73 downto 0 );
   signal xlconstant_0_dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlslice_1_Dout : STD_LOGIC_VECTOR ( 18 downto 0 );
+  signal NLW_TDCChannelSlice_1_Restart_Calibration_UNCONNECTED : STD_LOGIC;
+  signal NLW_TDCChannelSlice_1_Stop_Calibration_UNCONNECTED : STD_LOGIC;
+  signal NLW_TDCChannelSlice_1_bitTrn_Cal_dout_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal NLW_TDCChannelSlice_1_bitTrn_ReqSample_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal NLW_TDCChannelSlice_1_bitTrn_Uncal_addr_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal NLW_TDCChannelSlice_1_subInterpolationMatrix_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
 begin
   BeltBus_TDL_Channel_1_M00_BB_TREADY <= M00_BB_tready;
   Calibrated <= BeltBus_TDL_Channel_TDC_1_Calibrated;
@@ -4531,6 +4580,7 @@ begin
   clk_TDC_1 <= clk_TDC;
   read_reg(64 downto 0) <= TDCChannelSlice_1_read_reg(64 downto 0);
   reset_TDC_1 <= reset_TDC;
+  write_debug_reg_0_1(73 downto 0) <= write_debug_reg_0(73 downto 0);
   xlslice_1_Dout(18 downto 0) <= write_reg(18 downto 0);
 BeltBus_TDL_Channel_1: entity work.design_1_BeltBus_TDL_Channel_1_0
      port map (
@@ -4548,6 +4598,8 @@ BeltBus_TDL_Channel_1: entity work.design_1_BeltBus_TDL_Channel_1_0
       S00_BB_tready => S00_BB_1_TREADY,
       S00_BB_tvalid => S00_BB_1_TVALID,
       Stop_Calibration => xlconstant_0_dout(0),
+      ValidNumberOfTDL(31 downto 0) => TDCChannelSlice_1_ValidNumberOfTdl(31 downto 0),
+      ValidPositionTap(31 downto 0) => TDCChannelSlice_1_ValidPositionTap(31 downto 0),
       bitTrn_Cal_dout(31 downto 0) => bitTrn_Cal_dout_1(31 downto 0),
       bitTrn_ReqSample(31 downto 0) => bitTrn_Cal_dout_1(31 downto 0),
       bitTrn_Uncal_addr(31 downto 0) => bitTrn_Cal_dout_1(31 downto 0),
@@ -4580,14 +4632,23 @@ TDCChannelSlice_1: component design_1_TDCChannelSlice_1_0
       EdgeTrigger => TDCChannelSlice_1_EdgeTrigger,
       ForceCalibrate => TDCChannelSlice_1_ForceCalibrate,
       Gate => TDCChannelSlice_1_Gate,
+      Restart_Calibration => NLW_TDCChannelSlice_1_Restart_Calibration_UNCONNECTED,
+      Stop_Calibration => NLW_TDCChannelSlice_1_Stop_Calibration_UNCONNECTED,
       StretchLength(2 downto 0) => TDCChannelSlice_1_StretchLength(2 downto 0),
+      ValidNumberOfTdl(31 downto 0) => TDCChannelSlice_1_ValidNumberOfTdl(31 downto 0),
+      ValidPositionTap(31 downto 0) => TDCChannelSlice_1_ValidPositionTap(31 downto 0),
       aclk => clk_BB_1,
+      bitTrn_Cal_dout(31 downto 0) => NLW_TDCChannelSlice_1_bitTrn_Cal_dout_UNCONNECTED(31 downto 0),
+      bitTrn_ReqSample(31 downto 0) => NLW_TDCChannelSlice_1_bitTrn_ReqSample_UNCONNECTED(31 downto 0),
+      bitTrn_Uncal_addr(31 downto 0) => NLW_TDCChannelSlice_1_bitTrn_Uncal_addr_UNCONNECTED(31 downto 0),
       clk_BB => clk_BB_1,
       clk_SYS => clk_BB_1,
       clk_TDC => clk_TDC_1,
       read_reg(64 downto 0) => TDCChannelSlice_1_read_reg(64 downto 0),
       s00_axis_period_tdata(31 downto 0) => B"00000000000000000000000000000000",
       s00_axis_period_tvalid => xlconstant_0_dout(0),
+      subInterpolationMatrix(31 downto 0) => NLW_TDCChannelSlice_1_subInterpolationMatrix_UNCONNECTED(31 downto 0),
+      write_debug_reg(73 downto 0) => write_debug_reg_0_1(73 downto 0),
       write_reg(18 downto 0) => xlslice_1_Dout(18 downto 0)
     );
 xlconstant_0: component design_1_xlconstant_0_0
@@ -4622,6 +4683,7 @@ entity Ch2_imp_1YIXUGT is
     clk_TDC : in STD_LOGIC;
     read_reg : out STD_LOGIC_VECTOR ( 64 downto 0 );
     reset_TDC : in STD_LOGIC;
+    write_debug_reg_0 : in STD_LOGIC_VECTOR ( 73 downto 0 );
     write_reg : in STD_LOGIC_VECTOR ( 18 downto 0 )
   );
 end Ch2_imp_1YIXUGT;
@@ -4654,10 +4716,19 @@ architecture STRUCTURE of Ch2_imp_1YIXUGT is
     Divider : out STD_LOGIC_VECTOR ( 3 downto 0 );
     Gate : out STD_LOGIC;
     ForceCalibrate : out STD_LOGIC;
+    ValidPositionTap : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ValidNumberOfTdl : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    subInterpolationMatrix : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    Restart_Calibration : out STD_LOGIC;
+    Stop_Calibration : out STD_LOGIC;
+    bitTrn_Uncal_addr : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    bitTrn_Cal_dout : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    bitTrn_ReqSample : out STD_LOGIC_VECTOR ( 31 downto 0 );
     Calibrated : in STD_LOGIC;
     s00_axis_period_tvalid : in STD_LOGIC;
     s00_axis_period_tdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
     write_reg : in STD_LOGIC_VECTOR ( 18 downto 0 );
+    write_debug_reg : in STD_LOGIC_VECTOR ( 73 downto 0 );
     read_reg : out STD_LOGIC_VECTOR ( 64 downto 0 )
   );
   end component design_1_TDCChannelSlice_2_0;
@@ -4690,13 +4761,22 @@ architecture STRUCTURE of Ch2_imp_1YIXUGT is
   signal TDCChannelSlice_2_ForceCalibrate : STD_LOGIC;
   signal TDCChannelSlice_2_Gate : STD_LOGIC;
   signal TDCChannelSlice_2_StretchLength : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal TDCChannelSlice_2_ValidNumberOfTdl : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal TDCChannelSlice_2_ValidPositionTap : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal TDCChannelSlice_2_read_reg : STD_LOGIC_VECTOR ( 64 downto 0 );
   signal bitTrn_Cal_dout_1 : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal clk_BB_1 : STD_LOGIC;
   signal clk_TDC_1 : STD_LOGIC;
   signal reset_TDC_1 : STD_LOGIC;
+  signal write_debug_reg_0_1 : STD_LOGIC_VECTOR ( 73 downto 0 );
   signal xlconstant_0_dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlslice_2_Dout : STD_LOGIC_VECTOR ( 18 downto 0 );
+  signal NLW_TDCChannelSlice_2_Restart_Calibration_UNCONNECTED : STD_LOGIC;
+  signal NLW_TDCChannelSlice_2_Stop_Calibration_UNCONNECTED : STD_LOGIC;
+  signal NLW_TDCChannelSlice_2_bitTrn_Cal_dout_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal NLW_TDCChannelSlice_2_bitTrn_ReqSample_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal NLW_TDCChannelSlice_2_bitTrn_Uncal_addr_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal NLW_TDCChannelSlice_2_subInterpolationMatrix_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
 begin
   Calibrated <= BeltBus_TDL_Channel_TDC_2_Calibrated;
   CoarseCounter_CTD_1(7 downto 0) <= CoarseCounter_CTD(7 downto 0);
@@ -4715,6 +4795,7 @@ begin
   clk_TDC_1 <= clk_TDC;
   read_reg(64 downto 0) <= TDCChannelSlice_2_read_reg(64 downto 0);
   reset_TDC_1 <= reset_TDC;
+  write_debug_reg_0_1(73 downto 0) <= write_debug_reg_0(73 downto 0);
   xlslice_2_Dout(18 downto 0) <= write_reg(18 downto 0);
 BeltBus_TDL_Channel_2: entity work.design_1_BeltBus_TDL_Channel_2_0
      port map (
@@ -4731,6 +4812,8 @@ BeltBus_TDL_Channel_2: entity work.design_1_BeltBus_TDL_Channel_2_0
       S00_BB_tready => S00_BB_1_TREADY,
       S00_BB_tvalid => S00_BB_1_TVALID,
       Stop_Calibration => xlconstant_0_dout(0),
+      ValidNumberOfTDL(31 downto 0) => TDCChannelSlice_2_ValidNumberOfTdl(31 downto 0),
+      ValidPositionTap(31 downto 0) => TDCChannelSlice_2_ValidPositionTap(31 downto 0),
       bitTrn_Cal_dout(31 downto 0) => bitTrn_Cal_dout_1(31 downto 0),
       bitTrn_ReqSample(31 downto 0) => bitTrn_Cal_dout_1(31 downto 0),
       bitTrn_Uncal_addr(31 downto 0) => bitTrn_Cal_dout_1(31 downto 0),
@@ -4763,14 +4846,23 @@ TDCChannelSlice_2: component design_1_TDCChannelSlice_2_0
       EdgeTrigger => TDCChannelSlice_2_EdgeTrigger,
       ForceCalibrate => TDCChannelSlice_2_ForceCalibrate,
       Gate => TDCChannelSlice_2_Gate,
+      Restart_Calibration => NLW_TDCChannelSlice_2_Restart_Calibration_UNCONNECTED,
+      Stop_Calibration => NLW_TDCChannelSlice_2_Stop_Calibration_UNCONNECTED,
       StretchLength(2 downto 0) => TDCChannelSlice_2_StretchLength(2 downto 0),
+      ValidNumberOfTdl(31 downto 0) => TDCChannelSlice_2_ValidNumberOfTdl(31 downto 0),
+      ValidPositionTap(31 downto 0) => TDCChannelSlice_2_ValidPositionTap(31 downto 0),
       aclk => clk_BB_1,
+      bitTrn_Cal_dout(31 downto 0) => NLW_TDCChannelSlice_2_bitTrn_Cal_dout_UNCONNECTED(31 downto 0),
+      bitTrn_ReqSample(31 downto 0) => NLW_TDCChannelSlice_2_bitTrn_ReqSample_UNCONNECTED(31 downto 0),
+      bitTrn_Uncal_addr(31 downto 0) => NLW_TDCChannelSlice_2_bitTrn_Uncal_addr_UNCONNECTED(31 downto 0),
       clk_BB => clk_BB_1,
       clk_SYS => clk_BB_1,
       clk_TDC => clk_TDC_1,
       read_reg(64 downto 0) => TDCChannelSlice_2_read_reg(64 downto 0),
       s00_axis_period_tdata(31 downto 0) => B"00000000000000000000000000000000",
       s00_axis_period_tvalid => xlconstant_0_dout(0),
+      subInterpolationMatrix(31 downto 0) => NLW_TDCChannelSlice_2_subInterpolationMatrix_UNCONNECTED(31 downto 0),
+      write_debug_reg(73 downto 0) => write_debug_reg_0_1(73 downto 0),
       write_reg(18 downto 0) => xlslice_2_Dout(18 downto 0)
     );
 xlconstant_0: component design_1_xlconstant_0_1
@@ -4806,6 +4898,7 @@ entity Sync_imp_ZFT08U is
     reset_TDC : in STD_LOGIC;
     sync_diff_ch_n : in STD_LOGIC;
     sync_diff_ch_p : in STD_LOGIC;
+    write_debug_reg_0 : in STD_LOGIC_VECTOR ( 73 downto 0 );
     write_reg : in STD_LOGIC_VECTOR ( 18 downto 0 )
   );
 end Sync_imp_ZFT08U;
@@ -4848,10 +4941,19 @@ architecture STRUCTURE of Sync_imp_ZFT08U is
     Divider : out STD_LOGIC_VECTOR ( 3 downto 0 );
     Gate : out STD_LOGIC;
     ForceCalibrate : out STD_LOGIC;
+    ValidPositionTap : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    ValidNumberOfTdl : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    subInterpolationMatrix : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    Restart_Calibration : out STD_LOGIC;
+    Stop_Calibration : out STD_LOGIC;
+    bitTrn_Uncal_addr : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    bitTrn_Cal_dout : out STD_LOGIC_VECTOR ( 31 downto 0 );
+    bitTrn_ReqSample : out STD_LOGIC_VECTOR ( 31 downto 0 );
     Calibrated : in STD_LOGIC;
     s00_axis_period_tvalid : in STD_LOGIC;
     s00_axis_period_tdata : in STD_LOGIC_VECTOR ( 39 downto 0 );
     write_reg : in STD_LOGIC_VECTOR ( 18 downto 0 );
+    write_debug_reg : in STD_LOGIC_VECTOR ( 73 downto 0 );
     read_reg : out STD_LOGIC_VECTOR ( 64 downto 0 )
   );
   end component design_1_TDCChannelSlice_0_0;
@@ -4902,6 +5004,8 @@ architecture STRUCTURE of Sync_imp_ZFT08U is
   signal TDCChannelSlice_0_ForceCalibrate : STD_LOGIC;
   signal TDCChannelSlice_0_Gate : STD_LOGIC;
   signal TDCChannelSlice_0_StretchLength : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal TDCChannelSlice_0_ValidNumberOfTdl : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal TDCChannelSlice_0_ValidPositionTap : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal TDCChannelSlice_0_read_reg : STD_LOGIC_VECTOR ( 64 downto 0 );
   signal axis_broadcaster_0_M00_AXIS_TDATA : STD_LOGIC_VECTOR ( 39 downto 0 );
   signal axis_broadcaster_0_M00_AXIS_TVALID : STD_LOGIC_VECTOR ( 0 to 0 );
@@ -4913,9 +5017,16 @@ architecture STRUCTURE of Sync_imp_ZFT08U is
   signal reset_0_1 : STD_LOGIC;
   signal reset_TDC_1 : STD_LOGIC;
   signal util_vector_logic_0_Res : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal write_debug_reg_0_1 : STD_LOGIC_VECTOR ( 73 downto 0 );
   signal xlconstant_0_dout : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlslice_0_Dout : STD_LOGIC_VECTOR ( 18 downto 0 );
   signal NLW_BeltBus_TDL_Channel_0_S00_BB_tready_UNCONNECTED : STD_LOGIC;
+  signal NLW_TDCChannelSlice_0_Restart_Calibration_UNCONNECTED : STD_LOGIC;
+  signal NLW_TDCChannelSlice_0_Stop_Calibration_UNCONNECTED : STD_LOGIC;
+  signal NLW_TDCChannelSlice_0_bitTrn_Cal_dout_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal NLW_TDCChannelSlice_0_bitTrn_ReqSample_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal NLW_TDCChannelSlice_0_bitTrn_Uncal_addr_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
+  signal NLW_TDCChannelSlice_0_subInterpolationMatrix_UNCONNECTED : STD_LOGIC_VECTOR ( 31 downto 0 );
 begin
   BeltBus_TDL_Channel_0_M00_BB_TREADY <= M00_BB_tready;
   Calibrated <= BeltBus_TDL_Channel_TDC_0_Calibrated;
@@ -4935,6 +5046,7 @@ begin
   read_reg(64 downto 0) <= TDCChannelSlice_0_read_reg(64 downto 0);
   reset_0_1 <= reset_0;
   reset_TDC_1 <= reset_TDC;
+  write_debug_reg_0_1(73 downto 0) <= write_debug_reg_0(73 downto 0);
   xlslice_0_Dout(18 downto 0) <= write_reg(18 downto 0);
 AXI4Stream_PeriodMet_0: component design_1_AXI4Stream_PeriodMet_0_0
      port map (
@@ -4963,6 +5075,8 @@ BeltBus_TDL_Channel_0: entity work.design_1_BeltBus_TDL_Channel_0_0
       S00_BB_tready => NLW_BeltBus_TDL_Channel_0_S00_BB_tready_UNCONNECTED,
       S00_BB_tvalid => '0',
       Stop_Calibration => xlconstant_0_dout(0),
+      ValidNumberOfTDL(31 downto 0) => TDCChannelSlice_0_ValidNumberOfTdl(31 downto 0),
+      ValidPositionTap(31 downto 0) => TDCChannelSlice_0_ValidPositionTap(31 downto 0),
       bitTrn_Cal_dout(31 downto 0) => bitTrn_Cal_dout_1(31 downto 0),
       bitTrn_ReqSample(31 downto 0) => bitTrn_Cal_dout_1(31 downto 0),
       bitTrn_Uncal_addr(31 downto 0) => bitTrn_Cal_dout_1(31 downto 0),
@@ -4995,14 +5109,23 @@ TDCChannelSlice_0: component design_1_TDCChannelSlice_0_0
       EdgeTrigger => TDCChannelSlice_0_EdgeTrigger,
       ForceCalibrate => TDCChannelSlice_0_ForceCalibrate,
       Gate => TDCChannelSlice_0_Gate,
+      Restart_Calibration => NLW_TDCChannelSlice_0_Restart_Calibration_UNCONNECTED,
+      Stop_Calibration => NLW_TDCChannelSlice_0_Stop_Calibration_UNCONNECTED,
       StretchLength(2 downto 0) => TDCChannelSlice_0_StretchLength(2 downto 0),
+      ValidNumberOfTdl(31 downto 0) => TDCChannelSlice_0_ValidNumberOfTdl(31 downto 0),
+      ValidPositionTap(31 downto 0) => TDCChannelSlice_0_ValidPositionTap(31 downto 0),
       aclk => clk_BB_1,
+      bitTrn_Cal_dout(31 downto 0) => NLW_TDCChannelSlice_0_bitTrn_Cal_dout_UNCONNECTED(31 downto 0),
+      bitTrn_ReqSample(31 downto 0) => NLW_TDCChannelSlice_0_bitTrn_ReqSample_UNCONNECTED(31 downto 0),
+      bitTrn_Uncal_addr(31 downto 0) => NLW_TDCChannelSlice_0_bitTrn_Uncal_addr_UNCONNECTED(31 downto 0),
       clk_BB => clk_BB_1,
       clk_SYS => clk_BB_1,
       clk_TDC => clk_TDC_1,
       read_reg(64 downto 0) => TDCChannelSlice_0_read_reg(64 downto 0),
       s00_axis_period_tdata(39 downto 0) => axis_broadcaster_0_M01_AXIS_TDATA(79 downto 40),
       s00_axis_period_tvalid => axis_broadcaster_0_M01_AXIS_TVALID(1),
+      subInterpolationMatrix(31 downto 0) => NLW_TDCChannelSlice_0_subInterpolationMatrix_UNCONNECTED(31 downto 0),
+      write_debug_reg(73 downto 0) => write_debug_reg_0_1(73 downto 0),
       write_reg(18 downto 0) => xlslice_0_Dout(18 downto 0)
     );
 axis_broadcaster_0: component design_1_axis_broadcaster_0_0
@@ -7690,6 +7813,7 @@ use UNISIM.VCOMPONENTS.ALL;
 entity TDC_imp_1FS8XU8 is
   port (
     Din : in STD_LOGIC_VECTOR ( 56 downto 0 );
+    Din_1 : in STD_LOGIC_VECTOR ( 221 downto 0 );
     M00_AXIS_tdata : out STD_LOGIC_VECTOR ( 39 downto 0 );
     M00_AXIS_tvalid : out STD_LOGIC;
     M00_BB_tdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -7780,6 +7904,24 @@ architecture STRUCTURE of TDC_imp_1FS8XU8 is
     Dout : out STD_LOGIC_VECTOR ( 18 downto 0 )
   );
   end component design_1_xlslice_2_0;
+  component design_1_xlslice_0_1 is
+  port (
+    Din : in STD_LOGIC_VECTOR ( 221 downto 0 );
+    Dout : out STD_LOGIC_VECTOR ( 73 downto 0 )
+  );
+  end component design_1_xlslice_0_1;
+  component design_1_xlslice_0_2 is
+  port (
+    Din : in STD_LOGIC_VECTOR ( 221 downto 0 );
+    Dout : out STD_LOGIC_VECTOR ( 73 downto 0 )
+  );
+  end component design_1_xlslice_0_2;
+  component design_1_xlslice_0_3 is
+  port (
+    Din : in STD_LOGIC_VECTOR ( 221 downto 0 );
+    Dout : out STD_LOGIC_VECTOR ( 73 downto 0 )
+  );
+  end component design_1_xlslice_0_3;
   signal BeltBus_TDL_Channel_0_M00_BB_TDATA : STD_LOGIC_VECTOR ( 31 downto 0 );
   signal BeltBus_TDL_Channel_0_M00_BB_TREADY : STD_LOGIC;
   signal BeltBus_TDL_Channel_0_M00_BB_TVALID : STD_LOGIC;
@@ -7811,6 +7953,7 @@ architecture STRUCTURE of TDC_imp_1FS8XU8 is
   signal Conn3_CH_P : STD_LOGIC;
   signal Conn4_TDATA : STD_LOGIC_VECTOR ( 39 downto 0 );
   signal Conn4_TVALID : STD_LOGIC;
+  signal Din_1_1 : STD_LOGIC_VECTOR ( 221 downto 0 );
   signal Net : STD_LOGIC_VECTOR ( 56 downto 0 );
   signal StartStopGenerator_0_StartOut : STD_LOGIC;
   signal StartStopGenerator_0_StopOut : STD_LOGIC;
@@ -7827,6 +7970,9 @@ architecture STRUCTURE of TDC_imp_1FS8XU8 is
   signal xlslice_0_Dout : STD_LOGIC_VECTOR ( 18 downto 0 );
   signal xlslice_1_Dout : STD_LOGIC_VECTOR ( 18 downto 0 );
   signal xlslice_2_Dout : STD_LOGIC_VECTOR ( 18 downto 0 );
+  signal xlslice_3_Dout : STD_LOGIC_VECTOR ( 73 downto 0 );
+  signal xlslice_4_Dout : STD_LOGIC_VECTOR ( 73 downto 0 );
+  signal xlslice_5_Dout : STD_LOGIC_VECTOR ( 73 downto 0 );
 begin
   Conn1_CH_N <= sync_diff_ch_n;
   Conn1_CH_P <= sync_diff_ch_p;
@@ -7834,6 +7980,7 @@ begin
   Conn2_CH_P <= ch1_diff_ch_p;
   Conn3_CH_N <= ch2_diff_ch_n;
   Conn3_CH_P <= ch2_diff_ch_p;
+  Din_1_1(221 downto 0) <= Din_1(221 downto 0);
   M00_AXIS_tdata(39 downto 0) <= Conn4_TDATA(39 downto 0);
   M00_AXIS_tvalid <= Conn4_TVALID;
   M00_BB_tdata(31 downto 0) <= BeltBus_TDL_Channel_2_M00_BB_TDATA(31 downto 0);
@@ -7873,6 +8020,7 @@ Ch1: entity work.Ch1_imp_1JE4URC
       clk_TDC => clk_TDC_1,
       read_reg(64 downto 0) => TDCChannelSlice_1_read_reg(64 downto 0),
       reset_TDC => reset_TDC_1(0),
+      write_debug_reg_0(73 downto 0) => xlslice_4_Dout(73 downto 0),
       write_reg(18 downto 0) => xlslice_1_Dout(18 downto 0)
     );
 Ch2: entity work.Ch2_imp_1YIXUGT
@@ -7894,6 +8042,7 @@ Ch2: entity work.Ch2_imp_1YIXUGT
       clk_TDC => clk_TDC_1,
       read_reg(64 downto 0) => TDCChannelSlice_2_read_reg(64 downto 0),
       reset_TDC => reset_TDC_1(0),
+      write_debug_reg_0(73 downto 0) => xlslice_5_Dout(73 downto 0),
       write_reg(18 downto 0) => xlslice_2_Dout(18 downto 0)
     );
 CoarseTreeDistributor_0: component design_1_CoarseTreeDistributor_0_0
@@ -7931,6 +8080,7 @@ Sync: entity work.Sync_imp_ZFT08U
       reset_TDC => reset_TDC_1(0),
       sync_diff_ch_n => Conn1_CH_N,
       sync_diff_ch_p => Conn1_CH_P,
+      write_debug_reg_0(73 downto 0) => xlslice_3_Dout(73 downto 0),
       write_reg(18 downto 0) => xlslice_0_Dout(18 downto 0)
     );
 util_vector_logic_0: component design_1_util_vector_logic_0_1
@@ -7970,6 +8120,21 @@ xlslice_2: component design_1_xlslice_2_0
      port map (
       Din(56 downto 0) => Net(56 downto 0),
       Dout(18 downto 0) => xlslice_2_Dout(18 downto 0)
+    );
+xlslice_3: component design_1_xlslice_0_1
+     port map (
+      Din(221 downto 0) => Din_1_1(221 downto 0),
+      Dout(73 downto 0) => xlslice_3_Dout(73 downto 0)
+    );
+xlslice_4: component design_1_xlslice_0_2
+     port map (
+      Din(221 downto 0) => Din_1_1(221 downto 0),
+      Dout(73 downto 0) => xlslice_4_Dout(73 downto 0)
+    );
+xlslice_5: component design_1_xlslice_0_3
+     port map (
+      Din(221 downto 0) => Din_1_1(221 downto 0),
+      Dout(73 downto 0) => xlslice_5_Dout(73 downto 0)
     );
 end STRUCTURE;
 library IEEE;
@@ -8093,7 +8258,8 @@ architecture STRUCTURE of TDC_Calib_imp_4BAZB9 is
     m00_axis_autopush_tready : in STD_LOGIC;
     MUX_sel : out STD_LOGIC_VECTOR ( 3 downto 0 );
     TDC_PROP_WPORT : out STD_LOGIC_VECTOR ( 56 downto 0 );
-    TDC_PROP_RPORT : in STD_LOGIC_VECTOR ( 194 downto 0 )
+    TDC_PROP_RPORT : in STD_LOGIC_VECTOR ( 194 downto 0 );
+    TDC_DEBUG_PROP_WPORT : out STD_LOGIC_VECTOR ( 221 downto 0 )
   );
   end component design_1_AXI4_TDC_Wrapper_0_0;
   component design_1_util_ds_buf_3_0 is
@@ -8116,6 +8282,7 @@ architecture STRUCTURE of TDC_Calib_imp_4BAZB9 is
   signal AXI4_TDC_Wrapper_0_M00_AXIS_Autopush_TREADY : STD_LOGIC_VECTOR ( 0 to 0 );
   signal AXI4_TDC_Wrapper_0_M00_AXIS_Autopush_TVALID : STD_LOGIC;
   signal AXI4_TDC_Wrapper_0_MUX_sel : STD_LOGIC_VECTOR ( 3 downto 0 );
+  signal AXI4_TDC_Wrapper_0_TDC_DEBUG_PROP_WPORT : STD_LOGIC_VECTOR ( 221 downto 0 );
   signal AXI4_TDC_Wrapper_0_TDC_PROP_WPORT : STD_LOGIC_VECTOR ( 56 downto 0 );
   signal Conn3_TDATA : STD_LOGIC_VECTOR ( 39 downto 0 );
   signal Conn3_TVALID : STD_LOGIC;
@@ -8246,6 +8413,7 @@ AXI4Stream_MuxDebugg_0: component design_1_AXI4Stream_MuxDebugg_0_0
 AXI4_TDC_Wrapper_0: component design_1_AXI4_TDC_Wrapper_0_0
      port map (
       MUX_sel(3 downto 0) => AXI4_TDC_Wrapper_0_MUX_sel(3 downto 0),
+      TDC_DEBUG_PROP_WPORT(221 downto 0) => AXI4_TDC_Wrapper_0_TDC_DEBUG_PROP_WPORT(221 downto 0),
       TDC_PROP_RPORT(194 downto 0) => TDC_dout(194 downto 0),
       TDC_PROP_WPORT(56 downto 0) => AXI4_TDC_Wrapper_0_TDC_PROP_WPORT(56 downto 0),
       aclk => clk_wiz_0_clk_out1,
@@ -8291,6 +8459,7 @@ AXI4_TDC_Wrapper_0: component design_1_AXI4_TDC_Wrapper_0_0
 TDC: entity work.TDC_imp_1FS8XU8
      port map (
       Din(56 downto 0) => AXI4_TDC_Wrapper_0_TDC_PROP_WPORT(56 downto 0),
+      Din_1(221 downto 0) => AXI4_TDC_Wrapper_0_TDC_DEBUG_PROP_WPORT(221 downto 0),
       M00_AXIS_tdata(39 downto 0) => Conn3_TDATA(39 downto 0),
       M00_AXIS_tvalid => Conn3_TVALID,
       M00_BB_tdata(31 downto 0) => TDC_M00_BB_TDATA(31 downto 0),
@@ -8383,7 +8552,7 @@ entity design_1 is
     tdc_diff_clock_clk_p : in STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of design_1 : entity is "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=112,numReposBlks=83,numNonXlnxBlks=49,numHierBlks=29,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}";
+  attribute CORE_GENERATION_INFO of design_1 : entity is "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=115,numReposBlks=86,numNonXlnxBlks=49,numHierBlks=29,maxHierDepth=3,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=0,numPkgbdBlks=0,bdsource=USER,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of design_1 : entity is "design_1.hwdef";
 end design_1;
@@ -8662,8 +8831,8 @@ architecture STRUCTURE of design_1 is
     clk_in1_p : in STD_LOGIC;
     clk_in1_n : in STD_LOGIC;
     clk_out1 : out STD_LOGIC;
-    locked : out STD_LOGIC;
-    clk_out2 : out STD_LOGIC
+    clk_out2 : out STD_LOGIC;
+    locked : out STD_LOGIC
   );
   end component design_1_clk_wiz_0_0;
   component design_1_clk_wiz_1_0 is

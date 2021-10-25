@@ -59,7 +59,9 @@ ENTITY design_1_AXI4Stream_X7S_VirtualTDL_0_1 IS
     clk : IN STD_LOGIC;
     AsyncInput : IN STD_LOGIC;
     m00_axis_undeco_tvalid : OUT STD_LOGIC;
-    m00_axis_undeco_tdata : OUT STD_LOGIC_VECTOR(1023 DOWNTO 0)
+    m00_axis_undeco_tdata : OUT STD_LOGIC_VECTOR(1023 DOWNTO 0);
+    ValidPositionTap : IN STD_LOGIC_VECTOR(31 DOWNTO 0);
+    ValidNumberOfTdl : IN STD_LOGIC_VECTOR(31 DOWNTO 0)
   );
 END design_1_AXI4Stream_X7S_VirtualTDL_0_1;
 
@@ -134,6 +136,10 @@ ARCHITECTURE design_1_AXI4Stream_X7S_VirtualTDL_0_1_arch OF design_1_AXI4Stream_
   ATTRIBUTE IP_DEFINITION_SOURCE OF design_1_AXI4Stream_X7S_VirtualTDL_0_1_arch: ARCHITECTURE IS "package_project";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
+  ATTRIBUTE X_INTERFACE_PARAMETER OF ValidNumberOfTdl: SIGNAL IS "XIL_INTERFACENAME ValidNumberOfTdl, LAYERED_METADATA undef";
+  ATTRIBUTE X_INTERFACE_INFO OF ValidNumberOfTdl: SIGNAL IS "xilinx.com:signal:data:1.0 ValidNumberOfTdl DATA";
+  ATTRIBUTE X_INTERFACE_PARAMETER OF ValidPositionTap: SIGNAL IS "XIL_INTERFACENAME ValidPositionTap, LAYERED_METADATA undef";
+  ATTRIBUTE X_INTERFACE_INFO OF ValidPositionTap: SIGNAL IS "xilinx.com:signal:data:1.0 ValidPositionTap DATA";
   ATTRIBUTE X_INTERFACE_INFO OF m00_axis_undeco_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 M00_AXIS_Undeco TDATA";
   ATTRIBUTE X_INTERFACE_PARAMETER OF m00_axis_undeco_tvalid: SIGNAL IS "XIL_INTERFACENAME M00_AXIS_Undeco, TDATA_NUM_BYTES 128, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 416666666, PHASE 0.000, CLK_DOMAIN design_1_util_ds_buf_3_0_IBUF_OUT, LAYERED_METADATA undef, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF m00_axis_undeco_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 M00_AXIS_Undeco TVALID";
@@ -162,7 +168,7 @@ BEGIN
       TYPE_TDL_13 => "C",
       TYPE_TDL_14 => "C",
       TYPE_TDL_15 => "C",
-      DEBUG_MODE => false,
+      DEBUG_MODE => true,
       SIM_VS_IMP => "IMP",
       FILE_PATH_NAME_CO_DELAY => "/home/nicola/Documents/Vivado/Projects/Time-to-Digital_Converter/TappedDelayLine/TappedDelayLine.srcs/sim_1/new/CO_O_Delay.txt",
       FILE_PATH_NAME_O_DELAY => "/home/nicola/Documents/Vivado/Projects/Time-to-Digital_Converter/TappedDelayLine/TappedDelayLine.srcs/sim_1/new/CO_O_Delay.txt",
@@ -200,7 +206,7 @@ BEGIN
       AsyncInput => AsyncInput,
       m00_axis_undeco_tvalid => m00_axis_undeco_tvalid,
       m00_axis_undeco_tdata => m00_axis_undeco_tdata,
-      ValidPositionTap => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 32)),
-      ValidNumberOfTdl => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 32))
+      ValidPositionTap => ValidPositionTap,
+      ValidNumberOfTdl => ValidNumberOfTdl
     );
 END design_1_AXI4Stream_X7S_VirtualTDL_0_1_arch;

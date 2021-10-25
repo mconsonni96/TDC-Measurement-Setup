@@ -96,7 +96,8 @@ ENTITY design_1_AXI4_TDC_Wrapper_0_0 IS
     m00_axis_autopush_tready : IN STD_LOGIC;
     MUX_sel : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
     TDC_PROP_WPORT : OUT STD_LOGIC_VECTOR(56 DOWNTO 0);
-    TDC_PROP_RPORT : IN STD_LOGIC_VECTOR(194 DOWNTO 0)
+    TDC_PROP_RPORT : IN STD_LOGIC_VECTOR(194 DOWNTO 0);
+    TDC_DEBUG_PROP_WPORT : OUT STD_LOGIC_VECTOR(221 DOWNTO 0)
   );
 END design_1_AXI4_TDC_Wrapper_0_0;
 
@@ -275,7 +276,7 @@ BEGIN
       PW_StretcherLength => 3,
       PW_Divider => 4,
       TDC_CH_DEBUG_WPORT_WIDTH => 74,
-      TDC_ENABLE_DEBUG_PORTS => false,
+      TDC_ENABLE_DEBUG_PORTS => true,
       TDC_DISABLE_DEBUG_PORTS_READOUT => false,
       DEF_SYNC_EDGETRIGGER => "RISE",
       DEF_SYNC_STRETCHERLENGTH => 1,
@@ -333,6 +334,7 @@ BEGIN
       m00_axis_autopush_tready => m00_axis_autopush_tready,
       MUX_sel => MUX_sel,
       TDC_PROP_WPORT => TDC_PROP_WPORT,
-      TDC_PROP_RPORT => TDC_PROP_RPORT
+      TDC_PROP_RPORT => TDC_PROP_RPORT,
+      TDC_DEBUG_PROP_WPORT => TDC_DEBUG_PROP_WPORT
     );
 END design_1_AXI4_TDC_Wrapper_0_0_arch;

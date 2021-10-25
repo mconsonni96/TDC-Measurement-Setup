@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date             : Thu Oct 21 18:01:27 2021
+| Date             : Mon Oct 25 11:47:54 2021
 | Host             : mconsonni-All-Series running 64-bit Ubuntu 20.04.3 LTS
 | Command          : report_power -file design_1_wrapper_power_routed.rpt -pb design_1_wrapper_power_summary_routed.pb -rpx design_1_wrapper_power_routed.rpx
 | Design           : design_1_wrapper
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 1.605        |
+| Total On-Chip Power (W)  | 1.945        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 1.488        |
-| Device Static (W)        | 0.117        |
+| Dynamic (W)              | 1.827        |
+| Device Static (W)        | 0.118        |
 | Effective TJA (C/W)      | 4.6          |
-| Max Ambient (C)          | 77.6         |
-| Junction Temperature (C) | 32.4         |
+| Max Ambient (C)          | 76.1         |
+| Junction Temperature (C) | 33.9         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,24 +52,24 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.254 |       19 |       --- |             --- |
-| Slice Logic              |     0.503 |    59693 |       --- |             --- |
-|   LUT as Logic           |     0.398 |    20512 |     63400 |           32.35 |
-|   CARRY4                 |     0.054 |     2151 |     15850 |           13.57 |
-|   Register               |     0.050 |    27767 |    126800 |           21.90 |
-|   LUT as Distributed RAM |     0.001 |      608 |     19000 |            3.20 |
-|   F7/F8 Muxes            |    <0.001 |      385 |     63400 |            0.61 |
-|   LUT as Shift Register  |    <0.001 |      389 |     19000 |            2.05 |
+| Clocks                   |     0.280 |       19 |       --- |             --- |
+| Slice Logic              |     0.587 |    74758 |       --- |             --- |
+|   LUT as Logic           |     0.476 |    26199 |     63400 |           41.32 |
+|   CARRY4                 |     0.054 |     2153 |     15850 |           13.58 |
+|   Register               |     0.050 |    33321 |    126800 |           26.28 |
+|   F7/F8 Muxes            |     0.006 |     4007 |     63400 |            6.32 |
+|   LUT as Distributed RAM |    <0.001 |      608 |     19000 |            3.20 |
+|   LUT as Shift Register  |    <0.001 |      391 |     19000 |            2.06 |
 |   BUFG                   |    <0.001 |        2 |        32 |            6.25 |
-|   Others                 |     0.000 |     3062 |       --- |             --- |
-| Signals                  |     0.332 |    40353 |       --- |             --- |
+|   Others                 |     0.000 |     3065 |       --- |             --- |
+| Signals                  |     0.561 |    48070 |       --- |             --- |
 | Block RAM                |     0.148 |     69.5 |       135 |           51.48 |
 | MMCM                     |     0.217 |        2 |         6 |           33.33 |
 | DSPs                     |    <0.001 |        1 |       240 |            0.42 |
 | I/O                      |     0.032 |       42 |       170 |           24.71 |
 | XADC                     |     0.002 |        1 |       --- |             --- |
-| Static Power             |     0.117 |          |           |                 |
-| Total                    |     1.605 |          |           |                 |
+| Static Power             |     0.118 |          |           |                 |
+| Total                    |     1.945 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -79,7 +79,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     1.251 |       1.229 |      0.022 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     1.591 |       1.568 |      0.023 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.144 |       0.126 |      0.019 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.005 |       0.001 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.010 |       0.006 |      0.004 |       NA    | Unspecified | NA         |
@@ -162,8 +162,8 @@ Table of Contents
 +-------------------------------+-----------+
 | Name                          | Power (W) |
 +-------------------------------+-----------+
-| design_1_wrapper              |     1.488 |
-|   design_1_i                  |     1.483 |
+| design_1_wrapper              |     1.827 |
+|   design_1_i                  |     1.822 |
 |     AXI4Stream_FT245Sync_0    |     0.004 |
 |       U0                      |     0.004 |
 |     BeltBus_LedCounter_0      |     0.005 |
@@ -174,10 +174,10 @@ Table of Contents
 |       U0                      |     0.078 |
 |     BeltBus_TDCHistogrammer_1 |     0.078 |
 |       U0                      |     0.078 |
-|     BeltBus_TTM_0             |     0.020 |
-|       U0                      |     0.020 |
-|     BitstreamUpdater_QSPI     |     0.014 |
-|       axi_quad_spi_0          |     0.010 |
+|     BeltBus_TTM_0             |     0.019 |
+|       U0                      |     0.019 |
+|     BitstreamUpdater_QSPI     |     0.015 |
+|       axi_quad_spi_0          |     0.011 |
 |       qspi_programmer_0       |     0.003 |
 |     IIC                       |     0.003 |
 |       AXI4_AXIToIIC_0         |     0.001 |
@@ -186,9 +186,9 @@ Table of Contents
 |       U0                      |     0.026 |
 |     Master                    |     0.002 |
 |       axi_bram_ctrl_0_bram    |     0.001 |
-|     TDC_Calib                 |     1.013 |
-|       AXI4_TDC_Wrapper_0      |     0.006 |
-|       TDC                     |     1.000 |
+|     TDC_Calib                 |     1.352 |
+|       AXI4_TDC_Wrapper_0      |     0.034 |
+|       TDC                     |     1.312 |
 |       util_ds_buf_3           |     0.006 |
 |     axi_interconnect_0        |     0.011 |
 |       m01_couplers            |     0.002 |

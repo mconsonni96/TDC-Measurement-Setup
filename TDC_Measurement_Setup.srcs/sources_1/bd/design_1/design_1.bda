@@ -21,9 +21,81 @@
   <key attr.name="vert_type" attr.type="string" for="node" id="VT"/>
   <graph edgedefault="undirected" id="G" parse.edgeids="canonical" parse.nodeids="canonical" parse.order="nodesfirst">
     <node id="n0">
-      <data key="BA">0x200000</data>
+      <data key="BA">0x40800000</data>
       <data key="BP">C_BASEADDR</data>
-      <data key="HA">0x3FFFFF</data>
+      <data key="HA">0x4080FFFF</data>
+      <data key="HP">C_HIGHADDR</data>
+      <data key="MA">M00_AXI</data>
+      <data key="MX">/IIC/AXI4_AXIToIIC_0</data>
+      <data key="MI">M00_AXI</data>
+      <data key="MS">SEG_axi_iic_0_Reg</data>
+      <data key="MV">DigiLAB:ip:AXI4_AXIToIIC:2.0</data>
+      <data key="TM">both</data>
+      <data key="SX">/IIC/axi_iic_0</data>
+      <data key="SI">S_AXI</data>
+      <data key="SS">Reg</data>
+      <data key="SV">xilinx.com:ip:axi_iic:2.0</data>
+      <data key="TU">register</data>
+      <data key="VT">AC</data>
+    </node>
+    <node id="n1">
+      <data key="BA">0x0</data>
+      <data key="BP">C_S_AXI_BASEADDR</data>
+      <data key="HA">0xFFF</data>
+      <data key="HP">C_S_AXI_HIGHADDR</data>
+      <data key="MA">Data_S2MM</data>
+      <data key="MX">/MME_0/axi_datamover_0</data>
+      <data key="MI">M_AXI_S2MM</data>
+      <data key="MS">Reg</data>
+      <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
+      <data key="TM">both</data>
+      <data key="SX">/Master/axi_bram_ctrl_0</data>
+      <data key="SI">S_AXI</data>
+      <data key="SS">Mem0</data>
+      <data key="SV">xilinx.com:ip:axi_bram_ctrl:4.1</data>
+      <data key="TU">memory</data>
+      <data key="VT">AC</data>
+    </node>
+    <node id="n2">
+      <data key="BA">0x44A10000</data>
+      <data key="BP">C_S00_AXI_BASEADDRESS</data>
+      <data key="HA">0x44A1FFFF</data>
+      <data key="HP">C_S00_AXI_HIGHADDRESS</data>
+      <data key="MA">Data_S2MM</data>
+      <data key="MX">/MME_0/axi_datamover_0</data>
+      <data key="MI">M_AXI_S2MM</data>
+      <data key="MS">Reg</data>
+      <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
+      <data key="TM">both</data>
+      <data key="SX">/BeltBus_TDCHistogrammer_0</data>
+      <data key="SI">S00_AXI</data>
+      <data key="SS">reg0</data>
+      <data key="SV">DigiLAB:ip:BeltBus_TDCHistogrammer:5.0</data>
+      <data key="TU">register</data>
+      <data key="VT">AC</data>
+    </node>
+    <node id="n3">
+      <data key="BA">0x44A30000</data>
+      <data key="BP">C_BASEADDR</data>
+      <data key="HA">0x44A3FFFF</data>
+      <data key="HP">C_HIGHADDR</data>
+      <data key="MA">Data_S2MM</data>
+      <data key="MX">/MME_0/axi_datamover_0</data>
+      <data key="MI">M_AXI_S2MM</data>
+      <data key="MS">Reg</data>
+      <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
+      <data key="TM">both</data>
+      <data key="SX">/BitstreamUpdater_QSPI/AXI4_BitstreamUpdater_0</data>
+      <data key="SI">S00_AXI</data>
+      <data key="SS">reg0</data>
+      <data key="SV">DigiLAB:ip:AXI4_BitstreamUpdater:3.0</data>
+      <data key="TU">register</data>
+      <data key="VT">AC</data>
+    </node>
+    <node id="n4">
+      <data key="BA">0x44A40000</data>
+      <data key="BP">C_BASEADDR</data>
+      <data key="HA">0x44A4FFFF</data>
       <data key="HP">C_HIGHADDR</data>
       <data key="MA">Data_MM2S</data>
       <data key="MX">/MME_0/axi_datamover_0</data>
@@ -31,14 +103,14 @@
       <data key="MS">Reg</data>
       <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
       <data key="TM">both</data>
-      <data key="SX">/IIC/AXI4_AXIToIIC_0</data>
+      <data key="SX">/TDC_Calib/AXI4_TDC_Wrapper_0</data>
       <data key="SI">S00_AXI</data>
       <data key="SS">reg0</data>
-      <data key="SV">DigiLAB:ip:AXI4_AXIToIIC:2.0</data>
+      <data key="SV">DigiLAB:ip:AXI4_TDC_Wrapper:5.0</data>
       <data key="TU">register</data>
       <data key="VT">AC</data>
     </node>
-    <node id="n1">
+    <node id="n5">
       <data key="BA">0x44A30000</data>
       <data key="BP">C_BASEADDR</data>
       <data key="HA">0x44A3FFFF</data>
@@ -55,65 +127,6 @@
       <data key="SV">DigiLAB:ip:AXI4_BitstreamUpdater:3.0</data>
       <data key="TU">register</data>
       <data key="VT">AC</data>
-    </node>
-    <node id="n2">
-      <data key="BA">0x44A20000</data>
-      <data key="BP">C_S00_AXI_BASEADDRESS</data>
-      <data key="HA">0x44A2FFFF</data>
-      <data key="HP">C_S00_AXI_HIGHADDRESS</data>
-      <data key="MA">Data_MM2S</data>
-      <data key="MX">/MME_0/axi_datamover_0</data>
-      <data key="MI">M_AXI_MM2S</data>
-      <data key="MS">Reg</data>
-      <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
-      <data key="TM">both</data>
-      <data key="SX">/BeltBus_TDCHistogrammer_1</data>
-      <data key="SI">S00_AXI</data>
-      <data key="SS">reg0</data>
-      <data key="SV">DigiLAB:ip:BeltBus_TDCHistogrammer:5.0</data>
-      <data key="TU">register</data>
-      <data key="VT">AC</data>
-    </node>
-    <node id="n3">
-      <data key="BA">0x44A60000</data>
-      <data key="BP">C_BASEADDR</data>
-      <data key="HA">0x44A6FFFF</data>
-      <data key="HP">C_HIGHADDR</data>
-      <data key="MA">Data_S2MM</data>
-      <data key="MX">/MME_0/axi_datamover_0</data>
-      <data key="MI">M_AXI_S2MM</data>
-      <data key="MS">Reg</data>
-      <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
-      <data key="TM">both</data>
-      <data key="SX">/BeltBus_TTM_0</data>
-      <data key="SI">S00_AXI</data>
-      <data key="SS">reg0</data>
-      <data key="SV">DigiLAB:ip:BeltBus_TTM:2.0</data>
-      <data key="TU">register</data>
-      <data key="VT">AC</data>
-    </node>
-    <node id="n4">
-      <data key="BA">0x44A00000</data>
-      <data key="BP">C_S00_AXI_ADDR_ABS</data>
-      <data key="HA">0x44A0FFFF</data>
-      <data key="HP">C_S00_AXI_HIGH_ADDR</data>
-      <data key="MA">Data_MM2S</data>
-      <data key="MX">/MME_0/axi_datamover_0</data>
-      <data key="MI">M_AXI_MM2S</data>
-      <data key="MS">Reg</data>
-      <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
-      <data key="TM">both</data>
-      <data key="SX">/BeltBus_TDCCounter_0</data>
-      <data key="SI">S00_AXI</data>
-      <data key="SS">MAIN</data>
-      <data key="SV">DigiLAB:ip:BeltBus_TDCCounter:2.0</data>
-      <data key="TU">register</data>
-      <data key="VT">AC</data>
-    </node>
-    <node id="n5">
-      <data key="VH">2</data>
-      <data key="VM">design_1</data>
-      <data key="VT">VR</data>
     </node>
     <node id="n6">
       <data key="BA">0x44A00000</data>
@@ -134,65 +147,6 @@
       <data key="VT">AC</data>
     </node>
     <node id="n7">
-      <data key="TU">active</data>
-      <data key="VH">2</data>
-      <data key="VT">PM</data>
-    </node>
-    <node id="n8">
-      <data key="BA">0x200000</data>
-      <data key="BP">C_BASEADDR</data>
-      <data key="HA">0x3FFFFF</data>
-      <data key="HP">C_HIGHADDR</data>
-      <data key="MA">Data_S2MM</data>
-      <data key="MX">/MME_0/axi_datamover_0</data>
-      <data key="MI">M_AXI_S2MM</data>
-      <data key="MS">Reg</data>
-      <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
-      <data key="TM">both</data>
-      <data key="SX">/IIC/AXI4_AXIToIIC_0</data>
-      <data key="SI">S00_AXI</data>
-      <data key="SS">reg0</data>
-      <data key="SV">DigiLAB:ip:AXI4_AXIToIIC:2.0</data>
-      <data key="TU">register</data>
-      <data key="VT">AC</data>
-    </node>
-    <node id="n9">
-      <data key="BA">0x44A40000</data>
-      <data key="BP">C_BASEADDR</data>
-      <data key="HA">0x44A4FFFF</data>
-      <data key="HP">C_HIGHADDR</data>
-      <data key="MA">Data_MM2S</data>
-      <data key="MX">/MME_0/axi_datamover_0</data>
-      <data key="MI">M_AXI_MM2S</data>
-      <data key="MS">Reg</data>
-      <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
-      <data key="TM">both</data>
-      <data key="SX">/TDC_Calib/AXI4_TDC_Wrapper_0</data>
-      <data key="SI">S00_AXI</data>
-      <data key="SS">reg0</data>
-      <data key="SV">DigiLAB:ip:AXI4_TDC_Wrapper:5.0</data>
-      <data key="TU">register</data>
-      <data key="VT">AC</data>
-    </node>
-    <node id="n10">
-      <data key="BA">0x44A20000</data>
-      <data key="BP">C_S00_AXI_BASEADDRESS</data>
-      <data key="HA">0x44A2FFFF</data>
-      <data key="HP">C_S00_AXI_HIGHADDRESS</data>
-      <data key="MA">Data_S2MM</data>
-      <data key="MX">/MME_0/axi_datamover_0</data>
-      <data key="MI">M_AXI_S2MM</data>
-      <data key="MS">Reg</data>
-      <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
-      <data key="TM">both</data>
-      <data key="SX">/BeltBus_TDCHistogrammer_1</data>
-      <data key="SI">S00_AXI</data>
-      <data key="SS">reg0</data>
-      <data key="SV">DigiLAB:ip:BeltBus_TDCHistogrammer:5.0</data>
-      <data key="TU">register</data>
-      <data key="VT">AC</data>
-    </node>
-    <node id="n11">
       <data key="BA">0x0</data>
       <data key="BP">C_S_AXI_BASEADDR</data>
       <data key="HA">0xFFF</data>
@@ -210,25 +164,7 @@
       <data key="TU">memory</data>
       <data key="VT">AC</data>
     </node>
-    <node id="n12">
-      <data key="BA">0x44A60000</data>
-      <data key="BP">C_BASEADDR</data>
-      <data key="HA">0x44A6FFFF</data>
-      <data key="HP">C_HIGHADDR</data>
-      <data key="MA">Data_MM2S</data>
-      <data key="MX">/MME_0/axi_datamover_0</data>
-      <data key="MI">M_AXI_MM2S</data>
-      <data key="MS">Reg</data>
-      <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
-      <data key="TM">both</data>
-      <data key="SX">/BeltBus_TTM_0</data>
-      <data key="SI">S00_AXI</data>
-      <data key="SS">reg0</data>
-      <data key="SV">DigiLAB:ip:BeltBus_TTM:2.0</data>
-      <data key="TU">register</data>
-      <data key="VT">AC</data>
-    </node>
-    <node id="n13">
+    <node id="n8">
       <data key="BA">0x44A00000</data>
       <data key="BP">C_S00_AXI_ADDR_ABS</data>
       <data key="HA">0x44A0FFFF</data>
@@ -246,14 +182,77 @@
       <data key="TU">register</data>
       <data key="VT">AC</data>
     </node>
+    <node id="n9">
+      <data key="VM">design_1</data>
+      <data key="VT">BC</data>
+    </node>
+    <node id="n10">
+      <data key="BA">0x200000</data>
+      <data key="BP">C_BASEADDR</data>
+      <data key="HA">0x3FFFFF</data>
+      <data key="HP">C_HIGHADDR</data>
+      <data key="MA">Data_MM2S</data>
+      <data key="MX">/MME_0/axi_datamover_0</data>
+      <data key="MI">M_AXI_MM2S</data>
+      <data key="MS">Reg</data>
+      <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
+      <data key="TM">both</data>
+      <data key="SX">/IIC/AXI4_AXIToIIC_0</data>
+      <data key="SI">S00_AXI</data>
+      <data key="SS">reg0</data>
+      <data key="SV">DigiLAB:ip:AXI4_AXIToIIC:2.0</data>
+      <data key="TU">register</data>
+      <data key="VT">AC</data>
+    </node>
+    <node id="n11">
+      <data key="VH">2</data>
+      <data key="VM">design_1</data>
+      <data key="VT">VR</data>
+    </node>
+    <node id="n12">
+      <data key="BA">0x44A50000</data>
+      <data key="BP">C_BASEADDR</data>
+      <data key="HA">0x44A5FFFF</data>
+      <data key="HP">C_HIGHADDR</data>
+      <data key="MA">Data_MM2S</data>
+      <data key="MX">/MME_0/axi_datamover_0</data>
+      <data key="MI">M_AXI_MM2S</data>
+      <data key="MS">Reg</data>
+      <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
+      <data key="TM">both</data>
+      <data key="SX">/xadc_wiz_0</data>
+      <data key="SI">s_axi_lite</data>
+      <data key="SS">Reg</data>
+      <data key="SV">xilinx.com:ip:xadc_wiz:3.3</data>
+      <data key="TU">register</data>
+      <data key="VT">AC</data>
+    </node>
+    <node id="n13">
+      <data key="BA">0x200000</data>
+      <data key="BP">C_BASEADDR</data>
+      <data key="HA">0x3FFFFF</data>
+      <data key="HP">C_HIGHADDR</data>
+      <data key="MA">Data_S2MM</data>
+      <data key="MX">/MME_0/axi_datamover_0</data>
+      <data key="MI">M_AXI_S2MM</data>
+      <data key="MS">Reg</data>
+      <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
+      <data key="TM">both</data>
+      <data key="SX">/IIC/AXI4_AXIToIIC_0</data>
+      <data key="SI">S00_AXI</data>
+      <data key="SS">reg0</data>
+      <data key="SV">DigiLAB:ip:AXI4_AXIToIIC:2.0</data>
+      <data key="TU">register</data>
+      <data key="VT">AC</data>
+    </node>
     <node id="n14">
       <data key="BA">0x44A10000</data>
       <data key="BP">C_S00_AXI_BASEADDRESS</data>
       <data key="HA">0x44A1FFFF</data>
       <data key="HP">C_S00_AXI_HIGHADDRESS</data>
-      <data key="MA">Data_S2MM</data>
+      <data key="MA">Data_MM2S</data>
       <data key="MX">/MME_0/axi_datamover_0</data>
-      <data key="MI">M_AXI_S2MM</data>
+      <data key="MI">M_AXI_MM2S</data>
       <data key="MS">Reg</data>
       <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
       <data key="TM">both</data>
@@ -265,9 +264,9 @@
       <data key="VT">AC</data>
     </node>
     <node id="n15">
-      <data key="BA">0x44A30000</data>
+      <data key="BA">0x44A60000</data>
       <data key="BP">C_BASEADDR</data>
-      <data key="HA">0x44A3FFFF</data>
+      <data key="HA">0x44A6FFFF</data>
       <data key="HP">C_HIGHADDR</data>
       <data key="MA">Data_S2MM</data>
       <data key="MX">/MME_0/axi_datamover_0</data>
@@ -275,14 +274,109 @@
       <data key="MS">Reg</data>
       <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
       <data key="TM">both</data>
-      <data key="SX">/BitstreamUpdater_QSPI/AXI4_BitstreamUpdater_0</data>
+      <data key="SX">/BeltBus_TTM_0</data>
       <data key="SI">S00_AXI</data>
       <data key="SS">reg0</data>
-      <data key="SV">DigiLAB:ip:AXI4_BitstreamUpdater:3.0</data>
+      <data key="SV">DigiLAB:ip:BeltBus_TTM:2.0</data>
       <data key="TU">register</data>
       <data key="VT">AC</data>
     </node>
     <node id="n16">
+      <data key="TU">active</data>
+      <data key="VH">2</data>
+      <data key="VT">PM</data>
+    </node>
+    <node id="n17">
+      <data key="BA">0x44A20000</data>
+      <data key="BP">C_S00_AXI_BASEADDRESS</data>
+      <data key="HA">0x44A2FFFF</data>
+      <data key="HP">C_S00_AXI_HIGHADDRESS</data>
+      <data key="MA">Data_S2MM</data>
+      <data key="MX">/MME_0/axi_datamover_0</data>
+      <data key="MI">M_AXI_S2MM</data>
+      <data key="MS">Reg</data>
+      <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
+      <data key="TM">both</data>
+      <data key="SX">/BeltBus_TDCHistogrammer_1</data>
+      <data key="SI">S00_AXI</data>
+      <data key="SS">reg0</data>
+      <data key="SV">DigiLAB:ip:BeltBus_TDCHistogrammer:5.0</data>
+      <data key="TU">register</data>
+      <data key="VT">AC</data>
+    </node>
+    <node id="n18">
+      <data key="BA">0x44A20000</data>
+      <data key="BP">C_S00_AXI_BASEADDRESS</data>
+      <data key="HA">0x44A2FFFF</data>
+      <data key="HP">C_S00_AXI_HIGHADDRESS</data>
+      <data key="MA">Data_MM2S</data>
+      <data key="MX">/MME_0/axi_datamover_0</data>
+      <data key="MI">M_AXI_MM2S</data>
+      <data key="MS">Reg</data>
+      <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
+      <data key="TM">both</data>
+      <data key="SX">/BeltBus_TDCHistogrammer_1</data>
+      <data key="SI">S00_AXI</data>
+      <data key="SS">reg0</data>
+      <data key="SV">DigiLAB:ip:BeltBus_TDCHistogrammer:5.0</data>
+      <data key="TU">register</data>
+      <data key="VT">AC</data>
+    </node>
+    <node id="n19">
+      <data key="BA">0x44A60000</data>
+      <data key="BP">C_BASEADDR</data>
+      <data key="HA">0x44A6FFFF</data>
+      <data key="HP">C_HIGHADDR</data>
+      <data key="MA">Data_MM2S</data>
+      <data key="MX">/MME_0/axi_datamover_0</data>
+      <data key="MI">M_AXI_MM2S</data>
+      <data key="MS">Reg</data>
+      <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
+      <data key="TM">both</data>
+      <data key="SX">/BeltBus_TTM_0</data>
+      <data key="SI">S00_AXI</data>
+      <data key="SS">reg0</data>
+      <data key="SV">DigiLAB:ip:BeltBus_TTM:2.0</data>
+      <data key="TU">register</data>
+      <data key="VT">AC</data>
+    </node>
+    <node id="n20">
+      <data key="BA">0x44A00000</data>
+      <data key="BP">C_S00_AXI_ADDR_ABS</data>
+      <data key="HA">0x44A0FFFF</data>
+      <data key="HP">C_S00_AXI_HIGH_ADDR</data>
+      <data key="MA">Data_MM2S</data>
+      <data key="MX">/MME_0/axi_datamover_0</data>
+      <data key="MI">M_AXI_MM2S</data>
+      <data key="MS">Reg</data>
+      <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
+      <data key="TM">both</data>
+      <data key="SX">/BeltBus_TDCCounter_0</data>
+      <data key="SI">S00_AXI</data>
+      <data key="SS">MAIN</data>
+      <data key="SV">DigiLAB:ip:BeltBus_TDCCounter:2.0</data>
+      <data key="TU">register</data>
+      <data key="VT">AC</data>
+    </node>
+    <node id="n21">
+      <data key="BA">0x44A50000</data>
+      <data key="BP">C_BASEADDR</data>
+      <data key="HA">0x44A5FFFF</data>
+      <data key="HP">C_HIGHADDR</data>
+      <data key="MA">Data_S2MM</data>
+      <data key="MX">/MME_0/axi_datamover_0</data>
+      <data key="MI">M_AXI_S2MM</data>
+      <data key="MS">Reg</data>
+      <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
+      <data key="TM">both</data>
+      <data key="SX">/xadc_wiz_0</data>
+      <data key="SI">s_axi_lite</data>
+      <data key="SS">Reg</data>
+      <data key="SV">xilinx.com:ip:xadc_wiz:3.3</data>
+      <data key="TU">register</data>
+      <data key="VT">AC</data>
+    </node>
+    <node id="n22">
       <data key="BA">0x44A40000</data>
       <data key="BP">C_BASEADDR</data>
       <data key="HA">0x44A4FFFF</data>
@@ -300,162 +394,68 @@
       <data key="TU">register</data>
       <data key="VT">AC</data>
     </node>
-    <node id="n17">
-      <data key="BA">0x44A50000</data>
-      <data key="BP">C_BASEADDR</data>
-      <data key="HA">0x44A5FFFF</data>
-      <data key="HP">C_HIGHADDR</data>
-      <data key="MA">Data_MM2S</data>
-      <data key="MX">/MME_0/axi_datamover_0</data>
-      <data key="MI">M_AXI_MM2S</data>
-      <data key="MS">Reg</data>
-      <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
-      <data key="TM">both</data>
-      <data key="SX">/xadc_wiz_0</data>
-      <data key="SI">s_axi_lite</data>
-      <data key="SS">Reg</data>
-      <data key="SV">xilinx.com:ip:xadc_wiz:3.3</data>
-      <data key="TU">register</data>
-      <data key="VT">AC</data>
-    </node>
-    <node id="n18">
-      <data key="BA">0x40800000</data>
-      <data key="BP">C_BASEADDR</data>
-      <data key="HA">0x4080FFFF</data>
-      <data key="HP">C_HIGHADDR</data>
-      <data key="MA">M00_AXI</data>
-      <data key="MX">/IIC/AXI4_AXIToIIC_0</data>
-      <data key="MI">M00_AXI</data>
-      <data key="MS">SEG_axi_iic_0_Reg</data>
-      <data key="MV">DigiLAB:ip:AXI4_AXIToIIC:2.0</data>
-      <data key="TM">both</data>
-      <data key="SX">/IIC/axi_iic_0</data>
-      <data key="SI">S_AXI</data>
-      <data key="SS">Reg</data>
-      <data key="SV">xilinx.com:ip:axi_iic:2.0</data>
-      <data key="TU">register</data>
-      <data key="VT">AC</data>
-    </node>
-    <node id="n19">
-      <data key="BA">0x44A10000</data>
-      <data key="BP">C_S00_AXI_BASEADDRESS</data>
-      <data key="HA">0x44A1FFFF</data>
-      <data key="HP">C_S00_AXI_HIGHADDRESS</data>
-      <data key="MA">Data_MM2S</data>
-      <data key="MX">/MME_0/axi_datamover_0</data>
-      <data key="MI">M_AXI_MM2S</data>
-      <data key="MS">Reg</data>
-      <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
-      <data key="TM">both</data>
-      <data key="SX">/BeltBus_TDCHistogrammer_0</data>
-      <data key="SI">S00_AXI</data>
-      <data key="SS">reg0</data>
-      <data key="SV">DigiLAB:ip:BeltBus_TDCHistogrammer:5.0</data>
-      <data key="TU">register</data>
-      <data key="VT">AC</data>
-    </node>
-    <node id="n20">
-      <data key="VM">design_1</data>
-      <data key="VT">BC</data>
-    </node>
-    <node id="n21">
-      <data key="BA">0x0</data>
-      <data key="BP">C_S_AXI_BASEADDR</data>
-      <data key="HA">0xFFF</data>
-      <data key="HP">C_S_AXI_HIGHADDR</data>
-      <data key="MA">Data_S2MM</data>
-      <data key="MX">/MME_0/axi_datamover_0</data>
-      <data key="MI">M_AXI_S2MM</data>
-      <data key="MS">Reg</data>
-      <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
-      <data key="TM">both</data>
-      <data key="SX">/Master/axi_bram_ctrl_0</data>
-      <data key="SI">S_AXI</data>
-      <data key="SS">Mem0</data>
-      <data key="SV">xilinx.com:ip:axi_bram_ctrl:4.1</data>
-      <data key="TU">memory</data>
-      <data key="VT">AC</data>
-    </node>
-    <node id="n22">
-      <data key="BA">0x44A50000</data>
-      <data key="BP">C_BASEADDR</data>
-      <data key="HA">0x44A5FFFF</data>
-      <data key="HP">C_HIGHADDR</data>
-      <data key="MA">Data_S2MM</data>
-      <data key="MX">/MME_0/axi_datamover_0</data>
-      <data key="MI">M_AXI_S2MM</data>
-      <data key="MS">Reg</data>
-      <data key="MV">xilinx.com:ip:axi_datamover:5.1</data>
-      <data key="TM">both</data>
-      <data key="SX">/xadc_wiz_0</data>
-      <data key="SI">s_axi_lite</data>
-      <data key="SS">Reg</data>
-      <data key="SV">xilinx.com:ip:xadc_wiz:3.3</data>
-      <data key="TU">register</data>
-      <data key="VT">AC</data>
-    </node>
-    <edge id="e0" source="n20" target="n5">
+    <edge id="e0" source="n9" target="n11">
     </edge>
-    <edge id="e1" source="n5" target="n7">
+    <edge id="e1" source="n11" target="n16">
     </edge>
-    <edge id="e2" source="n6" target="n7">
+    <edge id="e2" source="n6" target="n16">
       <data key="EH">2</data>
     </edge>
-    <edge id="e3" source="n18" target="n7">
+    <edge id="e3" source="n0" target="n16">
       <data key="EH">2</data>
     </edge>
-    <edge id="e4" source="n4" target="n7">
+    <edge id="e4" source="n20" target="n16">
       <data key="EH">2</data>
     </edge>
-    <edge id="e5" source="n9" target="n7">
+    <edge id="e5" source="n4" target="n16">
       <data key="EH">2</data>
     </edge>
-    <edge id="e6" source="n11" target="n7">
+    <edge id="e6" source="n7" target="n16">
       <data key="EH">2</data>
     </edge>
-    <edge id="e7" source="n2" target="n7">
+    <edge id="e7" source="n18" target="n16">
       <data key="EH">2</data>
     </edge>
-    <edge id="e8" source="n0" target="n7">
+    <edge id="e8" source="n10" target="n16">
       <data key="EH">2</data>
     </edge>
-    <edge id="e9" source="n1" target="n7">
+    <edge id="e9" source="n5" target="n16">
       <data key="EH">2</data>
     </edge>
-    <edge id="e10" source="n17" target="n7">
+    <edge id="e10" source="n12" target="n16">
       <data key="EH">2</data>
     </edge>
-    <edge id="e11" source="n12" target="n7">
+    <edge id="e11" source="n19" target="n16">
       <data key="EH">2</data>
     </edge>
-    <edge id="e12" source="n19" target="n7">
+    <edge id="e12" source="n14" target="n16">
       <data key="EH">2</data>
     </edge>
-    <edge id="e13" source="n21" target="n7">
+    <edge id="e13" source="n1" target="n16">
       <data key="EH">2</data>
     </edge>
-    <edge id="e14" source="n13" target="n7">
+    <edge id="e14" source="n8" target="n16">
       <data key="EH">2</data>
     </edge>
-    <edge id="e15" source="n14" target="n7">
+    <edge id="e15" source="n2" target="n16">
       <data key="EH">2</data>
     </edge>
-    <edge id="e16" source="n10" target="n7">
+    <edge id="e16" source="n17" target="n16">
       <data key="EH">2</data>
     </edge>
-    <edge id="e17" source="n16" target="n7">
+    <edge id="e17" source="n22" target="n16">
       <data key="EH">2</data>
     </edge>
-    <edge id="e18" source="n8" target="n7">
+    <edge id="e18" source="n13" target="n16">
       <data key="EH">2</data>
     </edge>
-    <edge id="e19" source="n15" target="n7">
+    <edge id="e19" source="n3" target="n16">
       <data key="EH">2</data>
     </edge>
-    <edge id="e20" source="n22" target="n7">
+    <edge id="e20" source="n21" target="n16">
       <data key="EH">2</data>
     </edge>
-    <edge id="e21" source="n3" target="n7">
+    <edge id="e21" source="n15" target="n16">
       <data key="EH">2</data>
     </edge>
   </graph>

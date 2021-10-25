@@ -1,10 +1,10 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-// Date        : Thu Oct 21 17:44:25 2021
+// Date        : Mon Oct 25 11:02:57 2021
 // Host        : mconsonni-All-Series running 64-bit Ubuntu 20.04.3 LTS
 // Command     : write_verilog -force -mode synth_stub
-//               /home/mconsonni/Desktop/DESD/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.gen/sources_1/bd/design_1/ip/design_1_AXI4_TDC_Wrapper_0_0/design_1_AXI4_TDC_Wrapper_0_0_stub.v
+//               /home/mconsonni/Desktop/Tesi/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.gen/sources_1/bd/design_1/ip/design_1_AXI4_TDC_Wrapper_0_0/design_1_AXI4_TDC_Wrapper_0_0_stub.v
 // Design      : design_1_AXI4_TDC_Wrapper_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a100tftg256-2
@@ -22,8 +22,8 @@ module design_1_AXI4_TDC_Wrapper_0_0(aclk, aresetn, s00_axi_awaddr, s00_axi_awva
   s00_axi_rdata, s00_axi_rresp, s00_axi_rvalid, s00_axi_rready, s00_axi_rid, s00_axi_rlast, 
   reset, clk, s00_axis_debugct_tvalid, s00_axis_debugct_tdata, s00_axis_debugct_tlast, 
   m00_axis_autopush_tvalid, m00_axis_autopush_tdata, m00_axis_autopush_tready, MUX_sel, 
-  TDC_PROP_WPORT, TDC_PROP_RPORT)
-/* synthesis syn_black_box black_box_pad_pin="aclk,aresetn,s00_axi_awaddr[13:0],s00_axi_awvalid,s00_axi_awready,s00_axi_awid[4:0],s00_axi_awlen[7:0],s00_axi_awsize[2:0],s00_axi_awburst[1:0],s00_axi_wdata[31:0],s00_axi_wstrb[3:0],s00_axi_wvalid,s00_axi_wready,s00_axi_wlast,s00_axi_bresp[1:0],s00_axi_bvalid,s00_axi_bready,s00_axi_bid[4:0],s00_axi_araddr[13:0],s00_axi_arvalid,s00_axi_arready,s00_axi_arid[4:0],s00_axi_arlen[7:0],s00_axi_arsize[2:0],s00_axi_arburst[1:0],s00_axi_rdata[31:0],s00_axi_rresp[1:0],s00_axi_rvalid,s00_axi_rready,s00_axi_rid[4:0],s00_axi_rlast,reset,clk,s00_axis_debugct_tvalid,s00_axis_debugct_tdata[31:0],s00_axis_debugct_tlast,m00_axis_autopush_tvalid,m00_axis_autopush_tdata[55:0],m00_axis_autopush_tready,MUX_sel[3:0],TDC_PROP_WPORT[56:0],TDC_PROP_RPORT[194:0]" */;
+  TDC_PROP_WPORT, TDC_PROP_RPORT, TDC_DEBUG_PROP_WPORT)
+/* synthesis syn_black_box black_box_pad_pin="aclk,aresetn,s00_axi_awaddr[13:0],s00_axi_awvalid,s00_axi_awready,s00_axi_awid[4:0],s00_axi_awlen[7:0],s00_axi_awsize[2:0],s00_axi_awburst[1:0],s00_axi_wdata[31:0],s00_axi_wstrb[3:0],s00_axi_wvalid,s00_axi_wready,s00_axi_wlast,s00_axi_bresp[1:0],s00_axi_bvalid,s00_axi_bready,s00_axi_bid[4:0],s00_axi_araddr[13:0],s00_axi_arvalid,s00_axi_arready,s00_axi_arid[4:0],s00_axi_arlen[7:0],s00_axi_arsize[2:0],s00_axi_arburst[1:0],s00_axi_rdata[31:0],s00_axi_rresp[1:0],s00_axi_rvalid,s00_axi_rready,s00_axi_rid[4:0],s00_axi_rlast,reset,clk,s00_axis_debugct_tvalid,s00_axis_debugct_tdata[31:0],s00_axis_debugct_tlast,m00_axis_autopush_tvalid,m00_axis_autopush_tdata[55:0],m00_axis_autopush_tready,MUX_sel[3:0],TDC_PROP_WPORT[56:0],TDC_PROP_RPORT[194:0],TDC_DEBUG_PROP_WPORT[221:0]" */;
   input aclk;
   input aresetn;
   input [13:0]s00_axi_awaddr;
@@ -66,4 +66,5 @@ module design_1_AXI4_TDC_Wrapper_0_0(aclk, aresetn, s00_axi_awaddr, s00_axi_awva
   output [3:0]MUX_sel;
   output [56:0]TDC_PROP_WPORT;
   input [194:0]TDC_PROP_RPORT;
+  output [221:0]TDC_DEBUG_PROP_WPORT;
 endmodule
