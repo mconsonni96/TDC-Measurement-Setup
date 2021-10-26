@@ -176,7 +176,7 @@ BEGIN
       NUM_TAP_TDL => 256,
       BUFFERING_STAGE => false,
       MIN_VALID_TAP_POS => 0,
-      STEP_VALID_TAP_POS => 1,
+      STEP_VALID_TAP_POS => 8,
       MAX_VALID_TAP_POS => 255,
       VALID_POSITION_TAP_INIT => 31,
       VALID_NUMBER_OF_TDL_INIT => 0,
@@ -197,8 +197,8 @@ BEGIN
       OFFSET_TAP_TDL_14 => 0,
       OFFSET_TAP_TDL_15 => 0,
       BIT_SMP_TDL => 256,
-      NUM_TAP_PRE_TDL => 0,
-      BIT_SMP_PRE_TDL => 0
+      NUM_TAP_PRE_TDL => 16,
+      BIT_SMP_PRE_TDL => 2
     )
     PORT MAP (
       reset => reset,

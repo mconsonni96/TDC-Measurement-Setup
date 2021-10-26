@@ -137,7 +137,7 @@
       <spirit:vendorExtensions>
         <xilinx:busInterfaceInfo>
           <xilinx:enablement>
-            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.subInterpolationMatrix" xilinx:dependency="$DEBUG_MODE = True">false</xilinx:isEnabled>
+            <xilinx:isEnabled xilinx:resolve="dependent" xilinx:id="BUSIF_ENABLEMENT.subInterpolationMatrix" xilinx:dependency="$DEBUG_MODE = True">true</xilinx:isEnabled>
           </xilinx:enablement>
         </xilinx:busInterfaceInfo>
       </spirit:vendorExtensions>
@@ -446,7 +446,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:d899e100</spirit:value>
+            <spirit:value>9:b2f314bd</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -457,7 +457,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:d899e100</spirit:value>
+            <spirit:value>9:b2f314bd</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -473,11 +473,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Oct 21 15:22:46 UTC 2021</spirit:value>
+            <spirit:value>Tue Oct 26 08:01:45 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:d899e100</spirit:value>
+            <spirit:value>9:b2f314bd</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -496,7 +496,7 @@
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:62f1bda0</spirit:value>
+            <spirit:value>9:56d089ea</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -512,11 +512,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Oct 21 15:22:46 UTC 2021</spirit:value>
+            <spirit:value>Tue Oct 26 08:01:45 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:62f1bda0</spirit:value>
+            <spirit:value>9:56d089ea</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -530,11 +530,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Thu Oct 21 15:49:50 UTC 2021</spirit:value>
+            <spirit:value>Tue Oct 26 08:09:06 UTC 2021</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>9:d899e100</spirit:value>
+            <spirit:value>9:b2f314bd</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -642,13 +642,6 @@
             </spirit:wireTypeDef>
           </spirit:wireTypeDefs>
         </spirit:wire>
-        <spirit:vendorExtensions>
-          <xilinx:portInfo>
-            <xilinx:enablement>
-              <xilinx:isEnabled xilinx:id="PORT_ENABLEMENT.subInterpolationMatrix">false</xilinx:isEnabled>
-            </xilinx:enablement>
-          </xilinx:portInfo>
-        </spirit:vendorExtensions>
       </spirit:port>
     </spirit:ports>
     <spirit:modelParameters>
@@ -982,7 +975,7 @@
       <spirit:modelParameter spirit:dataType="BOOLEAN">
         <spirit:name>DEBUG_MODE</spirit:name>
         <spirit:displayName>Debug Mode</spirit:displayName>
-        <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEBUG_MODE">false</spirit:value>
+        <spirit:value spirit:format="bool" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.DEBUG_MODE">true</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -1714,7 +1707,7 @@
     <spirit:parameter>
       <spirit:name>DEBUG_MODE</spirit:name>
       <spirit:displayName>Debug Port Iper Decoder</spirit:displayName>
-      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.DEBUG_MODE">false</spirit:value>
+      <spirit:value spirit:format="bool" spirit:resolve="user" spirit:id="PARAM_VALUE.DEBUG_MODE">true</spirit:value>
     </spirit:parameter>
   </spirit:parameters>
   <spirit:vendorExtensions>
@@ -1788,6 +1781,7 @@
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXIS_UNDECO.TDEST_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXIS_UNDECO.TID_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.S00_AXIS_UNDECO.TUSER_WIDTH" xilinx:valueSource="constant" xilinx:valuePermission="bd_and_user"/>
+        <xilinx:configElementInfo xilinx:referenceId="BUSIFPARAM_VALUE.SUBINTERPOLATIONMATRIX.LAYERED_METADATA" xilinx:valuePermission="bd_and_user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.BIT_BUBBLE" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.BIT_COARSE" xilinx:valueSource="user"/>
         <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.BIT_SUB_INT" xilinx:valueSource="user"/>

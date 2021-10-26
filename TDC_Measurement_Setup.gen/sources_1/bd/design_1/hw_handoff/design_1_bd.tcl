@@ -188,14 +188,17 @@ proc create_hier_cell_Sync { parentCell nameHier } {
   # Create instance: BeltBus_TDL_Channel_0, and set properties
   set BeltBus_TDL_Channel_0 [ create_bd_cell -type ip -vlnv DigiLAB:hier:BeltBus_TDL_Channel_TDC:3.5 BeltBus_TDL_Channel_0 ]
   set_property -dict [ list \
+   CONFIG.BIT_SMP_PRE_TDL {2} \
    CONFIG.BIT_SUB_INT {10} \
    CONFIG.BIT_UNCALIBRATED {10} \
    CONFIG.CEC_VS_CTD_COUNTER {CTD} \
    CONFIG.DEBUG_MODE {true} \
    CONFIG.DEBUG_MODE_CT {true} \
-   CONFIG.DEBUG_PORT_DECODER {false} \
+   CONFIG.DEBUG_PORT_DECODER {true} \
    CONFIG.NUMBER_OF_TDL {4} \
+   CONFIG.NUM_TAP_PRE_TDL {16} \
    CONFIG.PASS_THROUGH {Both} \
+   CONFIG.STEP_VALID_TAP_POS {8} \
  ] $BeltBus_TDL_Channel_0
 
   # Create instance: InputLogic_0, and set properties
@@ -236,19 +239,6 @@ proc create_hier_cell_Sync { parentCell nameHier } {
    CONFIG.LOGO_FILE {data/sym_notgate.png} \
  ] $util_vector_logic_0
 
-  # Create instance: xlconstant_0, and set properties
-  set xlconstant_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0 ]
-  set_property -dict [ list \
-   CONFIG.CONST_VAL {0} \
- ] $xlconstant_0
-
-  # Create instance: xlconstant_1, and set properties
-  set xlconstant_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_1 ]
-  set_property -dict [ list \
-   CONFIG.CONST_VAL {0} \
-   CONFIG.CONST_WIDTH {32} \
- ] $xlconstant_1
-
   # Create interface connections
   connect_bd_intf_net -intf_net AXI4Stream_PeriodMet_0_M00_AXIS [get_bd_intf_pins AXI4Stream_PeriodMet_0/M00_AXIS] [get_bd_intf_pins axis_broadcaster_0/S_AXIS]
   connect_bd_intf_net -intf_net BeltBus_TDL_Channel_0_M00_AXIS [get_bd_intf_pins AXI4Stream_PeriodMet_0/S00_BB] [get_bd_intf_pins BeltBus_TDL_Channel_0/M00_AXIS]
@@ -267,18 +257,22 @@ proc create_hier_cell_Sync { parentCell nameHier } {
   connect_bd_net -net TDCChannelSlice_0_EdgeTrigger [get_bd_pins InputLogic_0/EdgeTrigger] [get_bd_pins TDCChannelSlice_0/EdgeTrigger]
   connect_bd_net -net TDCChannelSlice_0_ForceCalibrate [get_bd_pins InputLogic_0/ForceCalibrate] [get_bd_pins TDCChannelSlice_0/ForceCalibrate]
   connect_bd_net -net TDCChannelSlice_0_Gate [get_bd_pins InputLogic_0/Gate] [get_bd_pins TDCChannelSlice_0/Gate]
+  connect_bd_net -net TDCChannelSlice_0_Restart_Calibration [get_bd_pins BeltBus_TDL_Channel_0/Restart_Calibration] [get_bd_pins TDCChannelSlice_0/Restart_Calibration]
+  connect_bd_net -net TDCChannelSlice_0_Stop_Calibration [get_bd_pins BeltBus_TDL_Channel_0/Stop_Calibration] [get_bd_pins TDCChannelSlice_0/Stop_Calibration]
   connect_bd_net -net TDCChannelSlice_0_StretchLength [get_bd_pins InputLogic_0/StretchLength] [get_bd_pins TDCChannelSlice_0/StretchLength]
   connect_bd_net -net TDCChannelSlice_0_ValidNumberOfTdl [get_bd_pins BeltBus_TDL_Channel_0/ValidNumberOfTDL] [get_bd_pins TDCChannelSlice_0/ValidNumberOfTdl]
   connect_bd_net -net TDCChannelSlice_0_ValidPositionTap [get_bd_pins BeltBus_TDL_Channel_0/ValidPositionTap] [get_bd_pins TDCChannelSlice_0/ValidPositionTap]
+  connect_bd_net -net TDCChannelSlice_0_bitTrn_Cal_dout [get_bd_pins BeltBus_TDL_Channel_0/bitTrn_Cal_dout] [get_bd_pins TDCChannelSlice_0/bitTrn_Cal_dout]
+  connect_bd_net -net TDCChannelSlice_0_bitTrn_ReqSample [get_bd_pins BeltBus_TDL_Channel_0/bitTrn_ReqSample] [get_bd_pins TDCChannelSlice_0/bitTrn_ReqSample]
+  connect_bd_net -net TDCChannelSlice_0_bitTrn_Uncal_addr [get_bd_pins BeltBus_TDL_Channel_0/bitTrn_Uncal_addr] [get_bd_pins TDCChannelSlice_0/bitTrn_Uncal_addr]
   connect_bd_net -net TDCChannelSlice_0_read_reg [get_bd_pins read_reg] [get_bd_pins TDCChannelSlice_0/read_reg]
-  connect_bd_net -net bitTrn_Cal_dout_1 [get_bd_pins BeltBus_TDL_Channel_0/bitTrn_Cal_dout] [get_bd_pins BeltBus_TDL_Channel_0/bitTrn_ReqSample] [get_bd_pins BeltBus_TDL_Channel_0/bitTrn_Uncal_addr] [get_bd_pins xlconstant_1/dout]
+  connect_bd_net -net TDCChannelSlice_0_subInterpolationMatrix [get_bd_pins BeltBus_TDL_Channel_0/subInterpolationMatrix] [get_bd_pins TDCChannelSlice_0/subInterpolationMatrix]
   connect_bd_net -net clk_BB_1 [get_bd_pins clk_BB] [get_bd_pins AXI4Stream_PeriodMet_0/clk] [get_bd_pins BeltBus_TDL_Channel_0/clk_BB] [get_bd_pins BeltBus_TDL_Channel_0/clk_SYS] [get_bd_pins TDCChannelSlice_0/aclk] [get_bd_pins TDCChannelSlice_0/clk_BB] [get_bd_pins TDCChannelSlice_0/clk_SYS] [get_bd_pins axis_broadcaster_0/aclk]
   connect_bd_net -net clk_TDC_1 [get_bd_pins clk_TDC] [get_bd_pins BeltBus_TDL_Channel_0/clk_TDC] [get_bd_pins InputLogic_0/clk] [get_bd_pins TDCChannelSlice_0/clk_TDC]
   connect_bd_net -net reset_0_1 [get_bd_pins reset_0] [get_bd_pins axis_broadcaster_0/aresetn] [get_bd_pins util_vector_logic_0/Op1]
   connect_bd_net -net reset_TDC_1 [get_bd_pins reset_TDC] [get_bd_pins BeltBus_TDL_Channel_0/reset_BB] [get_bd_pins BeltBus_TDL_Channel_0/reset_SYS] [get_bd_pins BeltBus_TDL_Channel_0/reset_TDC] [get_bd_pins InputLogic_0/reset]
   connect_bd_net -net util_vector_logic_0_Res [get_bd_pins AXI4Stream_PeriodMet_0/reset] [get_bd_pins util_vector_logic_0/Res]
   connect_bd_net -net write_debug_reg_0_1 [get_bd_pins write_debug_reg_0] [get_bd_pins TDCChannelSlice_0/write_debug_reg]
-  connect_bd_net -net xlconstant_0_dout [get_bd_pins BeltBus_TDL_Channel_0/Restart_Calibration] [get_bd_pins BeltBus_TDL_Channel_0/Stop_Calibration] [get_bd_pins xlconstant_0/dout]
   connect_bd_net -net xlslice_0_Dout [get_bd_pins write_reg] [get_bd_pins TDCChannelSlice_0/write_reg]
 
   # Restore current instance
@@ -343,15 +337,18 @@ proc create_hier_cell_Ch2 { parentCell nameHier } {
   # Create instance: BeltBus_TDL_Channel_2, and set properties
   set BeltBus_TDL_Channel_2 [ create_bd_cell -type ip -vlnv DigiLAB:hier:BeltBus_TDL_Channel_TDC:3.5 BeltBus_TDL_Channel_2 ]
   set_property -dict [ list \
+   CONFIG.BIT_SMP_PRE_TDL {2} \
    CONFIG.BIT_SUB_INT {10} \
    CONFIG.BIT_UNCALIBRATED {10} \
    CONFIG.CEC_VS_CTD_COUNTER {CTD} \
    CONFIG.DEBUG_MODE {true} \
    CONFIG.DEBUG_MODE_CT {true} \
-   CONFIG.DEBUG_PORT_DECODER {false} \
+   CONFIG.DEBUG_PORT_DECODER {true} \
    CONFIG.NUMBER_OF_TDL {4} \
    CONFIG.NUM_CH {2} \
    CONFIG.NUM_NODE {2} \
+   CONFIG.NUM_TAP_PRE_TDL {16} \
+   CONFIG.STEP_VALID_TAP_POS {8} \
  ] $BeltBus_TDL_Channel_2
 
   # Create instance: InputLogic_2, and set properties
@@ -375,18 +372,11 @@ proc create_hier_cell_Ch2 { parentCell nameHier } {
    CONFIG.TDC_ENABLE_DEBUG_PORTS {true} \
  ] $TDCChannelSlice_2
 
-  # Create instance: xlconstant_0, and set properties
-  set xlconstant_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0 ]
+  # Create instance: xlconstant_2, and set properties
+  set xlconstant_2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_2 ]
   set_property -dict [ list \
    CONFIG.CONST_VAL {0} \
- ] $xlconstant_0
-
-  # Create instance: xlconstant_1, and set properties
-  set xlconstant_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_1 ]
-  set_property -dict [ list \
-   CONFIG.CONST_VAL {0} \
-   CONFIG.CONST_WIDTH {32} \
- ] $xlconstant_1
+ ] $xlconstant_2
 
   # Create interface connections
   connect_bd_intf_net -intf_net BeltBus_TDL_Channel_2_M00_BB [get_bd_intf_pins M00_BB] [get_bd_intf_pins BeltBus_TDL_Channel_2/M00_BB]
@@ -403,16 +393,21 @@ proc create_hier_cell_Ch2 { parentCell nameHier } {
   connect_bd_net -net TDCChannelSlice_2_EdgeTrigger [get_bd_pins InputLogic_2/EdgeTrigger] [get_bd_pins TDCChannelSlice_2/EdgeTrigger]
   connect_bd_net -net TDCChannelSlice_2_ForceCalibrate [get_bd_pins InputLogic_2/ForceCalibrate] [get_bd_pins TDCChannelSlice_2/ForceCalibrate]
   connect_bd_net -net TDCChannelSlice_2_Gate [get_bd_pins InputLogic_2/Gate] [get_bd_pins TDCChannelSlice_2/Gate]
+  connect_bd_net -net TDCChannelSlice_2_Restart_Calibration [get_bd_pins BeltBus_TDL_Channel_2/Restart_Calibration] [get_bd_pins TDCChannelSlice_2/Restart_Calibration]
+  connect_bd_net -net TDCChannelSlice_2_Stop_Calibration [get_bd_pins BeltBus_TDL_Channel_2/Stop_Calibration] [get_bd_pins TDCChannelSlice_2/Stop_Calibration]
   connect_bd_net -net TDCChannelSlice_2_StretchLength [get_bd_pins InputLogic_2/StretchLength] [get_bd_pins TDCChannelSlice_2/StretchLength]
   connect_bd_net -net TDCChannelSlice_2_ValidNumberOfTdl [get_bd_pins BeltBus_TDL_Channel_2/ValidNumberOfTDL] [get_bd_pins TDCChannelSlice_2/ValidNumberOfTdl]
   connect_bd_net -net TDCChannelSlice_2_ValidPositionTap [get_bd_pins BeltBus_TDL_Channel_2/ValidPositionTap] [get_bd_pins TDCChannelSlice_2/ValidPositionTap]
+  connect_bd_net -net TDCChannelSlice_2_bitTrn_Cal_dout [get_bd_pins BeltBus_TDL_Channel_2/bitTrn_Cal_dout] [get_bd_pins TDCChannelSlice_2/bitTrn_Cal_dout]
+  connect_bd_net -net TDCChannelSlice_2_bitTrn_ReqSample [get_bd_pins BeltBus_TDL_Channel_2/bitTrn_ReqSample] [get_bd_pins TDCChannelSlice_2/bitTrn_ReqSample]
+  connect_bd_net -net TDCChannelSlice_2_bitTrn_Uncal_addr [get_bd_pins BeltBus_TDL_Channel_2/bitTrn_Uncal_addr] [get_bd_pins TDCChannelSlice_2/bitTrn_Uncal_addr]
   connect_bd_net -net TDCChannelSlice_2_read_reg [get_bd_pins read_reg] [get_bd_pins TDCChannelSlice_2/read_reg]
-  connect_bd_net -net bitTrn_Cal_dout_1 [get_bd_pins BeltBus_TDL_Channel_2/bitTrn_Cal_dout] [get_bd_pins BeltBus_TDL_Channel_2/bitTrn_ReqSample] [get_bd_pins BeltBus_TDL_Channel_2/bitTrn_Uncal_addr] [get_bd_pins xlconstant_1/dout]
+  connect_bd_net -net TDCChannelSlice_2_subInterpolationMatrix [get_bd_pins BeltBus_TDL_Channel_2/subInterpolationMatrix] [get_bd_pins TDCChannelSlice_2/subInterpolationMatrix]
   connect_bd_net -net clk_BB_1 [get_bd_pins clk_BB] [get_bd_pins BeltBus_TDL_Channel_2/clk_BB] [get_bd_pins BeltBus_TDL_Channel_2/clk_SYS] [get_bd_pins TDCChannelSlice_2/aclk] [get_bd_pins TDCChannelSlice_2/clk_BB] [get_bd_pins TDCChannelSlice_2/clk_SYS]
   connect_bd_net -net clk_TDC_1 [get_bd_pins clk_TDC] [get_bd_pins BeltBus_TDL_Channel_2/clk_TDC] [get_bd_pins InputLogic_2/clk] [get_bd_pins TDCChannelSlice_2/clk_TDC]
   connect_bd_net -net reset_TDC_1 [get_bd_pins reset_TDC] [get_bd_pins BeltBus_TDL_Channel_2/reset_BB] [get_bd_pins BeltBus_TDL_Channel_2/reset_SYS] [get_bd_pins BeltBus_TDL_Channel_2/reset_TDC] [get_bd_pins InputLogic_2/reset]
   connect_bd_net -net write_debug_reg_0_1 [get_bd_pins write_debug_reg_0] [get_bd_pins TDCChannelSlice_2/write_debug_reg]
-  connect_bd_net -net xlconstant_0_dout [get_bd_pins BeltBus_TDL_Channel_2/Restart_Calibration] [get_bd_pins BeltBus_TDL_Channel_2/Stop_Calibration] [get_bd_pins TDCChannelSlice_2/s00_axis_period_tvalid] [get_bd_pins xlconstant_0/dout]
+  connect_bd_net -net xlconstant_2_dout [get_bd_pins TDCChannelSlice_2/s00_axis_period_tvalid] [get_bd_pins xlconstant_2/dout]
   connect_bd_net -net xlslice_2_Dout [get_bd_pins write_reg] [get_bd_pins TDCChannelSlice_2/write_reg]
 
   # Restore current instance
@@ -477,16 +472,19 @@ proc create_hier_cell_Ch1 { parentCell nameHier } {
   # Create instance: BeltBus_TDL_Channel_1, and set properties
   set BeltBus_TDL_Channel_1 [ create_bd_cell -type ip -vlnv DigiLAB:hier:BeltBus_TDL_Channel_TDC:3.5 BeltBus_TDL_Channel_1 ]
   set_property -dict [ list \
+   CONFIG.BIT_SMP_PRE_TDL {2} \
    CONFIG.BIT_SUB_INT {10} \
    CONFIG.BIT_UNCALIBRATED {10} \
    CONFIG.BUFFERING_STAGE {false} \
    CONFIG.CEC_VS_CTD_COUNTER {CTD} \
    CONFIG.DEBUG_MODE {true} \
    CONFIG.DEBUG_MODE_CT {true} \
-   CONFIG.DEBUG_PORT_DECODER {false} \
+   CONFIG.DEBUG_PORT_DECODER {true} \
    CONFIG.NUMBER_OF_TDL {4} \
    CONFIG.NUM_CH {1} \
    CONFIG.NUM_NODE {1} \
+   CONFIG.NUM_TAP_PRE_TDL {16} \
+   CONFIG.STEP_VALID_TAP_POS {8} \
  ] $BeltBus_TDL_Channel_1
 
   # Create instance: InputLogic_1, and set properties
@@ -510,18 +508,11 @@ proc create_hier_cell_Ch1 { parentCell nameHier } {
    CONFIG.TDC_ENABLE_DEBUG_PORTS {true} \
  ] $TDCChannelSlice_1
 
-  # Create instance: xlconstant_0, and set properties
-  set xlconstant_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0 ]
+  # Create instance: xlconstant_2, and set properties
+  set xlconstant_2 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_2 ]
   set_property -dict [ list \
    CONFIG.CONST_VAL {0} \
- ] $xlconstant_0
-
-  # Create instance: xlconstant_1, and set properties
-  set xlconstant_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_1 ]
-  set_property -dict [ list \
-   CONFIG.CONST_VAL {0} \
-   CONFIG.CONST_WIDTH {32} \
- ] $xlconstant_1
+ ] $xlconstant_2
 
   # Create interface connections
   connect_bd_intf_net -intf_net BeltBus_TDL_Channel_1_M00_BB [get_bd_intf_pins M00_BB] [get_bd_intf_pins BeltBus_TDL_Channel_1/M00_BB]
@@ -538,16 +529,21 @@ proc create_hier_cell_Ch1 { parentCell nameHier } {
   connect_bd_net -net TDCChannelSlice_1_EdgeTrigger [get_bd_pins InputLogic_1/EdgeTrigger] [get_bd_pins TDCChannelSlice_1/EdgeTrigger]
   connect_bd_net -net TDCChannelSlice_1_ForceCalibrate [get_bd_pins InputLogic_1/ForceCalibrate] [get_bd_pins TDCChannelSlice_1/ForceCalibrate]
   connect_bd_net -net TDCChannelSlice_1_Gate [get_bd_pins InputLogic_1/Gate] [get_bd_pins TDCChannelSlice_1/Gate]
+  connect_bd_net -net TDCChannelSlice_1_Restart_Calibration [get_bd_pins BeltBus_TDL_Channel_1/Restart_Calibration] [get_bd_pins TDCChannelSlice_1/Restart_Calibration]
+  connect_bd_net -net TDCChannelSlice_1_Stop_Calibration [get_bd_pins BeltBus_TDL_Channel_1/Stop_Calibration] [get_bd_pins TDCChannelSlice_1/Stop_Calibration]
   connect_bd_net -net TDCChannelSlice_1_StretchLength [get_bd_pins InputLogic_1/StretchLength] [get_bd_pins TDCChannelSlice_1/StretchLength]
   connect_bd_net -net TDCChannelSlice_1_ValidNumberOfTdl [get_bd_pins BeltBus_TDL_Channel_1/ValidNumberOfTDL] [get_bd_pins TDCChannelSlice_1/ValidNumberOfTdl]
   connect_bd_net -net TDCChannelSlice_1_ValidPositionTap [get_bd_pins BeltBus_TDL_Channel_1/ValidPositionTap] [get_bd_pins TDCChannelSlice_1/ValidPositionTap]
+  connect_bd_net -net TDCChannelSlice_1_bitTrn_Cal_dout [get_bd_pins BeltBus_TDL_Channel_1/bitTrn_Cal_dout] [get_bd_pins TDCChannelSlice_1/bitTrn_Cal_dout]
+  connect_bd_net -net TDCChannelSlice_1_bitTrn_ReqSample [get_bd_pins BeltBus_TDL_Channel_1/bitTrn_ReqSample] [get_bd_pins TDCChannelSlice_1/bitTrn_ReqSample]
+  connect_bd_net -net TDCChannelSlice_1_bitTrn_Uncal_addr [get_bd_pins BeltBus_TDL_Channel_1/bitTrn_Uncal_addr] [get_bd_pins TDCChannelSlice_1/bitTrn_Uncal_addr]
   connect_bd_net -net TDCChannelSlice_1_read_reg [get_bd_pins read_reg] [get_bd_pins TDCChannelSlice_1/read_reg]
-  connect_bd_net -net bitTrn_Cal_dout_1 [get_bd_pins BeltBus_TDL_Channel_1/bitTrn_Cal_dout] [get_bd_pins BeltBus_TDL_Channel_1/bitTrn_ReqSample] [get_bd_pins BeltBus_TDL_Channel_1/bitTrn_Uncal_addr] [get_bd_pins xlconstant_1/dout]
+  connect_bd_net -net TDCChannelSlice_1_subInterpolationMatrix [get_bd_pins BeltBus_TDL_Channel_1/subInterpolationMatrix] [get_bd_pins TDCChannelSlice_1/subInterpolationMatrix]
   connect_bd_net -net clk_BB_1 [get_bd_pins clk_BB] [get_bd_pins BeltBus_TDL_Channel_1/clk_BB] [get_bd_pins BeltBus_TDL_Channel_1/clk_SYS] [get_bd_pins TDCChannelSlice_1/aclk] [get_bd_pins TDCChannelSlice_1/clk_BB] [get_bd_pins TDCChannelSlice_1/clk_SYS]
   connect_bd_net -net clk_TDC_1 [get_bd_pins clk_TDC] [get_bd_pins BeltBus_TDL_Channel_1/clk_TDC] [get_bd_pins InputLogic_1/clk] [get_bd_pins TDCChannelSlice_1/clk_TDC]
   connect_bd_net -net reset_TDC_1 [get_bd_pins reset_TDC] [get_bd_pins BeltBus_TDL_Channel_1/reset_BB] [get_bd_pins BeltBus_TDL_Channel_1/reset_SYS] [get_bd_pins BeltBus_TDL_Channel_1/reset_TDC] [get_bd_pins InputLogic_1/reset]
   connect_bd_net -net write_debug_reg_0_1 [get_bd_pins write_debug_reg_0] [get_bd_pins TDCChannelSlice_1/write_debug_reg]
-  connect_bd_net -net xlconstant_0_dout [get_bd_pins BeltBus_TDL_Channel_1/Restart_Calibration] [get_bd_pins BeltBus_TDL_Channel_1/Stop_Calibration] [get_bd_pins TDCChannelSlice_1/s00_axis_period_tvalid] [get_bd_pins xlconstant_0/dout]
+  connect_bd_net -net xlconstant_2_dout [get_bd_pins TDCChannelSlice_1/s00_axis_period_tvalid] [get_bd_pins xlconstant_2/dout]
   connect_bd_net -net xlslice_1_Dout [get_bd_pins write_reg] [get_bd_pins TDCChannelSlice_1/write_reg]
 
   # Restore current instance
@@ -863,6 +859,7 @@ proc create_hier_cell_TDC_Calib { parentCell nameHier } {
   connect_bd_intf_net -intf_net AXI4_TDC_Wrapper_0_M00_AXIS_Autopush [get_bd_intf_pins M00_AXIS_Autopush] [get_bd_intf_pins AXI4_TDC_Wrapper_0/M00_AXIS_Autopush]
   connect_bd_intf_net -intf_net Conn3 [get_bd_intf_pins M00_AXIS] [get_bd_intf_pins TDC/M00_AXIS]
   connect_bd_intf_net -intf_net S00_AXI_1 [get_bd_intf_pins S00_AXI] [get_bd_intf_pins AXI4_TDC_Wrapper_0/S00_AXI]
+  set_property HDL_ATTRIBUTE.DEBUG {true} [get_bd_intf_nets S00_AXI_1]
   connect_bd_intf_net -intf_net TDC_M00_BB [get_bd_intf_pins M00_BB] [get_bd_intf_pins TDC/M00_BB]
   connect_bd_intf_net -intf_net TDC_M01_AXIS_DebugCT [get_bd_intf_pins AXI4Stream_MuxDebugg_0/S01_AXIS_DebugCT] [get_bd_intf_pins TDC/M01_AXIS_DebugCT]
   connect_bd_intf_net -intf_net TDC_M01_AXIS_DebugCT1 [get_bd_intf_pins AXI4Stream_MuxDebugg_0/S02_AXIS_DebugCT] [get_bd_intf_pins TDC/M01_AXIS_DebugCT1]
@@ -1377,6 +1374,25 @@ proc create_root_design { parentCell } {
   # Create instance: proc_sys_reset_0, and set properties
   set proc_sys_reset_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 proc_sys_reset_0 ]
 
+  # Create instance: system_ila_0, and set properties
+  set system_ila_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:system_ila:1.1 system_ila_0 ]
+  set_property -dict [ list \
+   CONFIG.C_MON_TYPE {INTERFACE} \
+   CONFIG.C_NUM_MONITOR_SLOTS {1} \
+   CONFIG.C_SLOT_0_APC_EN {0} \
+   CONFIG.C_SLOT_0_AXI_AR_SEL_DATA {1} \
+   CONFIG.C_SLOT_0_AXI_AR_SEL_TRIG {1} \
+   CONFIG.C_SLOT_0_AXI_AW_SEL_DATA {1} \
+   CONFIG.C_SLOT_0_AXI_AW_SEL_TRIG {1} \
+   CONFIG.C_SLOT_0_AXI_B_SEL_DATA {1} \
+   CONFIG.C_SLOT_0_AXI_B_SEL_TRIG {1} \
+   CONFIG.C_SLOT_0_AXI_R_SEL_DATA {1} \
+   CONFIG.C_SLOT_0_AXI_R_SEL_TRIG {1} \
+   CONFIG.C_SLOT_0_AXI_W_SEL_DATA {1} \
+   CONFIG.C_SLOT_0_AXI_W_SEL_TRIG {1} \
+   CONFIG.C_SLOT_0_INTF_TYPE {xilinx.com:interface:aximm_rtl:1.0} \
+ ] $system_ila_0
+
   # Create instance: xadc_wiz_0, and set properties
   set xadc_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xadc_wiz:3.3 xadc_wiz_0 ]
   set_property -dict [ list \
@@ -1431,6 +1447,7 @@ proc create_root_design { parentCell } {
   connect_bd_intf_net -intf_net axi_interconnect_0_M02_AXI [get_bd_intf_pins BeltBus_TDCHistogrammer_0/S00_AXI] [get_bd_intf_pins axi_interconnect_0/M02_AXI]
   connect_bd_intf_net -intf_net axi_interconnect_0_M03_AXI [get_bd_intf_pins BeltBus_TDCHistogrammer_1/S00_AXI] [get_bd_intf_pins axi_interconnect_0/M03_AXI]
   connect_bd_intf_net -intf_net axi_interconnect_0_M04_AXI [get_bd_intf_pins TDC_Calib/S00_AXI] [get_bd_intf_pins axi_interconnect_0/M04_AXI]
+connect_bd_intf_net -intf_net [get_bd_intf_nets axi_interconnect_0_M04_AXI] [get_bd_intf_pins axi_interconnect_0/M04_AXI] [get_bd_intf_pins system_ila_0/SLOT_0_AXI]
   connect_bd_intf_net -intf_net axi_interconnect_0_M05_AXI [get_bd_intf_pins IIC/S00_AXI] [get_bd_intf_pins axi_interconnect_0/M05_AXI]
   connect_bd_intf_net -intf_net axi_interconnect_0_M06_AXI [get_bd_intf_pins BitstreamUpdater_QSPI/S00_AXI] [get_bd_intf_pins axi_interconnect_0/M06_AXI]
   connect_bd_intf_net -intf_net axi_interconnect_0_M07_AXI [get_bd_intf_pins axi_interconnect_0/M07_AXI] [get_bd_intf_pins xadc_wiz_0/s_axi_lite]
@@ -1456,32 +1473,32 @@ proc create_root_design { parentCell } {
 
   # Create port connections
   connect_bd_net -net TDC_Calib_Res [get_bd_pins BeltBus_LedCounter_0/is_calibrated] [get_bd_pins TDC_Calib/Res]
-  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins AXI4Stream_FT245Sync_0/m00_axis_RX_clk] [get_bd_pins AXI4Stream_FT245Sync_0/s00_axis_TX_clk] [get_bd_pins BeltBus_LedCounter_0/clk] [get_bd_pins BeltBus_LedCounter_0/s00_bb_aclk] [get_bd_pins BeltBus_TDCCounter_0/s00_axi_aclk] [get_bd_pins BeltBus_TDCCounter_0/s00_bb_aclk] [get_bd_pins BeltBus_TDCHistogrammer_0/m00_axis_aclk] [get_bd_pins BeltBus_TDCHistogrammer_0/s00_axi_aclk] [get_bd_pins BeltBus_TDCHistogrammer_0/s00_belt_aclk] [get_bd_pins BeltBus_TDCHistogrammer_1/m00_axis_aclk] [get_bd_pins BeltBus_TDCHistogrammer_1/s00_axi_aclk] [get_bd_pins BeltBus_TDCHistogrammer_1/s00_belt_aclk] [get_bd_pins BeltBus_TTM_0/s00_axi_clk] [get_bd_pins BeltBus_TTM_0/s00_bb_clk] [get_bd_pins BitstreamUpdater_QSPI/aclk] [get_bd_pins IIC/s00_axi_aclk] [get_bd_pins MME_0/clk] [get_bd_pins Master/s_axi_aclk] [get_bd_pins TDC_Calib/clk_BB] [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] [get_bd_pins axi_interconnect_0/M02_ACLK] [get_bd_pins axi_interconnect_0/M03_ACLK] [get_bd_pins axi_interconnect_0/M04_ACLK] [get_bd_pins axi_interconnect_0/M05_ACLK] [get_bd_pins axi_interconnect_0/M06_ACLK] [get_bd_pins axi_interconnect_0/M07_ACLK] [get_bd_pins axi_interconnect_0/M08_ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins axi_interconnect_0/S01_ACLK] [get_bd_pins axis_broadcaster_0/aclk] [get_bd_pins axis_broadcaster_1/aclk] [get_bd_pins axis_interconnect_0/ACLK] [get_bd_pins axis_interconnect_0/M00_AXIS_ACLK] [get_bd_pins axis_interconnect_0/S00_AXIS_ACLK] [get_bd_pins axis_interconnect_0/S01_AXIS_ACLK] [get_bd_pins axis_interconnect_0/S02_AXIS_ACLK] [get_bd_pins axis_interconnect_0/S03_AXIS_ACLK] [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins proc_sys_reset_0/slowest_sync_clk] [get_bd_pins xadc_wiz_0/s_axi_aclk]
+  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins AXI4Stream_FT245Sync_0/m00_axis_RX_clk] [get_bd_pins AXI4Stream_FT245Sync_0/s00_axis_TX_clk] [get_bd_pins BeltBus_LedCounter_0/clk] [get_bd_pins BeltBus_LedCounter_0/s00_bb_aclk] [get_bd_pins BeltBus_TDCCounter_0/s00_axi_aclk] [get_bd_pins BeltBus_TDCCounter_0/s00_bb_aclk] [get_bd_pins BeltBus_TDCHistogrammer_0/m00_axis_aclk] [get_bd_pins BeltBus_TDCHistogrammer_0/s00_axi_aclk] [get_bd_pins BeltBus_TDCHistogrammer_0/s00_belt_aclk] [get_bd_pins BeltBus_TDCHistogrammer_1/m00_axis_aclk] [get_bd_pins BeltBus_TDCHistogrammer_1/s00_axi_aclk] [get_bd_pins BeltBus_TDCHistogrammer_1/s00_belt_aclk] [get_bd_pins BeltBus_TTM_0/s00_axi_clk] [get_bd_pins BeltBus_TTM_0/s00_bb_clk] [get_bd_pins BitstreamUpdater_QSPI/aclk] [get_bd_pins IIC/s00_axi_aclk] [get_bd_pins MME_0/clk] [get_bd_pins Master/s_axi_aclk] [get_bd_pins TDC_Calib/clk_BB] [get_bd_pins axi_interconnect_0/ACLK] [get_bd_pins axi_interconnect_0/M00_ACLK] [get_bd_pins axi_interconnect_0/M01_ACLK] [get_bd_pins axi_interconnect_0/M02_ACLK] [get_bd_pins axi_interconnect_0/M03_ACLK] [get_bd_pins axi_interconnect_0/M04_ACLK] [get_bd_pins axi_interconnect_0/M05_ACLK] [get_bd_pins axi_interconnect_0/M06_ACLK] [get_bd_pins axi_interconnect_0/M07_ACLK] [get_bd_pins axi_interconnect_0/M08_ACLK] [get_bd_pins axi_interconnect_0/S00_ACLK] [get_bd_pins axi_interconnect_0/S01_ACLK] [get_bd_pins axis_broadcaster_0/aclk] [get_bd_pins axis_broadcaster_1/aclk] [get_bd_pins axis_interconnect_0/ACLK] [get_bd_pins axis_interconnect_0/M00_AXIS_ACLK] [get_bd_pins axis_interconnect_0/S00_AXIS_ACLK] [get_bd_pins axis_interconnect_0/S01_AXIS_ACLK] [get_bd_pins axis_interconnect_0/S02_AXIS_ACLK] [get_bd_pins axis_interconnect_0/S03_AXIS_ACLK] [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins proc_sys_reset_0/slowest_sync_clk] [get_bd_pins system_ila_0/clk] [get_bd_pins xadc_wiz_0/s_axi_aclk]
   connect_bd_net -net clk_wiz_0_clk_out2 [get_bd_pins BitstreamUpdater_QSPI/ext_spi_clk] [get_bd_pins clk_wiz_0/clk_out2]
   connect_bd_net -net clk_wiz_0_locked [get_bd_pins clk_wiz_0/locked] [get_bd_pins proc_sys_reset_0/dcm_locked]
   connect_bd_net -net clk_wiz_1_ft_clk [get_bd_pins AXI4Stream_FT245Sync_0/clk_FT245] [get_bd_pins clk_wiz_1/ft_clk]
   connect_bd_net -net ftdi_clock_1 [get_bd_ports ftdi_clock] [get_bd_pins clk_wiz_1/clk_in1]
   connect_bd_net -net proc_sys_reset_0_interconnect_aresetn [get_bd_pins MME_0/interconnect_aresetn] [get_bd_pins axi_interconnect_0/ARESETN] [get_bd_pins axis_interconnect_0/ARESETN] [get_bd_pins proc_sys_reset_0/interconnect_aresetn]
-  connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_pins AXI4Stream_FT245Sync_0/s00_axis_TX_resetn] [get_bd_pins BeltBus_LedCounter_0/s00_bb_aresetn] [get_bd_pins BeltBus_TDCCounter_0/s00_axi_aresetn] [get_bd_pins BeltBus_TDCCounter_0/s00_bb_aresetn] [get_bd_pins BeltBus_TDCHistogrammer_0/m00_axis_aresetn] [get_bd_pins BeltBus_TDCHistogrammer_0/s00_axi_aresetn] [get_bd_pins BeltBus_TDCHistogrammer_0/s00_belt_aresetn] [get_bd_pins BeltBus_TDCHistogrammer_1/m00_axis_aresetn] [get_bd_pins BeltBus_TDCHistogrammer_1/s00_axi_aresetn] [get_bd_pins BeltBus_TDCHistogrammer_1/s00_belt_aresetn] [get_bd_pins BeltBus_TTM_0/s00_axi_aresetn] [get_bd_pins BeltBus_TTM_0/s00_bb_aresetn] [get_bd_pins BitstreamUpdater_QSPI/aresetn] [get_bd_pins IIC/s00_axi_aresetn] [get_bd_pins MME_0/peripherals_aresetn] [get_bd_pins Master/s_axi_aresetn] [get_bd_pins TDC_Calib/reset_0] [get_bd_pins TDC_Calib/resetn] [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/M01_ARESETN] [get_bd_pins axi_interconnect_0/M02_ARESETN] [get_bd_pins axi_interconnect_0/M03_ARESETN] [get_bd_pins axi_interconnect_0/M04_ARESETN] [get_bd_pins axi_interconnect_0/M05_ARESETN] [get_bd_pins axi_interconnect_0/M06_ARESETN] [get_bd_pins axi_interconnect_0/M07_ARESETN] [get_bd_pins axi_interconnect_0/M08_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins axi_interconnect_0/S01_ARESETN] [get_bd_pins axis_broadcaster_0/aresetn] [get_bd_pins axis_broadcaster_1/aresetn] [get_bd_pins axis_interconnect_0/M00_AXIS_ARESETN] [get_bd_pins axis_interconnect_0/S00_AXIS_ARESETN] [get_bd_pins axis_interconnect_0/S01_AXIS_ARESETN] [get_bd_pins axis_interconnect_0/S02_AXIS_ARESETN] [get_bd_pins axis_interconnect_0/S03_AXIS_ARESETN] [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins xadc_wiz_0/s_axi_aresetn]
+  connect_bd_net -net proc_sys_reset_0_peripheral_aresetn [get_bd_pins AXI4Stream_FT245Sync_0/s00_axis_TX_resetn] [get_bd_pins BeltBus_LedCounter_0/s00_bb_aresetn] [get_bd_pins BeltBus_TDCCounter_0/s00_axi_aresetn] [get_bd_pins BeltBus_TDCCounter_0/s00_bb_aresetn] [get_bd_pins BeltBus_TDCHistogrammer_0/m00_axis_aresetn] [get_bd_pins BeltBus_TDCHistogrammer_0/s00_axi_aresetn] [get_bd_pins BeltBus_TDCHistogrammer_0/s00_belt_aresetn] [get_bd_pins BeltBus_TDCHistogrammer_1/m00_axis_aresetn] [get_bd_pins BeltBus_TDCHistogrammer_1/s00_axi_aresetn] [get_bd_pins BeltBus_TDCHistogrammer_1/s00_belt_aresetn] [get_bd_pins BeltBus_TTM_0/s00_axi_aresetn] [get_bd_pins BeltBus_TTM_0/s00_bb_aresetn] [get_bd_pins BitstreamUpdater_QSPI/aresetn] [get_bd_pins IIC/s00_axi_aresetn] [get_bd_pins MME_0/peripherals_aresetn] [get_bd_pins Master/s_axi_aresetn] [get_bd_pins TDC_Calib/reset_0] [get_bd_pins TDC_Calib/resetn] [get_bd_pins axi_interconnect_0/M00_ARESETN] [get_bd_pins axi_interconnect_0/M01_ARESETN] [get_bd_pins axi_interconnect_0/M02_ARESETN] [get_bd_pins axi_interconnect_0/M03_ARESETN] [get_bd_pins axi_interconnect_0/M04_ARESETN] [get_bd_pins axi_interconnect_0/M05_ARESETN] [get_bd_pins axi_interconnect_0/M06_ARESETN] [get_bd_pins axi_interconnect_0/M07_ARESETN] [get_bd_pins axi_interconnect_0/M08_ARESETN] [get_bd_pins axi_interconnect_0/S00_ARESETN] [get_bd_pins axi_interconnect_0/S01_ARESETN] [get_bd_pins axis_broadcaster_0/aresetn] [get_bd_pins axis_broadcaster_1/aresetn] [get_bd_pins axis_interconnect_0/M00_AXIS_ARESETN] [get_bd_pins axis_interconnect_0/S00_AXIS_ARESETN] [get_bd_pins axis_interconnect_0/S01_AXIS_ARESETN] [get_bd_pins axis_interconnect_0/S02_AXIS_ARESETN] [get_bd_pins axis_interconnect_0/S03_AXIS_ARESETN] [get_bd_pins proc_sys_reset_0/peripheral_aresetn] [get_bd_pins system_ila_0/resetn] [get_bd_pins xadc_wiz_0/s_axi_aresetn]
   connect_bd_net -net proc_sys_reset_0_peripheral_reset [get_bd_pins BeltBus_LedCounter_0/reset] [get_bd_pins TDC_Calib/reset] [get_bd_pins proc_sys_reset_0/peripheral_reset]
   connect_bd_net -net xlconstant_0_dout [get_bd_pins AXI4Stream_FT245Sync_0/areset] [get_bd_pins xlconstant_0/dout]
   connect_bd_net -net xlconstant_1_dout [get_bd_pins proc_sys_reset_0/ext_reset_in] [get_bd_pins xlconstant_1/dout]
 
   # Create address segments
-  assign_bd_address -offset 0x00200000 -range 0x00200000 -target_address_space [get_bd_addr_spaces MME_0/M_AXI_MM2S] [get_bd_addr_segs IIC/AXI4_AXIToIIC_0/S00_AXI/reg0] -force
   assign_bd_address -offset 0x00200000 -range 0x00200000 -target_address_space [get_bd_addr_spaces MME_0/M_AXI_S2MM] [get_bd_addr_segs IIC/AXI4_AXIToIIC_0/S00_AXI/reg0] -force
+  assign_bd_address -offset 0x00200000 -range 0x00200000 -target_address_space [get_bd_addr_spaces MME_0/M_AXI_MM2S] [get_bd_addr_segs IIC/AXI4_AXIToIIC_0/S00_AXI/reg0] -force
   assign_bd_address -offset 0x44A30000 -range 0x00010000 -target_address_space [get_bd_addr_spaces MME_0/M_AXI_MM2S] [get_bd_addr_segs BitstreamUpdater_QSPI/AXI4_BitstreamUpdater_0/S00_AXI/reg0] -force
   assign_bd_address -offset 0x44A30000 -range 0x00010000 -target_address_space [get_bd_addr_spaces MME_0/M_AXI_S2MM] [get_bd_addr_segs BitstreamUpdater_QSPI/AXI4_BitstreamUpdater_0/S00_AXI/reg0] -force
-  assign_bd_address -offset 0x44A40000 -range 0x00010000 -target_address_space [get_bd_addr_spaces MME_0/M_AXI_MM2S] [get_bd_addr_segs TDC_Calib/AXI4_TDC_Wrapper_0/S00_AXI/reg0] -force
   assign_bd_address -offset 0x44A40000 -range 0x00010000 -target_address_space [get_bd_addr_spaces MME_0/M_AXI_S2MM] [get_bd_addr_segs TDC_Calib/AXI4_TDC_Wrapper_0/S00_AXI/reg0] -force
+  assign_bd_address -offset 0x44A40000 -range 0x00010000 -target_address_space [get_bd_addr_spaces MME_0/M_AXI_MM2S] [get_bd_addr_segs TDC_Calib/AXI4_TDC_Wrapper_0/S00_AXI/reg0] -force
   assign_bd_address -offset 0x44A00000 -range 0x00010000 -target_address_space [get_bd_addr_spaces MME_0/M_AXI_MM2S] [get_bd_addr_segs BeltBus_TDCCounter_0/S00_AXI/MAIN] -force
   assign_bd_address -offset 0x44A00000 -range 0x00010000 -target_address_space [get_bd_addr_spaces MME_0/M_AXI_S2MM] [get_bd_addr_segs BeltBus_TDCCounter_0/S00_AXI/MAIN] -force
   assign_bd_address -offset 0x44A10000 -range 0x00010000 -target_address_space [get_bd_addr_spaces MME_0/M_AXI_MM2S] [get_bd_addr_segs BeltBus_TDCHistogrammer_0/S00_AXI/reg0] -force
   assign_bd_address -offset 0x44A10000 -range 0x00010000 -target_address_space [get_bd_addr_spaces MME_0/M_AXI_S2MM] [get_bd_addr_segs BeltBus_TDCHistogrammer_0/S00_AXI/reg0] -force
-  assign_bd_address -offset 0x44A20000 -range 0x00010000 -target_address_space [get_bd_addr_spaces MME_0/M_AXI_MM2S] [get_bd_addr_segs BeltBus_TDCHistogrammer_1/S00_AXI/reg0] -force
   assign_bd_address -offset 0x44A20000 -range 0x00010000 -target_address_space [get_bd_addr_spaces MME_0/M_AXI_S2MM] [get_bd_addr_segs BeltBus_TDCHistogrammer_1/S00_AXI/reg0] -force
-  assign_bd_address -offset 0x44A60000 -range 0x00010000 -target_address_space [get_bd_addr_spaces MME_0/M_AXI_MM2S] [get_bd_addr_segs BeltBus_TTM_0/S00_AXI/reg0] -force
+  assign_bd_address -offset 0x44A20000 -range 0x00010000 -target_address_space [get_bd_addr_spaces MME_0/M_AXI_MM2S] [get_bd_addr_segs BeltBus_TDCHistogrammer_1/S00_AXI/reg0] -force
   assign_bd_address -offset 0x44A60000 -range 0x00010000 -target_address_space [get_bd_addr_spaces MME_0/M_AXI_S2MM] [get_bd_addr_segs BeltBus_TTM_0/S00_AXI/reg0] -force
+  assign_bd_address -offset 0x44A60000 -range 0x00010000 -target_address_space [get_bd_addr_spaces MME_0/M_AXI_MM2S] [get_bd_addr_segs BeltBus_TTM_0/S00_AXI/reg0] -force
   assign_bd_address -offset 0x00000000 -range 0x00001000 -target_address_space [get_bd_addr_spaces MME_0/M_AXI_MM2S] [get_bd_addr_segs Master/axi_bram_ctrl_0/S_AXI/Mem0] -force
   assign_bd_address -offset 0x00000000 -range 0x00001000 -target_address_space [get_bd_addr_spaces MME_0/M_AXI_S2MM] [get_bd_addr_segs Master/axi_bram_ctrl_0/S_AXI/Mem0] -force
   assign_bd_address -offset 0x44A50000 -range 0x00010000 -target_address_space [get_bd_addr_spaces MME_0/M_AXI_MM2S] [get_bd_addr_segs xadc_wiz_0/s_axi_lite/Reg] -force

@@ -1,107 +1,138 @@
 {
    "ActiveEmotionalView":"Default View",
-   "Default View_ScaleFactor":"0.714767",
-   "Default View_TopLeft":"1017,348",
+   "Default View_ScaleFactor":"0.821056",
+   "Default View_TopLeft":"9952,112",
    "ExpandedHierarchyInLayout":"",
    "PinnedBlocks":"/AXI4Stream_FT245Sync_0|/BeltBus_LedCounter_0|/BeltBus_TDCCounter_0|/BeltBus_TDCHistogrammer_0|/BeltBus_TDCHistogrammer_1|/BeltBus_TTM_0|/BitstreamUpdater_QSPI|/IIC|/MME_0|/Master|/TDC_Calib|/axi_interconnect_0|/axis_broadcaster_0|/axis_broadcaster_1|/axis_interconnect_0|/clk_wiz_0|/clk_wiz_1|/dlconstant_gpio_0|/dlconstant_gpio_1|/dlconstant_gpio_2|/dlconstant_gpio_3|/proc_sys_reset_0|/xadc_wiz_0|/xlconstant_0|/xlconstant_1|",
    "PinnedPorts":"ftdi_clock|DAC_RESETN|FRONT_GREEN_POWER_LED|FT245|FT_245_EN_BUS|I2C_BUS|LED_G_BUS|LED_R_BUS|QSPI_MEMORY_IF|USB_UART_BUS_EN|ch1_diff|ch2_diff|sync_diff|sys_diff_clock|tdc_diff_clock|",
    "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
 #  -string -flagsOSRD
-preplace port DAC_RESETN -pg 1 -lvl 10 -x 3560 -y 530 -defaultsOSRD
-preplace port FRONT_GREEN_POWER_LED -pg 1 -lvl 10 -x 3560 -y 1080 -defaultsOSRD
-preplace port FT245 -pg 1 -lvl 0 -x -110 -y 1170 -defaultsOSRD
-preplace port FT_245_EN_BUS -pg 1 -lvl 10 -x 3560 -y 1360 -defaultsOSRD
-preplace port I2C_BUS -pg 1 -lvl 10 -x 3560 -y 1680 -defaultsOSRD
-preplace port LED_G_BUS -pg 1 -lvl 10 -x 3560 -y 820 -defaultsOSRD
-preplace port LED_R_BUS -pg 1 -lvl 10 -x 3560 -y 840 -defaultsOSRD
-preplace port QSPI_MEMORY_IF -pg 1 -lvl 10 -x 3560 -y 660 -defaultsOSRD
-preplace port USB_UART_BUS_EN -pg 1 -lvl 10 -x 3560 -y 980 -defaultsOSRD
-preplace port ch1_diff -pg 1 -lvl 0 -x -110 -y 600 -defaultsOSRD
-preplace port ch2_diff -pg 1 -lvl 0 -x -110 -y 620 -defaultsOSRD
-preplace port sync_diff -pg 1 -lvl 0 -x -110 -y 640 -defaultsOSRD
-preplace port sys_diff_clock -pg 1 -lvl 0 -x -110 -y 720 -defaultsOSRD
-preplace port tdc_diff_clock -pg 1 -lvl 0 -x -110 -y 800 -defaultsOSRD
-preplace port ftdi_clock -pg 1 -lvl 0 -x -110 -y 1230 -defaultsOSRD
-preplace inst AXI4Stream_FT245Sync_0 -pg 1 -lvl 6 -x 2130 -y 1230 -defaultsOSRD
-preplace inst BeltBus_LedCounter_0 -pg 1 -lvl 9 -x 3390 -y 830 -defaultsOSRD
-preplace inst BeltBus_TDCCounter_0 -pg 1 -lvl 5 -x 1740 -y 660 -defaultsOSRD
-preplace inst BeltBus_TDCHistogrammer_0 -pg 1 -lvl 5 -x 1740 -y 140 -defaultsOSRD
-preplace inst BeltBus_TDCHistogrammer_1 -pg 1 -lvl 5 -x 1740 -y 400 -defaultsOSRD
-preplace inst BeltBus_TTM_0 -pg 1 -lvl 6 -x 2130 -y 910 -defaultsOSRD
-preplace inst BitstreamUpdater_QSPI -pg 1 -lvl 9 -x 3390 -y 660 -defaultsOSRD
-preplace inst IIC -pg 1 -lvl 9 -x 3390 -y 1680 -defaultsOSRD
-preplace inst MME_0 -pg 1 -lvl 7 -x 2570 -y 920 -defaultsOSRD
-preplace inst Master -pg 1 -lvl 9 -x 3390 -y 1250 -defaultsOSRD
-preplace inst TDC_Calib -pg 1 -lvl 3 -x 950 -y 952 -defaultsOSRD
-preplace inst axi_interconnect_0 -pg 1 -lvl 8 -x 2980 -y 1420 -defaultsOSRD
-preplace inst axis_broadcaster_0 -pg 1 -lvl 4 -x 1329 -y 660 -defaultsOSRD
-preplace inst axis_broadcaster_1 -pg 1 -lvl 4 -x 1329 -y 350 -defaultsOSRD
-preplace inst axis_interconnect_0 -pg 1 -lvl 6 -x 2130 -y 520 -defaultsOSRD
+preplace port DAC_RESETN -pg 1 -lvl 10 -x 11230 -y 530 -defaultsOSRD
+preplace port FRONT_GREEN_POWER_LED -pg 1 -lvl 10 -x 11230 -y 1080 -defaultsOSRD
+preplace port FT245 -pg 1 -lvl 0 -x -120 -y 1170 -defaultsOSRD
+preplace port FT_245_EN_BUS -pg 1 -lvl 10 -x 11230 -y 1360 -defaultsOSRD
+preplace port I2C_BUS -pg 1 -lvl 10 -x 11230 -y 1680 -defaultsOSRD
+preplace port LED_G_BUS -pg 1 -lvl 10 -x 11230 -y 820 -defaultsOSRD
+preplace port LED_R_BUS -pg 1 -lvl 10 -x 11230 -y 840 -defaultsOSRD
+preplace port QSPI_MEMORY_IF -pg 1 -lvl 10 -x 11230 -y 660 -defaultsOSRD
+preplace port USB_UART_BUS_EN -pg 1 -lvl 10 -x 11230 -y 980 -defaultsOSRD
+preplace port ch1_diff -pg 1 -lvl 0 -x -120 -y 600 -defaultsOSRD
+preplace port ch2_diff -pg 1 -lvl 0 -x -120 -y 620 -defaultsOSRD
+preplace port sync_diff -pg 1 -lvl 0 -x -120 -y 640 -defaultsOSRD
+preplace port sys_diff_clock -pg 1 -lvl 0 -x -120 -y 720 -defaultsOSRD
+preplace port tdc_diff_clock -pg 1 -lvl 0 -x -120 -y 800 -defaultsOSRD
+preplace port ftdi_clock -pg 1 -lvl 0 -x -120 -y 1230 -defaultsOSRD
+preplace inst AXI4Stream_FT245Sync_0 -pg 1 -lvl 6 -x 9780 -y 1230 -defaultsOSRD
+preplace inst BeltBus_LedCounter_0 -pg 1 -lvl 9 -x 11050 -y 930 -defaultsOSRD
+preplace inst BeltBus_TDCCounter_0 -pg 1 -lvl 5 -x 9400 -y 660 -defaultsOSRD
+preplace inst BeltBus_TDCHistogrammer_0 -pg 1 -lvl 5 -x 9400 -y 140 -defaultsOSRD
+preplace inst BeltBus_TDCHistogrammer_1 -pg 1 -lvl 5 -x 9400 -y 400 -defaultsOSRD
+preplace inst BeltBus_TTM_0 -pg 1 -lvl 6 -x 9780 -y 910 -defaultsOSRD
+preplace inst BitstreamUpdater_QSPI -pg 1 -lvl 9 -x 11050 -y 760 -defaultsOSRD
+preplace inst IIC -pg 1 -lvl 9 -x 11050 -y 1820 -defaultsOSRD
+preplace inst MME_0 -pg 1 -lvl 7 -x 10220 -y 920 -defaultsOSRD
+preplace inst Master -pg 1 -lvl 9 -x 11050 -y 1300 -defaultsOSRD
+preplace inst TDC_Calib -pg 1 -lvl 3 -x 940 -y -588 -defaultsOSRD
+preplace inst axi_interconnect_0 -pg 1 -lvl 8 -x 10620 -y 1420 -defaultsOSRD
+preplace inst axis_broadcaster_0 -pg 1 -lvl 4 -x 8991 -y 660 -defaultsOSRD
+preplace inst axis_broadcaster_1 -pg 1 -lvl 4 -x 8991 -y 350 -defaultsOSRD
+preplace inst axis_interconnect_0 -pg 1 -lvl 6 -x 9780 -y 520 -defaultsOSRD
 preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 50 -y 720 -defaultsOSRD
-preplace inst clk_wiz_1 -pg 1 -lvl 5 -x 1740 -y 1230 -defaultsOSRD
-preplace inst dlconstant_gpio_0 -pg 1 -lvl 9 -x 3390 -y 980 -defaultsOSRD
-preplace inst dlconstant_gpio_1 -pg 1 -lvl 9 -x 3390 -y 1080 -defaultsOSRD
-preplace inst dlconstant_gpio_2 -pg 1 -lvl 9 -x 3390 -y 1360 -defaultsOSRD
-preplace inst dlconstant_gpio_3 -pg 1 -lvl 9 -x 3390 -y 530 -defaultsOSRD
+preplace inst clk_wiz_1 -pg 1 -lvl 5 -x 9400 -y 1230 -defaultsOSRD
+preplace inst dlconstant_gpio_0 -pg 1 -lvl 9 -x 11050 -y 1080 -defaultsOSRD
+preplace inst dlconstant_gpio_1 -pg 1 -lvl 9 -x 11050 -y 1180 -defaultsOSRD
+preplace inst dlconstant_gpio_2 -pg 1 -lvl 9 -x 11050 -y 1410 -defaultsOSRD
+preplace inst dlconstant_gpio_3 -pg 1 -lvl 9 -x 11050 -y 630 -defaultsOSRD
 preplace inst proc_sys_reset_0 -pg 1 -lvl 2 -x 390 -y 790 -defaultsOSRD
-preplace inst xadc_wiz_0 -pg 1 -lvl 9 -x 3390 -y 1510 -defaultsOSRD
-preplace inst xlconstant_0 -pg 1 -lvl 5 -x 1740 -y 1330 -defaultsOSRD
+preplace inst xadc_wiz_0 -pg 1 -lvl 9 -x 11050 -y 1650 -defaultsOSRD
+preplace inst xlconstant_0 -pg 1 -lvl 5 -x 9400 -y 1330 -defaultsOSRD
 preplace inst xlconstant_1 -pg 1 -lvl 1 -x 50 -y 860 -defaultsOSRD
-preplace netloc TDC_Calib_Res 1 3 6 1140 1030 NJ 1030 NJ 1030 2300J 750 NJ 750 3200J
-preplace netloc clk_wiz_0_clk_out1 1 1 8 180 690 640 660 1140 430 1540 -20 1910 1100 2340 1100 2820 1100 3210
-preplace netloc clk_wiz_0_clk_out2 1 1 8 170 -30 NJ -30 NJ -30 NJ -30 NJ -30 NJ -30 NJ -30 3240J
+preplace inst system_ila_0 -pg 1 -lvl 9 -x 11050 -y 510 -defaultsOSRD
+preplace inst TDC_Calib|AXI4Stream_MuxDebugg_0 -pg 1 -lvl 4 -x 1970 -y -568 -defaultsOSRD
+preplace inst TDC_Calib|AXI4_TDC_Wrapper_0 -pg 1 -lvl 5 -x 2420 -y -518 -defaultsOSRD
+preplace inst TDC_Calib|TDC -pg 1 -lvl 3 -x 1560 -y -568 -defaultsOSRD
+preplace inst TDC_Calib|util_ds_buf_3 -pg 1 -lvl 1 -x 960 -y -368 -defaultsOSRD
+preplace inst TDC_Calib|util_ds_buf_4 -pg 1 -lvl 2 -x 1230 -y -368 -defaultsOSRD
+preplace netloc TDC_Calib_Res 1 3 6 2860 -70 NJ -70 NJ -70 NJ -70 NJ -70 10900J
+preplace netloc clk_wiz_0_clk_out1 1 1 8 180 270 580 270 2880 270 9180 0 9560 260 9980 800 10450 890 10850
+preplace netloc clk_wiz_0_clk_out2 1 1 8 170 690 NJ 690 2870J 770 NJ 770 NJ 770 9940J 760 NJ 760 10880J
 preplace netloc clk_wiz_0_locked 1 1 1 170 740n
-preplace netloc clk_wiz_1_ft_clk 1 5 1 1920J 1210n
-preplace netloc ftdi_clock_1 1 0 5 -80J 920 NJ 920 620J 790 NJ 790 1490J
-preplace netloc proc_sys_reset_0_interconnect_aresetn 1 2 6 570J 780 NJ 780 1510J 820 1950 1040 2360 1070 2790
-preplace netloc proc_sys_reset_0_peripheral_aresetn 1 2 7 590 680 1160 440 1560 540 1940 1110 2350 1110 2800 1110 3220
-preplace netloc proc_sys_reset_0_peripheral_reset 1 2 7 600 770 NJ 770 1550J 830 1900J 1020 2310J 770 NJ 770 3190
-preplace netloc xlconstant_0_dout 1 5 1 1970J 1230n
+preplace netloc clk_wiz_1_ft_clk 1 5 1 9570J 1210n
+preplace netloc ftdi_clock_1 1 0 5 NJ 1230 NJ 1230 NJ 1230 NJ 1230 NJ
+preplace netloc proc_sys_reset_0_interconnect_aresetn 1 2 6 600J -20 NJ -20 NJ -20 9590 270 9950 1100 10430
+preplace netloc proc_sys_reset_0_peripheral_aresetn 1 2 7 590 370 2860 430 9210 540 9580 1020 10000 1110 10460 1110 10860
+preplace netloc proc_sys_reset_0_peripheral_reset 1 2 7 570 -40 NJ -40 NJ -40 NJ -40 NJ -40 NJ -40 10890
+preplace netloc xlconstant_0_dout 1 5 1 9600J 1230n
 preplace netloc xlconstant_1_dout 1 1 1 180J 770n
-preplace netloc BeltBus_LedCounter_0_GREEN_LEDS 1 9 1 NJ 820
-preplace netloc axi_interconnect_0_M01_AXI 1 4 5 1590 770 NJ 770 2290J 760 NJ 760 3170
-preplace netloc TDC_M00_BB 1 3 1 1150 640n
-preplace netloc axi_iic_0_IIC 1 9 1 NJ 1680
-preplace netloc axi_interconnect_0_M02_AXI 1 4 5 1570 780 NJ 780 NJ 780 NJ 780 3160
-preplace netloc axi_interconnect_0_M03_AXI 1 4 5 1580 790 NJ 790 NJ 790 NJ 790 3150
-preplace netloc axi_interconnect_0_M04_AXI 1 2 7 660 810 NJ 810 NJ 810 1930J 800 NJ 800 NJ 800 3140
-preplace netloc axi_interconnect_0_M05_AXI 1 8 1 3140 1440n
-preplace netloc axi_interconnect_0_M06_AXI 1 8 1 3180 630n
-preplace netloc axi_interconnect_0_M07_AXI 1 8 1 N 1480
-preplace netloc axi_interconnect_0_M08_AXI 1 5 4 1960 1090 NJ 1090 NJ 1090 3130
-preplace netloc axi_quad_spi_0_SPI_0 1 9 1 NJ 660
-preplace netloc axis_broadcaster_0_M00_AXIS 1 4 1 1530 610n
-preplace netloc axis_broadcaster_0_M01_AXIS 1 4 1 1500 80n
-preplace netloc axis_broadcaster_0_M02_AXIS 1 4 1 1520 340n
-preplace netloc axis_broadcaster_0_M03_AXIS 1 4 5 1510 0 NJ 0 NJ 0 NJ 0 3230J
-preplace netloc axis_broadcaster_0_M04_AXIS 1 4 2 1550 550 1920J
-preplace netloc axis_broadcaster_1_M00_AXIS 1 4 1 1490 100n
+preplace netloc axis_broadcaster_0_M00_AXIS 1 4 1 9200 610n
+preplace netloc axis_broadcaster_0_M01_AXIS 1 4 1 9170 80n
+preplace netloc axis_broadcaster_0_M02_AXIS 1 4 1 9190 340n
+preplace netloc axis_broadcaster_0_M03_AXIS 1 4 5 9220 550 9550J 790 NJ 790 10470J 880 NJ
+preplace netloc axis_broadcaster_0_M04_AXIS 1 4 2 9170 860 NJ
+preplace netloc BeltBus_LedCounter_0_GREEN_LEDS 1 9 1 11200J 820n
+preplace netloc axi_interconnect_0_M01_AXI 1 4 5 9230 -60 NJ -60 NJ -60 NJ -60 10820
+preplace netloc TDC_M00_BB 1 3 1 2850 -338n
+preplace netloc axi_iic_0_IIC 1 9 1 11210J 1680n
+preplace netloc axi_interconnect_0_M02_AXI 1 4 5 9240 -50 NJ -50 NJ -50 NJ -50 10810
+preplace netloc axi_interconnect_0_M03_AXI 1 4 5 9250 -10 NJ -10 NJ -10 NJ -10 10800
+preplace netloc axi_interconnect_0_M04_AXI 1 2 7 600 -30 NJ -30 NJ -30 NJ -30 NJ -30 NJ -30 10830
+preplace netloc axi_interconnect_0_M05_AXI 1 8 1 10820 1440n
+preplace netloc axi_interconnect_0_M06_AXI 1 8 1 10870 730n
+preplace netloc axi_interconnect_0_M07_AXI 1 8 1 10800 1480n
+preplace netloc axi_interconnect_0_M08_AXI 1 5 4 9600 800 9960J 770 NJ 770 10790
+preplace netloc axi_quad_spi_0_SPI_0 1 9 1 11200J 660n
+preplace netloc axis_broadcaster_1_M00_AXIS 1 4 1 9160 100n
 preplace netloc axis_broadcaster_1_M01_AXIS 1 4 1 N 360
-preplace netloc axis_interconnect_0_M00_AXIS 1 6 1 2360 520n
-preplace netloc ch1_diff_1 1 0 3 NJ 600 NJ 600 650J
-preplace netloc dlconstant_gpio_0_constant_out 1 9 1 NJ 980
+preplace netloc axis_interconnect_0_M00_AXIS 1 6 1 9970 520n
+preplace netloc ch1_diff_1 1 0 3 -100J -638 NJ -638 NJ
+preplace netloc dlconstant_gpio_0_constant_out 1 9 1 11200J 980n
 preplace netloc sys_diff_clock_1 1 0 1 NJ 720
-preplace netloc tdc_diff_clock_1 1 0 3 -90J 1070 NJ 1070 660J
-preplace netloc dlconstant_gpio_3_constant_out 1 9 1 NJ 530
-preplace netloc dlconstant_gpio_2_constant_out 1 9 1 NJ 1360
-preplace netloc dlconstant_gpio_1_constant_out 1 9 1 NJ 1080
-preplace netloc ch2_diff_1 1 0 3 NJ 620 NJ 620 630J
-preplace netloc sync_diff_1 1 0 3 NJ 640 NJ 640 580J
-preplace netloc TDC_Calib_M00_AXIS 1 3 1 1130 330n
-preplace netloc S_AXI_1 1 8 1 3190 1230n
-preplace netloc S03_AXIS_1 1 3 3 1120 -10 NJ -10 1960J
-preplace netloc S01_AXIS_1 1 5 1 1950 140n
-preplace netloc MME_0_M_AXI_S2MM 1 7 1 2810 920n
-preplace netloc MME_0_M_AXI_MM2S 1 7 1 2830 900n
-preplace netloc MME_0_M_AXIS 1 5 3 1970 1080 NJ 1080 2780
-preplace netloc FT245_1 1 0 6 -70J 980 NJ 980 610J 800 NJ 800 NJ 800 1890J
-preplace netloc BeltBus_TTM_0_M00_AXIS 1 6 1 2320 900n
-preplace netloc BeltBus_TDCHistogrammer_1_M00_AXIS 1 5 1 1900 370n
-preplace netloc BeltBus_TDCCounter_0_M00_AXIS_Push 1 5 1 1890 330n
-preplace netloc BeltBus_LedCounter_0_RED_LEDS 1 9 1 NJ 840
-preplace netloc AXI4Stream_FT245Sync_0_m00_axis_RX 1 6 1 2330 870n
-levelinfo -pg 1 -110 50 390 950 1329 1740 2130 2570 2980 3390 3560
-pagesize -pg 1 -db -bbox -sgen -260 -40 3820 2940
+preplace netloc tdc_diff_clock_1 1 0 3 -70J -368 NJ -368 NJ
+preplace netloc dlconstant_gpio_3_constant_out 1 9 1 11200J 530n
+preplace netloc dlconstant_gpio_2_constant_out 1 9 1 11200J 1360n
+preplace netloc dlconstant_gpio_1_constant_out 1 9 1 11210J 1080n
+preplace netloc ch2_diff_1 1 0 3 -90J -618 NJ -618 NJ
+preplace netloc sync_diff_1 1 0 3 -80J -598 NJ -598 NJ
+preplace netloc TDC_Calib_M00_AXIS 1 3 1 2870 -378n
+preplace netloc S_AXI_1 1 8 1 10840 1280n
+preplace netloc S03_AXIS_1 1 3 3 2880 -80 NJ -80 9600J
+preplace netloc S01_AXIS_1 1 5 1 9580 140n
+preplace netloc MME_0_M_AXI_S2MM 1 7 1 10440 920n
+preplace netloc MME_0_M_AXI_MM2S 1 7 1 10470 900n
+preplace netloc MME_0_M_AXIS 1 5 3 9590 780 NJ 780 10430
+preplace netloc FT245_1 1 0 6 NJ 1170 NJ 1170 NJ 1170 NJ 1170 NJ 1170 NJ
+preplace netloc BeltBus_TTM_0_M00_AXIS 1 6 1 9940 900n
+preplace netloc BeltBus_TDCHistogrammer_1_M00_AXIS 1 5 1 9580 370n
+preplace netloc BeltBus_TDCCounter_0_M00_AXIS_Push 1 5 1 9570 330n
+preplace netloc BeltBus_LedCounter_0_RED_LEDS 1 9 1 11210J 840n
+preplace netloc AXI4Stream_FT245Sync_0_m00_axis_RX 1 6 1 9990 870n
+preplace netloc TDC_Calib|AXI4_TDC_Wrapper_0_MUX_sel 1 3 3 1790 -688 NJ -688 2650
+preplace netloc TDC_Calib|AXI4_TDC_Wrapper_0_TDC_PROP_WPORT 1 2 4 1390 -388 NJ -388 NJ -388 2660
+preplace netloc TDC_Calib|Net 1 0 5 NJ -288 NJ -288 NJ -288 1730 -678 2150
+preplace netloc TDC_Calib|TDC_Res 1 3 3 1720 -238 NJ -238 NJ
+preplace netloc TDC_Calib|TDC_dout 1 3 2 1740 -458 NJ
+preplace netloc TDC_Calib|clk_wiz_0_clk_out1 1 0 5 830J -428 NJ -428 1360 -438 1780 -438 2160
+preplace netloc TDC_Calib|proc_sys_reset_0_peripheral_aresetn 1 0 5 NJ -248 NJ -248 NJ -248 NJ -248 2170
+preplace netloc TDC_Calib|reset_0_1 1 0 3 820J -518 NJ -518 N
+preplace netloc TDC_Calib|util_ds_buf_3_IBUF_OUT 1 1 1 NJ -368
+preplace netloc TDC_Calib|util_ds_buf_4_BUFG_O 1 2 1 1380 -538n
+preplace netloc TDC_Calib|AXI4_TDC_Wrapper_0_TDC_DEBUG_PROP_WPORT 1 2 4 1400 -398 NJ -398 NJ -398 2650
+preplace netloc TDC_Calib|tdc_diff_clock_1 1 0 1 NJ -368
+preplace netloc TDC_Calib|AXI4Stream_MuxDebugg_0_M00_AXIS_CT 1 4 1 2140 -578n
+preplace netloc TDC_Calib|AXI4_TDC_Wrapper_0_M00_AXIS_Autopush 1 5 1 2670 -548n
+preplace netloc TDC_Calib|Conn3 1 3 3 1770 -378 NJ -378 NJ
+preplace netloc TDC_Calib|S00_AXI_1 1 0 5 NJ -658 NJ -658 1370J -448 NJ -448 2140
+preplace netloc TDC_Calib|TDC_M00_BB 1 3 3 1750 -338 NJ -338 NJ
+preplace netloc TDC_Calib|TDC_M01_AXIS_DebugCT 1 3 1 1720 -598n
+preplace netloc TDC_Calib|TDC_M01_AXIS_DebugCT1 1 3 1 1760 -578n
+preplace netloc TDC_Calib|TDC_M01_AXIS_DebugCT2 1 3 1 1740 -618n
+preplace netloc TDC_Calib|ch1_diff_1 1 0 3 NJ -638 NJ -638 N
+preplace netloc TDC_Calib|ch2_diff_1 1 0 3 NJ -618 NJ -618 N
+preplace netloc TDC_Calib|sync_diff_1 1 0 3 NJ -598 NJ -598 N
+levelinfo -pg 1 -120 50 390 940 8991 9400 9780 10220 10620 11050 11230
+levelinfo -hier TDC_Calib * 960 1230 1560 1970 2420 *
+pagesize -pg 1 -db -bbox -sgen -270 -1070 11490 2940
+pagesize -hier TDC_Calib -db -bbox -sgen 780 -698 2700 -228
 "
 }
 0

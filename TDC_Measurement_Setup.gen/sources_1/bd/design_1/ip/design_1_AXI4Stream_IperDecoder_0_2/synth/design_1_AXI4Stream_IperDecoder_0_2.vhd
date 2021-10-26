@@ -60,7 +60,8 @@ ENTITY design_1_AXI4Stream_IperDecoder_0_2 IS
     s00_axis_undeco_tvalid : IN STD_LOGIC;
     s00_axis_undeco_tdata : IN STD_LOGIC_VECTOR(1023 DOWNTO 0);
     m00_axis_subint_tvalid : OUT STD_LOGIC;
-    m00_axis_subint_tdata : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
+    m00_axis_subint_tdata : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+    subInterpolationMatrix : IN STD_LOGIC_VECTOR(31 DOWNTO 0)
   );
 END design_1_AXI4Stream_IperDecoder_0_2;
 
@@ -125,6 +126,8 @@ ARCHITECTURE design_1_AXI4Stream_IperDecoder_0_2_arch OF design_1_AXI4Stream_Ipe
   ATTRIBUTE IP_DEFINITION_SOURCE OF design_1_AXI4Stream_IperDecoder_0_2_arch: ARCHITECTURE IS "package_project";
   ATTRIBUTE X_INTERFACE_INFO : STRING;
   ATTRIBUTE X_INTERFACE_PARAMETER : STRING;
+  ATTRIBUTE X_INTERFACE_PARAMETER OF subInterpolationMatrix: SIGNAL IS "XIL_INTERFACENAME subInterpolationMatrix, LAYERED_METADATA undef";
+  ATTRIBUTE X_INTERFACE_INFO OF subInterpolationMatrix: SIGNAL IS "xilinx.com:signal:data:1.0 subInterpolationMatrix DATA";
   ATTRIBUTE X_INTERFACE_INFO OF m00_axis_subint_tdata: SIGNAL IS "xilinx.com:interface:axis:1.0 M00_AXIS_SubInt TDATA";
   ATTRIBUTE X_INTERFACE_PARAMETER OF m00_axis_subint_tvalid: SIGNAL IS "XIL_INTERFACENAME M00_AXIS_SubInt, TDATA_NUM_BYTES 2, TDEST_WIDTH 0, TID_WIDTH 0, TUSER_WIDTH 0, HAS_TREADY 0, HAS_TSTRB 0, HAS_TKEEP 0, HAS_TLAST 0, FREQ_HZ 416666666, PHASE 0.000, CLK_DOMAIN design_1_util_ds_buf_3_0_IBUF_OUT, LAYERED_METADATA undef, INSERT_VIP 0";
   ATTRIBUTE X_INTERFACE_INFO OF m00_axis_subint_tvalid: SIGNAL IS "xilinx.com:interface:axis:1.0 M00_AXIS_SubInt TVALID";
@@ -174,7 +177,7 @@ BEGIN
       PRINT_FULL_REPORT => false,
       OPTIMIZATION_MODE => "TIME",
       WEIGHT_AREA_VS_TIME_PERCENT => 100,
-      DEBUG_MODE => false
+      DEBUG_MODE => true
     )
     PORT MAP (
       reset => reset,
@@ -183,6 +186,6 @@ BEGIN
       s00_axis_undeco_tdata => s00_axis_undeco_tdata,
       m00_axis_subint_tvalid => m00_axis_subint_tvalid,
       m00_axis_subint_tdata => m00_axis_subint_tdata,
-      subInterpolationMatrix => STD_LOGIC_VECTOR(TO_UNSIGNED(0, 32))
+      subInterpolationMatrix => subInterpolationMatrix
     );
 END design_1_AXI4Stream_IperDecoder_0_2_arch;

@@ -1,7 +1,7 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-// Date        : Mon Oct 25 10:03:39 2021
+// Date        : Tue Oct 26 10:06:44 2021
 // Host        : mconsonni-All-Series running 64-bit Ubuntu 20.04.3 LTS
 // Command     : write_verilog -force -mode synth_stub
 //               /home/mconsonni/Desktop/Tesi/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.gen/sources_1/bd/design_1/ip/design_1_AXI4Stream_X7S_VirtualTDL_0_1/design_1_AXI4Stream_X7S_VirtualTDL_0_1_stub.v

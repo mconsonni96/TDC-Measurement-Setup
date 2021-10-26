@@ -31,7 +31,7 @@
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.RESET.INSERT_VIP">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.VALIDNUMBEROFTDL.LAYERED_METADATA">undef</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.VALIDPOSITIONTAP.LAYERED_METADATA">undef</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.BIT_SMP_PRE_TDL">0</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.BIT_SMP_PRE_TDL">2</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.BIT_SMP_TDL">256</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.BUFFERING_STAGE">false</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.DEBUG_MODE">true</spirit:configurableElementValue>
@@ -40,7 +40,7 @@
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.MAX_VALID_TAP_POS">255</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.MIN_VALID_TAP_POS">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.NUMBER_OF_TDL">4</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.NUM_TAP_PRE_TDL">0</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.NUM_TAP_PRE_TDL">16</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.NUM_TAP_TDL">256</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.OFFSET_TAP_TDL_0">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.OFFSET_TAP_TDL_1">0</spirit:configurableElementValue>
@@ -59,7 +59,7 @@
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.OFFSET_TAP_TDL_8">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.OFFSET_TAP_TDL_9">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.SIM_VS_IMP">IMP</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.STEP_VALID_TAP_POS">1</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.STEP_VALID_TAP_POS">8</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.TYPE_TDL_0">C</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.TYPE_TDL_1">C</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.TYPE_TDL_10">C</spirit:configurableElementValue>
@@ -117,7 +117,7 @@
         <spirit:configurableElementValue spirit:referenceId="PARAM_ENABLEMENT.TYPE_TDL_9">false</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_ENABLEMENT.VALID_NUMBER_OF_TDL_INIT">true</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_ENABLEMENT.VALID_POSITION_TAP_INIT">true</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.BIT_SMP_PRE_TDL">0</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.BIT_SMP_PRE_TDL">2</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.BIT_SMP_TDL">256</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.BUFFERING_STAGE">false</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.Component_Name">design_1_AXI4Stream_X7S_VirtualTDL_0_0</spirit:configurableElementValue>
@@ -127,7 +127,7 @@
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.MAX_VALID_TAP_POS">255</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.MIN_VALID_TAP_POS">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.NUMBER_OF_TDL">4</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.NUM_TAP_PRE_TDL">0</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.NUM_TAP_PRE_TDL">16</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.NUM_TAP_TDL">256</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.OFFSET_TAP_TDL_0">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.OFFSET_TAP_TDL_1">0</spirit:configurableElementValue>
@@ -146,7 +146,7 @@
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.OFFSET_TAP_TDL_8">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.OFFSET_TAP_TDL_9">0</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.SIM_VS_IMP">IMP</spirit:configurableElementValue>
-        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.STEP_VALID_TAP_POS">1</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.STEP_VALID_TAP_POS">8</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.TYPE_TDL_0">C</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.TYPE_TDL_1">C</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.TYPE_TDL_10">C</spirit:configurableElementValue>

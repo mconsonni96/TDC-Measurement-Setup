@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tftg256-2" LaunchTime="1635154453">
+<GenRun Id="impl_1" LaunchPart="xc7a100tftg256-2" LaunchTime="1635243685">
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="BITSTR-SYSDEF" Name="design_1_wrapper.sysdef"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
@@ -138,6 +138,7 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="design_1_system_ila_0_3"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_util_vector_logic_1_0"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_util_vector_logic_0_1"/>
   <BlockFileSet Type="BlockSrcs" Name="design_1_util_vector_logic_0_0"/>

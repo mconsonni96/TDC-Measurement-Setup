@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (lin64) Build 3064766 Wed Nov 18 09:12:47 MST 2020
-| Date         : Mon Oct 25 11:36:37 2021
+| Date         : Tue Oct 26 12:24:25 2021
 | Host         : mconsonni-All-Series running 64-bit Ubuntu 20.04.3 LTS
 | Command      : report_utilization -file design_1_wrapper_utilization_synth.rpt -pb design_1_wrapper_utilization_synth.pb
 | Design       : design_1_wrapper
@@ -166,6 +166,7 @@ Table of Contents
 | design_1_util_vector_logic_0_0              |    1 |
 | design_1_util_ds_buf_4_0                    |    1 |
 | design_1_util_ds_buf_3_0                    |    1 |
+| design_1_system_ila_0_3                     |    1 |
 | design_1_qspi_programmer_0_0                |    1 |
 | design_1_proc_sys_reset_0_0                 |    1 |
 | design_1_dlconstant_gpio_3_0                |    1 |

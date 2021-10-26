@@ -70,7 +70,6 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 1
 set_msg_config  -id {[BD 41-1306]}  -suppress 
 set_msg_config  -id {[BD 41-1271]}  -suppress 
 OPTRACE "Creating in-memory project" START { }
@@ -178,6 +177,12 @@ set_property used_in_implementation false [get_files -all /home/mconsonni/Deskto
 set_property used_in_implementation false [get_files -all /home/mconsonni/Desktop/Tesi/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.gen/sources_1/bd/design_1/ip/design_1_proc_sys_reset_0_0/design_1_proc_sys_reset_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/mconsonni/Desktop/Tesi/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.gen/sources_1/bd/design_1/ip/design_1_xadc_wiz_0_0/design_1_xadc_wiz_0_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/mconsonni/Desktop/Tesi/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.gen/sources_1/bd/design_1/ip/design_1_xadc_wiz_0_0/design_1_xadc_wiz_0_0.xdc]
+set_property used_in_synthesis false [get_files -all /home/mconsonni/Desktop/Tesi/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.gen/sources_1/bd/design_1/ip/design_1_system_ila_0_3/bd_0/ip/ip_0/ila_v6_2/constraints/ila_impl.xdc]
+set_property used_in_implementation false [get_files -all /home/mconsonni/Desktop/Tesi/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.gen/sources_1/bd/design_1/ip/design_1_system_ila_0_3/bd_0/ip/ip_0/ila_v6_2/constraints/ila_impl.xdc]
+set_property used_in_implementation false [get_files -all /home/mconsonni/Desktop/Tesi/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.gen/sources_1/bd/design_1/ip/design_1_system_ila_0_3/bd_0/ip/ip_0/ila_v6_2/constraints/ila.xdc]
+set_property used_in_implementation false [get_files -all /home/mconsonni/Desktop/Tesi/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.gen/sources_1/bd/design_1/ip/design_1_system_ila_0_3/bd_0/ip/ip_0/bd_f74c_ila_lib_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/mconsonni/Desktop/Tesi/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.gen/sources_1/bd/design_1/ip/design_1_system_ila_0_3/bd_0/bd_f74c_ooc.xdc]
+set_property used_in_implementation false [get_files -all /home/mconsonni/Desktop/Tesi/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.gen/sources_1/bd/design_1/ip/design_1_system_ila_0_3/design_1_system_ila_0_3_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/mconsonni/Desktop/Tesi/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.gen/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/mconsonni/Desktop/Tesi/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.gen/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1_ooc.xdc]
 set_property used_in_implementation false [get_files -all /home/mconsonni/Desktop/Tesi/Projects/TDC_Measurement_Setup/TDC_Measurement_Setup.gen/sources_1/bd/design_1/ip/design_1_auto_pc_2/design_1_auto_pc_2_ooc.xdc]
